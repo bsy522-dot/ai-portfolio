@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AI-Augmented Developer Portfolio</title>
+<meta name="description" content="17 Projects Built Through Human-AI Collaboration in 2 Months">
+<meta name="theme-color" content="#0a0a1a">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a1a;--card:#12122a;--card-hover:#1a1a3a;
+--accent:#6366f1;--cyan:#22d3ee;--green:#22c55e;--amber:#f59e0b;--rose:#f43f5e;
+--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+--grad1:linear-gradient(135deg,#6366f1,#8b5cf6);
+--grad2:linear-gradient(135deg,#06b6d4,#22d3ee);
+--grad3:linear-gradient(135deg,#f59e0b,#fbbf24);
+--grad4:linear-gradient(135deg,#22c55e,#4ade80);
+--radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Splash */
+#splash{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s}
+#splash.hide{opacity:0;pointer-events:none}
+#splash h1{font-size:2rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}
+.loader{width:200px;height:4px;background:#1e1e3a;border-radius:2px;overflow:hidden}
+.loader-bar{height:100%;width:0;background:var(--grad1);border-radius:2px;animation:load 1.2s ease-out forwards}
+@keyframes load{to{width:100%}}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(99,102,241,.15),transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(34,211,238,.1),transparent 60%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.05) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite}
+@keyframes gridMove{to{background-position:60px 60px}}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:.5rem}
+.hero h1 span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text2);margin-bottom:2rem;font-weight:300}
+.hero .tagline{display:inline-block;padding:.5rem 1.5rem;border:1px solid rgba(99,102,241,.3);border-radius:99px;color:var(--accent);font-size:.9rem;font-weight:500;backdrop-filter:blur(4px);background:rgba(99,102,241,.08)}
+.scroll-hint{position:absolute;bottom:2rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.scroll-hint svg{width:24px;height:24px;stroke:var(--text3)}
+
+/* Stats */
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:2rem;max-width:1000px;margin:-3rem auto 0;position:relative;z-index:2}
+.stat{background:var(--card);border:1px solid rgba(99,102,241,.15);border-radius:var(--radius-sm);padding:1.2rem 1.5rem;text-align:center;flex:1;min-width:140px}
+.stat-num{font-size:1.8rem;font-weight:900;font-family:'JetBrains Mono',monospace;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.75rem;color:var(--text3);margin-top:.2rem;text-transform:uppercase;letter-spacing:1px}
+
+/* Section */
+.section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem}
+.section-title{font-size:1.8rem;font-weight:700;margin-bottom:.5rem;text-align:center}
+.section-sub{color:var(--text2);text-align:center;margin-bottom:2.5rem;font-size:.95rem}
+
+/* Filter */
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2rem}
+.filter-btn{padding:.5rem 1.2rem;border:1px solid rgba(99,102,241,.2);border-radius:99px;background:transparent;color:var(--text2);cursor:pointer;font-size:.85rem;font-family:inherit;transition:all .3s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Cards Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.card{background:var(--card);border:1px solid rgba(99,102,241,.1);border-radius:var(--radius);overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;opacity:0;transform:translateY(30px);cursor:default}
+.card.visible{opacity:1;transform:translateY(0);transition:opacity .5s,transform .5s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(99,102,241,.15);border-color:rgba(99,102,241,.3)}
+.card.hidden{display:none}
+
+/* Card Thumbnail */
+.card-thumb{position:relative;height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card-thumb.t1{background:linear-gradient(135deg,#1e1b4b,#312e81)}
+.card-thumb.t2{background:linear-gradient(135deg,#164e63,#155e75)}
+.card-thumb.t3{background:linear-gradient(135deg,#1c1917,#292524)}
+.card-thumb.t4{background:linear-gradient(135deg,#14532d,#166534)}
+.card-thumb.t5{background:linear-gradient(135deg,#431407,#7c2d12)}
+.card-tier{position:absolute;top:12px;right:12px;padding:3px 10px;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.tier-live{background:rgba(34,197,94,.2);color:#4ade80}
+.tier-game{background:rgba(34,211,238,.2);color:#22d3ee}
+.tier-tool{background:rgba(245,158,11,.2);color:#fbbf24}
+.tier-data{background:rgba(139,92,246,.2);color:#a78bfa}
+.tier-rd{background:rgba(244,63,94,.2);color:#fb7185}
+
+/* SVG Diagrams in thumbnails */
+.card-thumb svg{width:90%;height:80%;max-width:300px}
+.card-thumb .emoji-icon{font-size:4rem}
+
+/* Card Body */
+.card-body{padding:1.2rem 1.5rem 1.5rem}
+.card-title{font-size:1.1rem;font-weight:700;margin-bottom:.2rem}
+.card-subtitle{font-size:.8rem;color:var(--cyan);margin-bottom:.6rem;font-weight:500}
+.card-desc{font-size:.85rem;color:var(--text2);line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.tag{padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:500;background:rgba(99,102,241,.12);color:#a5b4fc}
+.card-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn{padding:.45rem 1rem;border-radius:8px;font-size:.8rem;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:.3rem}
+.btn-primary{background:var(--grad1);color:#fff}
+.btn-primary:hover{box-shadow:0 4px 15px rgba(99,102,241,.4);transform:translateY(-1px)}
+.btn-secondary{background:rgba(99,102,241,.1);color:var(--accent);border:1px solid rgba(99,102,241,.2)}
+.btn-secondary:hover{background:rgba(99,102,241,.2)}
+.btn-game{background:var(--grad2);color:#0a0a1a}
+.btn-apk{background:rgba(34,211,238,.1);color:var(--cyan);border:1px solid rgba(34,211,238,.2)}
+
+/* AI Story Section */
+.story{background:linear-gradient(180deg,transparent,rgba(99,102,241,.05),transparent);padding:5rem 1.5rem}
+.story-inner{max-width:800px;margin:0 auto}
+.story-quote{font-size:1.2rem;font-style:italic;color:var(--text);border-left:3px solid var(--accent);padding-left:1.5rem;margin:2rem 0;line-height:1.8}
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--cyan))}
+.tl-item{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl-date{font-size:.75rem;color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+.tl-text{font-size:.9rem;color:var(--text2);margin-top:.2rem}
+
+/* Workflow */
+.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0}
+.wf-step{text-align:center;padding:1.5rem 1rem;background:var(--card);border-radius:var(--radius-sm);border:1px solid rgba(99,102,241,.1)}
+.wf-num{font-size:2rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.wf-label{font-size:.8rem;color:var(--text2);margin-top:.3rem}
+.wf-role{font-size:.65rem;color:var(--accent);margin-top:.2rem;text-transform:uppercase;letter-spacing:1px}
+
+/* Tech Cloud */
+.tech-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;max-width:900px;margin:0 auto}
+.tech-item{padding:.4rem 1rem;border-radius:8px;font-size:.8rem;font-weight:500;border:1px solid rgba(99,102,241,.15);color:var(--text2);transition:all .3s}
+.tech-item:hover{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.08)}
+.tech-cat{width:100%;text-align:center;font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-top:1rem;margin-bottom:.3rem}
+
+/* Footer */
+footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;border-top:1px solid rgba(99,102,241,.08)}
+
+/* Game Modal */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.show{display:flex}
+.modal{background:var(--bg);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius);width:100%;max-width:500px;max-height:90vh;overflow:hidden;position:relative}
+.modal-close{position:absolute;top:12px;right:12px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:none;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal iframe{width:100%;height:80vh;border:none}
+.modal-title{padding:.8rem 1.2rem;font-weight:700;font-size:.95rem;background:var(--card)}
+
+/* Responsive */
+@media(max-width:768px){
+.grid{grid-template-columns:1fr}
+.workflow{grid-template-columns:repeat(2,1fr)}
+.stat{min-width:100px;padding:1rem}
+.stat-num{font-size:1.4rem}
+.hero h1{font-size:1.8rem}
+}
+@media(max-width:480px){
+.workflow{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Splash -->
+<div id="splash">
+<h1>AI Portfolio</h1>
+<div class="loader"><div class="loader-bar"></div></div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-grid"></div>
+<div class="hero-content">
+<div class="tagline">Human + AI = Exponential Output</div>
+<h1 style="margin-top:1.5rem"><span>AI-Augmented</span><br>Developer Portfolio</h1>
+<p class="subtitle">17 Projects Built Through Human-AI Collaboration<br>From Idea to Deployment in Under 2 Months</p>
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
+<a href="#projects" class="btn btn-primary" style="padding:.7rem 2rem;font-size:.95rem">View Projects</a>
+<a href="#story" class="btn btn-secondary" style="padding:.7rem 2rem;font-size:.95rem">The Story</a>
+</div>
+</div>
+<div class="scroll-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg></div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+<div class="stat"><div class="stat-num" data-count="17">0</div><div class="stat-label">Projects</div></div>
+<div class="stat"><div class="stat-num" data-count="4">0</div><div class="stat-label">Live Apps</div></div>
+<div class="stat"><div class="stat-num" data-count="254752">0</div><div class="stat-label">Files Analyzed</div></div>
+<div class="stat"><div class="stat-num" data-count="4928">0</div><div class="stat-label">AI Conversations</div></div>
+<div class="stat"><div class="stat-num" data-count="2">0</div><div class="stat-label">Mobile Games</div></div>
+</div>
+
+<!-- Projects -->
+<section class="section" id="projects">
+<h2 class="section-title">Projects</h2>
+<p class="section-sub">Each project represents a unique challenge solved through human-AI collaboration</p>
+
+<div class="filters">
+<button class="filter-btn active" data-filter="all">All (17)</button>
+<button class="filter-btn" data-filter="live">Live Apps (4)</button>
+<button class="filter-btn" data-filter="game">Games (2)</button>
+<button class="filter-btn" data-filter="tool">Desktop Tools (4)</button>
+<button class="filter-btn" data-filter="data">Data & Analysis (3)</button>
+<button class="filter-btn" data-filter="rd">R&D (4)</button>
+</div>
+
+<div class="grid" id="projectGrid">
+
+<!-- T1: Live Web Apps -->
+<div class="card" data-cat="live">
+<div class="card-thumb t1">
+<span class="card-tier tier-live">LIVE</span>
+<svg viewBox="0 0 300 180"><rect x="10" y="20" width="280" height="140" rx="8" fill="none" stroke="#4ade80" stroke-width="1.5" opacity=".3"/><text x="150" y="55" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">4,862 Courses</text><rect x="30" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="55" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Crawler</text><rect x="95" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="120" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Parser</text><rect x="160" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="185" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Search</text><rect x="225" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="250" y="89" text-anchor="middle" fill="#4ade80" font-size="7">PWA</text><line x1="80" y1="85" x2="95" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="145" y1="85" x2="160" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="210" y1="85" x2="225" y2="85" stroke="#4ade80" stroke-width="1"/><text x="150" y="135" text-anchor="middle" fill="#94a3b8" font-size="9">38+ Centers | Real-time Data | Location-based</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Culture Center Finder</div>
+<div class="card-subtitle">Real-time Course Discovery Platform</div>
+<div class="card-desc">4,862개 문화센터 강좌를 실시간 크롤링으로 수집. 출발지 기반 이동시간 계산, 연령/종목/요일 필터, 오프라인 PWA 지원.</div>
+<div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Playwright</span><span class="tag">PWA</span><span class="tag">Geolocation</span><span class="tag">Web Crawling</span></div>
+<div class="card-actions">
+<a href="https://bsy522-dot.github.io/culture-center-finder/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+</div>
+</div>
+
+<div class="card" data-cat="live">
+<div class="card-thumb t1">
+<span class="card-tier tier-live">LIVE</span>
+<svg viewBox="0 0 300 180"><circle cx="150" cy="85" r="55" fill="none" stroke="#4ade80" stroke-width="1" opacity=".3"/><circle cx="120" cy="70" r="4" fill="#4ade80"/><circle cx="180" cy="60" r="4" fill="#22d3ee"/><circle cx="160" cy="100" r="4" fill="#fbbf24"/><circle cx="100" cy="95" r="4" fill="#4ade80"/><circle cx="200" cy="90" r="4" fill="#22d3ee"/><text x="150" y="140" text-anchor="middle" fill="#94a3b8" font-size="9">590 Courses | OSRM Routing | Green Fee Compare</text><text x="150" y="40" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">590 Golf Courses</text><path d="M120 70 L150 85 L180 60" fill="none" stroke="rgba(74,222,128,.3)" stroke-width="1"/></svg>
+</div>
+<div class="card-body">
+<div class="card-title">SmartGolf</div>
+<div class="card-subtitle">Golf Course Finder with Route Optimization</div>
+<div class="card-desc">전국 590개 골프장 데이터. OSRM 기반 실제 도로 이동시간 계산, 그린피 비교, GPS 현위치, Leaflet 지도 클러스터링.</div>
+<div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">OSRM</span><span class="tag">PWA</span><span class="tag">GeoJSON</span></div>
+<div class="card-actions">
+<a href="https://bsy522-dot.github.io/smartgolf/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+</div>
+</div>
+
+<div class="card" data-cat="live">
+<div class="card-thumb t1">
+<span class="card-tier tier-live">LIVE</span>
+<svg viewBox="0 0 300 180"><text x="150" y="40" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">4,928 Sessions Analyzed</text><rect x="20" y="55" width="55" height="20" rx="3" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="47" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Business</text><rect x="80" y="55" width="55" height="20" rx="3" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="107" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Tech</text><rect x="140" y="55" width="55" height="20" rx="3" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="167" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Health</text><rect x="200" y="55" width="55" height="20" rx="3" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="227" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Finance</text><rect x="50" y="90" width="55" height="20" rx="3" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".5"/><text x="77" y="104" text-anchor="middle" fill="#a78bfa" font-size="7">Creative</text><rect x="115" y="90" width="55" height="20" rx="3" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".5"/><text x="142" y="104" text-anchor="middle" fill="#a78bfa" font-size="7">Education</text><rect x="180" y="90" width="55" height="20" rx="3" fill="rgba(167,139,250,.1)" stroke="#a78bfa" stroke-width=".5"/><text x="207" y="104" text-anchor="middle" fill="#a78bfa" font-size="7">Lifestyle</text><text x="150" y="140" text-anchor="middle" fill="#94a3b8" font-size="9">12 Categories | Full-text Search | Tree View</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">AI Knowledge Explorer</div>
+<div class="card-subtitle">4,928 AI Conversations, Categorized</div>
+<div class="card-desc">ChatGPT + Gemini 대화 4,928건을 ETL 파이프라인으로 분석. 12개 카테고리 분류, 트리뷰 탐색, 전문 검색 기능.</div>
+<div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Data Analysis</span><span class="tag">NLP</span><span class="tag">Search</span><span class="tag">Visualization</span></div>
+<div class="card-actions">
+<a href="https://bsy522-dot.github.io/ai-knowledge/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+</div>
+</div>
+
+<div class="card" data-cat="live">
+<div class="card-thumb t1">
+<span class="card-tier tier-live">LIVE</span>
+<svg viewBox="0 0 300 180"><text x="150" y="35" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">Lv.1 ~ 100 System</text><polygon points="150,50 185,70 185,110 150,130 115,110 115,70" fill="none" stroke="#fbbf24" stroke-width="1.5"/><polygon points="150,65 170,75 170,105 150,115 130,105 130,75" fill="rgba(251,191,36,.1)" stroke="#fbbf24" stroke-width=".5"/><text x="150" y="60" text-anchor="middle" fill="#fbbf24" font-size="6">Knowledge</text><text x="190" y="75" text-anchor="start" fill="#fbbf24" font-size="6">Stamina</text><text x="190" y="115" text-anchor="start" fill="#fbbf24" font-size="6">Creativity</text><text x="150" y="145" text-anchor="middle" fill="#fbbf24" font-size="6">Communication</text><text x="100" y="115" text-anchor="end" fill="#fbbf24" font-size="6">Leadership</text><text x="100" y="75" text-anchor="end" fill="#fbbf24" font-size="6">Tech</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">LevelPlay</div>
+<div class="card-subtitle">Gamified Education Platform MVP</div>
+<div class="card-desc">성취 기반 학습 플랫폼. Lv.1~100 진행 시스템, 육각형 스탯 레이더 차트, 16개 뱃지, 5대 교육 필라, 커뮤니티.</div>
+<div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Canvas</span><span class="tag">Gamification</span><span class="tag">PWA</span><span class="tag">UX Design</span></div>
+<div class="card-actions">
+<a href="https://bsy522-dot.github.io/levelplay/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+</div>
+</div>
+
+<!-- T2: Games -->
+<div class="card" data-cat="game">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">GAME</span>
+<svg viewBox="0 0 300 180"><rect x="30" y="30" width="240" height="120" rx="6" fill="none" stroke="#22d3ee" stroke-width="1" opacity=".3"/><rect x="50" y="120" width="30" height="30" rx="2" fill="rgba(34,211,238,.2)"/><rect x="60" y="100" width="30" height="20" rx="2" fill="rgba(34,211,238,.3)"/><rect x="100" y="110" width="40" height="40" rx="2" fill="rgba(34,211,238,.15)"/><circle cx="200" cy="90" r="20" fill="none" stroke="#22d3ee" stroke-width="1"/><text x="200" y="94" text-anchor="middle" fill="#22d3ee" font-size="8">BOSS</text><text x="150" y="55" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">22 Character Sprites</text><text x="150" y="165" text-anchor="middle" fill="#94a3b8" font-size="9">Canvas | Web Audio | Touch Controls | DPI-aware</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Hatcuping Escape Adventure</div>
+<div class="card-subtitle">Canvas Platformer Game</div>
+<div class="card-desc">22개 커스텀 캐릭터 스프라이트(base64), 멀티 챕터 스토리, 보스 배틀, 터치 컨트롤, Web Audio 사운드. 단일 55KB HTML 파일.</div>
+<div class="card-tags"><span class="tag">Canvas API</span><span class="tag">Web Audio</span><span class="tag">Sprites</span><span class="tag">Touch Controls</span><span class="tag">Game Dev</span></div>
+<div class="card-actions">
+<button class="btn btn-game" onclick="openGame('games/hatcuping-game.html','Hatcuping Platformer')">Play Now</button>
+<a href="apk/hatcuping-platformer.apk" class="btn btn-apk" download>APK Download</a>
+</div>
+</div>
+</div>
+
+<div class="card" data-cat="game">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">GAME</span>
+<svg viewBox="0 0 300 180"><text x="150" y="40" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">6 Chapters | NPC System</text><rect x="20" y="55" width="40" height="25" rx="3" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width=".5"/><text x="40" y="71" text-anchor="middle" fill="#22d3ee" font-size="6">Castle</text><rect x="70" y="55" width="40" height="25" rx="3" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width=".5"/><text x="90" y="71" text-anchor="middle" fill="#22d3ee" font-size="6">Festival</text><rect x="120" y="55" width="40" height="25" rx="3" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width=".5"/><text x="140" y="71" text-anchor="middle" fill="#22d3ee" font-size="6">Library</text><rect x="170" y="55" width="40" height="25" rx="3" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width=".5"/><text x="190" y="71" text-anchor="middle" fill="#22d3ee" font-size="6">Forest</text><rect x="220" y="55" width="40" height="25" rx="3" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width=".5"/><text x="240" y="71" text-anchor="middle" fill="#22d3ee" font-size="6">Boss</text><line x1="60" y1="67" x2="70" y2="67" stroke="#22d3ee" stroke-width="1"/><line x1="110" y1="67" x2="120" y2="67" stroke="#22d3ee" stroke-width="1"/><line x1="160" y1="67" x2="170" y2="67" stroke="#22d3ee" stroke-width="1"/><line x1="210" y1="67" x2="220" y2="67" stroke="#22d3ee" stroke-width="1"/><rect x="60" y="100" width="180" height="50" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><text x="150" y="120" text-anchor="middle" fill="#22d3ee" font-size="8">Tile-based Map + NPC Dialogue</text><text x="150" y="135" text-anchor="middle" fill="#94a3b8" font-size="7">Character Portraits | Branching Story</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Hatcuping RPG Adventure</div>
+<div class="card-subtitle">Story-Driven RPG with NPC System</div>
+<div class="card-desc">6챕터 스토리 RPG. 타일 기반 맵 탐험, NPC 대화 시스템, 캐릭터 초상화, 성/숲/축제/도서관 환경. 단일 54KB HTML.</div>
+<div class="card-tags"><span class="tag">Canvas API</span><span class="tag">Tile Maps</span><span class="tag">NPC System</span><span class="tag">RPG Engine</span><span class="tag">Web Audio</span></div>
+<div class="card-actions">
+<button class="btn btn-game" onclick="openGame('games/hatcuping-rpg.html','Hatcuping RPG')">Play Now</button>
+<a href="apk/hatcuping-rpg.apk" class="btn btn-apk" download>APK Download</a>
+</div>
+</div>
+</div>
+
+<!-- T3: Desktop Tools -->
+<div class="card" data-cat="tool">
+<div class="card-thumb t3">
+<span class="card-tier tier-tool">TOOL</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">Multi-AI Email Pipeline</text><rect x="20" y="45" width="60" height="35" rx="4" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width="1"/><text x="50" y="60" text-anchor="middle" fill="#fbbf24" font-size="7">Outlook</text><text x="50" y="72" text-anchor="middle" fill="#fbbf24" font-size="6">COM</text><rect x="100" y="45" width="60" height="35" rx="4" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width="1"/><text x="130" y="60" text-anchor="middle" fill="#fbbf24" font-size="7">Python</text><text x="130" y="72" text-anchor="middle" fill="#fbbf24" font-size="6">Server</text><rect x="180" y="30" width="55" height="25" rx="4" fill="rgba(99,102,241,.15)" stroke="#6366f1" stroke-width="1"/><text x="207" y="46" text-anchor="middle" fill="#6366f1" font-size="7">Claude</text><rect x="180" y="60" width="55" height="25" rx="4" fill="rgba(34,211,238,.15)" stroke="#22d3ee" stroke-width="1"/><text x="207" y="76" text-anchor="middle" fill="#22d3ee" font-size="7">Gemini</text><rect x="180" y="90" width="55" height="25" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="207" y="106" text-anchor="middle" fill="#4ade80" font-size="7">Ollama</text><rect x="255" y="55" width="35" height="30" rx="4" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width="1"/><text x="272" y="74" text-anchor="middle" fill="#fbbf24" font-size="7">Draft</text><line x1="80" y1="62" x2="100" y2="62" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/><line x1="160" y1="55" x2="180" y2="42" stroke="#6366f1" stroke-width="1"/><line x1="160" y1="62" x2="180" y2="72" stroke="#22d3ee" stroke-width="1"/><line x1="160" y1="70" x2="180" y2="102" stroke="#4ade80" stroke-width="1"/><line x1="235" y1="72" x2="255" y2="72" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/><text x="150" y="145" text-anchor="middle" fill="#94a3b8" font-size="8">Read Email &#8594; AI Analyze &#8594; Generate Reply &#8594; Create Draft</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Mail Copilot</div>
+<div class="card-subtitle">AI-Powered Email Analysis & Reply System</div>
+<div class="card-desc">Outlook COM 자동화 + 3중 AI 파이프라인(Claude, Gemini, Ollama). 이메일 분석, 요약, 우선순위 분류, 한영 번역, 자동 답장 초안 생성.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">Outlook COM</span><span class="tag">Claude API</span><span class="tag">Gemini API</span><span class="tag">Ollama</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Desktop Application</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="tool">
+<div class="card-thumb t3">
+<span class="card-tier tier-tool">TOOL</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">International Trade Order Tracking</text><rect x="20" y="45" width="75" height="40" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="57" y="62" text-anchor="middle" fill="#fbbf24" font-size="7">Email Parser</text><text x="57" y="76" text-anchor="middle" fill="#94a3b8" font-size="6">PO / Shipment</text><rect x="112" y="45" width="75" height="40" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="150" y="62" text-anchor="middle" fill="#fbbf24" font-size="7">Order DB</text><text x="150" y="76" text-anchor="middle" fill="#94a3b8" font-size="6">Excel + AJAX</text><rect x="205" y="45" width="75" height="40" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="242" y="62" text-anchor="middle" fill="#fbbf24" font-size="7">Dashboard</text><text x="242" y="76" text-anchor="middle" fill="#94a3b8" font-size="6">Web UI</text><line x1="95" y1="65" x2="112" y2="65" stroke="#fbbf24" stroke-width="1"/><line x1="187" y1="65" x2="205" y2="65" stroke="#fbbf24" stroke-width="1"/><rect x="40" y="100" width="220" height="45" rx="6" fill="rgba(251,191,36,.05)" stroke="#fbbf24" stroke-width=".5"/><text x="150" y="118" text-anchor="middle" fill="#fbbf24" font-size="8">Features: PDF Invoice Parsing | Monthly Pack Grouping</text><text x="150" y="133" text-anchor="middle" fill="#94a3b8" font-size="7">Inline Cell Edit | Ctrl+C/V | Auto Status Color</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Supply Chain Tracker</div>
+<div class="card-subtitle">International Trade Order Management</div>
+<div class="card-desc">복수 해외 거래처 발주/출하 추적. 이메일 자동 파싱, PDF 인보이스 추출, 인라인 셀 편집, 실시간 Excel 동기화, 월팩 그룹핑.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Outlook COM</span><span class="tag">pdfplumber</span><span class="tag">Excel</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Desktop Application</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="tool">
+<div class="card-thumb t3">
+<span class="card-tier tier-tool">TOOL</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">AI Conversational Bot</text><circle cx="80" cy="85" r="25" fill="rgba(34,211,238,.1)" stroke="#22d3ee" stroke-width="1"/><text x="80" y="82" text-anchor="middle" fill="#22d3ee" font-size="7">User</text><text x="80" y="93" text-anchor="middle" fill="#22d3ee" font-size="6">Telegram</text><rect x="130" y="65" width="60" height="40" rx="6" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="160" y="82" text-anchor="middle" fill="#fbbf24" font-size="7">Topic</text><text x="160" y="93" text-anchor="middle" fill="#fbbf24" font-size="7">Router</text><rect x="215" y="50" width="55" height="25" rx="4" fill="rgba(99,102,241,.12)" stroke="#6366f1" stroke-width="1"/><text x="242" y="66" text-anchor="middle" fill="#6366f1" font-size="7">AI Engine</text><rect x="215" y="80" width="55" height="25" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="242" y="96" text-anchor="middle" fill="#fbbf24" font-size="7">File Index</text><rect x="215" y="110" width="55" height="25" rx="4" fill="rgba(34,211,238,.12)" stroke="#22d3ee" stroke-width="1"/><text x="242" y="126" text-anchor="middle" fill="#22d3ee" font-size="7">Email API</text><line x1="105" y1="85" x2="130" y2="85" stroke="#fbbf24" stroke-width="1"/><line x1="190" y1="75" x2="215" y2="62" stroke="#6366f1" stroke-width="1"/><line x1="190" y1="85" x2="215" y2="92" stroke="#fbbf24" stroke-width="1"/><line x1="190" y1="95" x2="215" y2="122" stroke="#22d3ee" stroke-width="1"/><text x="150" y="160" text-anchor="middle" fill="#94a3b8" font-size="8">Session Memory | Menu-driven | Auto-restart</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Telegram AI Assistant</div>
+<div class="card-subtitle">Multi-Topic Conversational Bot</div>
+<div class="card-desc">토픽별 세션 분리, 메뉴 기반 인터랙션, 영속 대화 컨텍스트. Claude API 연동, 파일 인덱싱, 이메일 통합, 자동 재시작.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">Telegram API</span><span class="tag">Claude API</span><span class="tag">Session Mgmt</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Server Application</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="tool">
+<div class="card-thumb t3">
+<span class="card-tier tier-tool">TOOL</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">30,000+ Emails &#8594; 530 Contacts</text><rect x="20" y="50" width="65" height="35" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="52" y="65" text-anchor="middle" fill="#fbbf24" font-size="7">Outlook</text><text x="52" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">COM Scan</text><rect x="100" y="50" width="65" height="35" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="132" y="65" text-anchor="middle" fill="#fbbf24" font-size="7">Dedup</text><text x="132" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">89 Domains</text><rect x="180" y="50" width="65" height="35" rx="4" fill="rgba(251,191,36,.12)" stroke="#fbbf24" stroke-width="1"/><text x="212" y="65" text-anchor="middle" fill="#fbbf24" font-size="7">Normalize</text><text x="212" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Dept Fill</text><rect x="100" y="105" width="100" height="35" rx="4" fill="rgba(74,222,128,.12)" stroke="#4ade80" stroke-width="1"/><text x="150" y="120" text-anchor="middle" fill="#4ade80" font-size="7">Excel Export</text><text x="150" y="133" text-anchor="middle" fill="#94a3b8" font-size="6">530 Contacts</text><line x1="85" y1="67" x2="100" y2="67" stroke="#fbbf24" stroke-width="1"/><line x1="165" y1="67" x2="180" y2="67" stroke="#fbbf24" stroke-width="1"/><line x1="212" y1="85" x2="175" y2="105" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,2"/></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Email Contact Organizer</div>
+<div class="card-subtitle">Automated Contact Extraction from 30K+ Emails</div>
+<div class="card-desc">Outlook COM 자동화로 전체 메일함 스캔. 89개 도메인에서 530명 연락처 추출, 부서 자동 분류, 중복 제거, Excel 내보내기.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">Outlook COM</span><span class="tag">Data Processing</span><span class="tag">Excel</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Desktop Application</span></div>
+</div>
+</div>
+
+<!-- T4: Data Analysis -->
+<div class="card" data-cat="data">
+<div class="card-thumb t4">
+<span class="card-tier tier-data">DATA</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">254,752 Files | 1.72 TB</text><rect x="15" y="45" width="50" height="30" rx="3" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1"/><text x="40" y="64" text-anchor="middle" fill="#a78bfa" font-size="7">Drive D</text><rect x="75" y="45" width="50" height="30" rx="3" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1"/><text x="100" y="64" text-anchor="middle" fill="#a78bfa" font-size="7">Drive E</text><rect x="135" y="45" width="50" height="30" rx="3" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1"/><text x="160" y="64" text-anchor="middle" fill="#a78bfa" font-size="7">Drive F</text><rect x="75" y="90" width="110" height="30" rx="4" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="130" y="109" text-anchor="middle" fill="#a78bfa" font-size="8">SHA-256 Hash Engine</text><rect x="205" y="50" width="75" height="90" rx="6" fill="rgba(167,139,250,.08)" stroke="#a78bfa" stroke-width=".5"/><text x="242" y="72" text-anchor="middle" fill="#a78bfa" font-size="7">Duplicate</text><text x="242" y="85" text-anchor="middle" fill="#a78bfa" font-size="7">Detection</text><text x="242" y="105" text-anchor="middle" fill="#a78bfa" font-size="7">Timeline</text><text x="242" y="118" text-anchor="middle" fill="#a78bfa" font-size="7">Analysis</text><text x="242" y="131" text-anchor="middle" fill="#a78bfa" font-size="7">Report Gen</text><line x1="40" y1="75" x2="100" y2="90" stroke="#a78bfa" stroke-width=".7"/><line x1="100" y1="75" x2="120" y2="90" stroke="#a78bfa" stroke-width=".7"/><line x1="160" y1="75" x2="140" y2="90" stroke="#a78bfa" stroke-width=".7"/><line x1="185" y1="105" x2="205" y2="95" stroke="#a78bfa" stroke-width=".7" stroke-dasharray="3,2"/><text x="130" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">840GB Duplicates Found | Career Timeline Reconstructed</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">File System Archaeologist</div>
+<div class="card-subtitle">254,752 Files Analyzed via Hash Scanning</div>
+<div class="card-desc">SHA-256 해시 스캔으로 3개 드라이브 1.72TB 분석. 840GB 중복 발견, 파일 생성일 기반 타임라인 재구성, 자동 보고서 생성.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">SHA-256</span><span class="tag">Data Analysis</span><span class="tag">Visualization</span><span class="tag">Automation</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">CLI Tool</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="data">
+<div class="card-thumb t4">
+<span class="card-tier tier-data">DATA</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">ETL Pipeline: 4,928 Sessions</text><rect x="15" y="50" width="55" height="30" rx="3" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1"/><text x="42" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">JSON</text><rect x="80" y="50" width="55" height="30" rx="3" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="107" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Extract</text><rect x="145" y="50" width="55" height="30" rx="3" fill="rgba(167,139,250,.18)" stroke="#a78bfa" stroke-width="1"/><text x="172" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Classify</text><rect x="210" y="50" width="55" height="30" rx="3" fill="rgba(167,139,250,.2)" stroke="#a78bfa" stroke-width="1"/><text x="237" y="69" text-anchor="middle" fill="#a78bfa" font-size="7">Visualize</text><line x1="70" y1="65" x2="80" y2="65" stroke="#a78bfa" stroke-width="1"/><line x1="135" y1="65" x2="145" y2="65" stroke="#a78bfa" stroke-width="1"/><line x1="200" y1="65" x2="210" y2="65" stroke="#a78bfa" stroke-width="1"/><rect x="60" y="100" width="180" height="40" rx="6" fill="rgba(167,139,250,.06)" stroke="#a78bfa" stroke-width=".5"/><text x="150" y="118" text-anchor="middle" fill="#a78bfa" font-size="8">12 Categories | Hierarchical Tree | Full-text Search</text><text x="150" y="133" text-anchor="middle" fill="#94a3b8" font-size="7">HTML Viewer + Excel Export</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">AI Conversation Pipeline</div>
+<div class="card-subtitle">4,928 Sessions Categorized via ETL</div>
+<div class="card-desc">ChatGPT + Gemini 대화 데이터 ETL 파이프라인. JSON 추출 → 토픽 분류 → 계층 클러스터링 → 검색 가능 HTML/Excel 출력.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">NLP</span><span class="tag">Data Pipeline</span><span class="tag">Excel</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Pipeline Tool</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="data">
+<div class="card-thumb t4">
+<span class="card-tier tier-data">DATA</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">Programmatic Document Generation</text><rect x="30" y="50" width="70" height="35" rx="4" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1"/><text x="65" y="65" text-anchor="middle" fill="#a78bfa" font-size="7">File Metadata</text><text x="65" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Analysis</text><rect x="115" y="50" width="70" height="35" rx="4" fill="rgba(167,139,250,.15)" stroke="#a78bfa" stroke-width="1"/><text x="150" y="65" text-anchor="middle" fill="#a78bfa" font-size="7">Template</text><text x="150" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Engine</text><rect x="200" y="42" width="70" height="25" rx="3" fill="rgba(99,102,241,.12)" stroke="#6366f1" stroke-width="1"/><text x="235" y="58" text-anchor="middle" fill="#6366f1" font-size="7">.docx</text><rect x="200" y="72" width="70" height="25" rx="3" fill="rgba(34,211,238,.12)" stroke="#22d3ee" stroke-width="1"/><text x="235" y="88" text-anchor="middle" fill="#22d3ee" font-size="7">.pptx</text><rect x="200" y="102" width="70" height="25" rx="3" fill="rgba(74,222,128,.12)" stroke="#4ade80" stroke-width="1"/><text x="235" y="118" text-anchor="middle" fill="#4ade80" font-size="7">.html</text><line x1="100" y1="67" x2="115" y2="67" stroke="#a78bfa" stroke-width="1"/><line x1="185" y1="60" x2="200" y2="54" stroke="#6366f1" stroke-width="1"/><line x1="185" y1="67" x2="200" y2="84" stroke="#22d3ee" stroke-width="1"/><line x1="185" y1="75" x2="200" y2="114" stroke="#4ade80" stroke-width="1"/><text x="150" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">python-docx | python-pptx | Jinja2 Templates</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Auto Document Generator</div>
+<div class="card-subtitle">AI-Powered Document & Presentation Builder</div>
+<div class="card-desc">파일 메타데이터 분석 → python-docx/python-pptx로 Word/PPT 자동 생성. 템플릿 엔진 기반 다중 포맷 출력.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">python-docx</span><span class="tag">python-pptx</span><span class="tag">Templates</span><span class="tag">Automation</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">CLI Tool</span></div>
+</div>
+</div>
+
+<!-- T5: R&D -->
+<div class="card" data-cat="rd">
+<div class="card-thumb t5">
+<span class="card-tier tier-rd">R&D</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fb7185" font-size="10" font-weight="700">AI Voice Call Automation</text><rect x="30" y="50" width="60" height="35" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="60" y="65" text-anchor="middle" fill="#fb7185" font-size="7">MCP</text><text x="60" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Server</text><rect x="110" y="50" width="60" height="35" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="140" y="65" text-anchor="middle" fill="#fb7185" font-size="7">Twilio</text><text x="140" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Voice</text><rect x="190" y="50" width="60" height="35" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="220" y="65" text-anchor="middle" fill="#fb7185" font-size="7">Vapi</text><text x="220" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">AI Agent</text><line x1="90" y1="67" x2="110" y2="67" stroke="#fb7185" stroke-width="1"/><line x1="170" y1="67" x2="190" y2="67" stroke="#fb7185" stroke-width="1"/><circle cx="150" cy="125" r="20" fill="none" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,2"/><text x="150" y="129" text-anchor="middle" fill="#fb7185" font-size="8">Call</text><text x="150" y="160" text-anchor="middle" fill="#94a3b8" font-size="8">Natural Language Phone Conversation</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">AI Voice Caller</div>
+<div class="card-subtitle">Automated Phone Call System (R&D)</div>
+<div class="card-desc">AI 음성 전화 자동화 프로토타입. Twilio 음성 라우팅 + Vapi AI 에이전트로 자연어 전화 대화 구현 연구.</div>
+<div class="card-tags"><span class="tag">Node.js</span><span class="tag">Twilio</span><span class="tag">Vapi</span><span class="tag">Voice AI</span><span class="tag">R&D</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Research Prototype</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="rd">
+<div class="card-thumb t5">
+<span class="card-tier tier-rd">R&D</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fb7185" font-size="10" font-weight="700">Messaging Platform MCP</text><rect x="40" y="50" width="65" height="35" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="72" y="65" text-anchor="middle" fill="#fb7185" font-size="7">AI Assistant</text><text x="72" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Claude</text><rect x="125" y="50" width="55" height="35" rx="4" fill="rgba(251,113,133,.15)" stroke="#fb7185" stroke-width="1"/><text x="152" y="65" text-anchor="middle" fill="#fb7185" font-size="7">MCP</text><text x="152" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">Bridge</text><rect x="200" y="50" width="65" height="35" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="232" y="65" text-anchor="middle" fill="#fb7185" font-size="7">Messaging</text><text x="232" y="78" text-anchor="middle" fill="#94a3b8" font-size="6">API</text><line x1="105" y1="67" x2="125" y2="67" stroke="#fb7185" stroke-width="1"/><line x1="180" y1="67" x2="200" y2="67" stroke="#fb7185" stroke-width="1"/><text x="150" y="120" text-anchor="middle" fill="#94a3b8" font-size="8">OAuth 2.0 | REST API | Auto-message Delivery</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Messaging Platform MCP</div>
+<div class="card-subtitle">AI-to-Chat Integration Server</div>
+<div class="card-desc">Model Context Protocol 서버로 AI 어시스턴트와 메시징 플랫폼 API 연동. OAuth 2.0 인증, 자동 메시지 전송 및 대화 관리.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">REST API</span><span class="tag">OAuth 2.0</span><span class="tag">R&D</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Research Prototype</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="rd">
+<div class="card-thumb t5">
+<span class="card-tier tier-rd">R&D</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fb7185" font-size="10" font-weight="700">Classical Music + AI Visuals</text><rect x="30" y="50" width="55" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="57" y="69" text-anchor="middle" fill="#fb7185" font-size="7">MIDI</text><rect x="95" y="50" width="55" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="122" y="69" text-anchor="middle" fill="#fb7185" font-size="7">Audio</text><rect x="160" y="50" width="55" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="187" y="69" text-anchor="middle" fill="#fb7185" font-size="7">Visuals</text><rect x="225" y="50" width="55" height="30" rx="4" fill="rgba(251,113,133,.15)" stroke="#fb7185" stroke-width="1"/><text x="252" y="69" text-anchor="middle" fill="#fb7185" font-size="7">Render</text><line x1="85" y1="65" x2="95" y2="65" stroke="#fb7185" stroke-width="1"/><line x1="150" y1="65" x2="160" y2="65" stroke="#fb7185" stroke-width="1"/><line x1="215" y1="65" x2="225" y2="65" stroke="#fb7185" stroke-width="1"/><rect x="60" y="100" width="180" height="35" rx="6" fill="rgba(251,113,133,.06)" stroke="#fb7185" stroke-width=".5"/><text x="150" y="115" text-anchor="middle" fill="#fb7185" font-size="8">SoundFonts | Subtitles | AI Generation</text><text x="150" y="128" text-anchor="middle" fill="#94a3b8" font-size="7">Automated Music Video Production Pipeline</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">AI Music Video Generator</div>
+<div class="card-subtitle">Classical Music + AI Visuals (R&D)</div>
+<div class="card-desc">클래식 음악에 AI 생성 비주얼을 결합한 자동 뮤직비디오 제작. MIDI 분석, SoundFont 렌더링, 자막 동기화 파이프라인.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">MIDI</span><span class="tag">AI Generation</span><span class="tag">Video</span><span class="tag">Creative AI</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Research Prototype</span></div>
+</div>
+</div>
+
+<div class="card" data-cat="rd">
+<div class="card-thumb t5">
+<span class="card-tier tier-rd">R&D</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#fb7185" font-size="10" font-weight="700">Auto PPT Generation Pipeline</text><rect x="20" y="50" width="60" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="50" y="69" text-anchor="middle" fill="#fb7185" font-size="7">Business</text><rect x="90" y="50" width="60" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="120" y="69" text-anchor="middle" fill="#fb7185" font-size="7">AI Draft</text><rect x="160" y="50" width="60" height="30" rx="4" fill="rgba(251,113,133,.15)" stroke="#fb7185" stroke-width="1"/><text x="190" y="69" text-anchor="middle" fill="#fb7185" font-size="7">pptxgenjs</text><rect x="230" y="50" width="55" height="30" rx="4" fill="rgba(251,113,133,.12)" stroke="#fb7185" stroke-width="1"/><text x="257" y="69" text-anchor="middle" fill="#fb7185" font-size="7">.pptx</text><line x1="80" y1="65" x2="90" y2="65" stroke="#fb7185" stroke-width="1"/><line x1="150" y1="65" x2="160" y2="65" stroke="#fb7185" stroke-width="1"/><line x1="220" y1="65" x2="230" y2="65" stroke="#fb7185" stroke-width="1"/><text x="150" y="115" text-anchor="middle" fill="#94a3b8" font-size="8">Idea &#8594; Structure &#8594; Slides &#8594; Professional PPT</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Business Plan Generator</div>
+<div class="card-subtitle">AI-to-PPT Automated Pipeline</div>
+<div class="card-desc">사업 아이디어를 입력하면 AI가 구조화하여 전문 PPT를 자동 생성. python-pptx 기반 슬라이드 레이아웃, 차트, 재무 예측 포함.</div>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">python-pptx</span><span class="tag">AI Planning</span><span class="tag">Automation</span><span class="tag">R&D</span></div>
+<div class="card-actions"><span class="btn btn-secondary" style="cursor:default">Pipeline Tool</span></div>
+</div>
+</div>
+
+</div><!-- /grid -->
+</section>
+
+<!-- AI Story -->
+<section class="story" id="story">
+<div class="story-inner">
+<h2 class="section-title">The AI Collaboration Story</h2>
+<p class="section-sub">How one developer built 17 production projects in under 2 months</p>
+
+<div class="story-quote">
+"What happens when a developer collaborates deeply with AI on every stage of software development &mdash; from architecture to deployment?"
+</div>
+
+<div class="workflow">
+<div class="wf-step">
+<div class="wf-num">01</div>
+<div class="wf-label">Ideation</div>
+<div class="wf-role">Human-led</div>
+</div>
+<div class="wf-step">
+<div class="wf-num">02</div>
+<div class="wf-label">Architecture</div>
+<div class="wf-role">Collaborative</div>
+</div>
+<div class="wf-step">
+<div class="wf-num">03</div>
+<div class="wf-label">Implementation</div>
+<div class="wf-role">AI-Accelerated</div>
+</div>
+<div class="wf-step">
+<div class="wf-num">04</div>
+<div class="wf-label">Testing & Deploy</div>
+<div class="wf-role">Human-verified</div>
+</div>
+</div>
+
+<h3 style="font-size:1.1rem;margin:2rem 0 1rem;color:var(--cyan)">Journey Timeline</h3>
+<div class="timeline">
+<div class="tl-item"><div class="tl-date">Week 1-2</div><div class="tl-text">AI 대화 4,928건 분석 파이프라인 구축. 지식베이스 생성 및 배포.</div></div>
+<div class="tl-item"><div class="tl-date">Week 3-4</div><div class="tl-text">업무 자동화 도구 3종 개발: Mail Copilot, Supply Chain Tracker, Contact Organizer.</div></div>
+<div class="tl-item"><div class="tl-date">Week 5-6</div><div class="tl-text">소비자 웹앱 2종 출시: Culture Center Finder(4,862 강좌), SmartGolf(590 골프장).</div></div>
+<div class="tl-item"><div class="tl-date">Week 7</div><div class="tl-text">모바일 게임 2종 개발: Canvas 엔진 + Cordova APK 빌드 환경 구축.</div></div>
+<div class="tl-item"><div class="tl-date">Week 8</div><div class="tl-text">LevelPlay MVP 출시, 254,752 파일 해시 스캔 완료, R&D 프로토타입 3종.</div></div>
+</div>
+
+<h3 style="font-size:1.1rem;margin:2rem 0 1rem;color:var(--cyan)">Key Insights</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem">
+<div style="background:var(--card);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid rgba(99,102,241,.1)">
+<div style="font-weight:700;margin-bottom:.3rem;font-size:.9rem">Single-File Architecture</div>
+<div style="font-size:.8rem;color:var(--text2)">모든 웹앱을 자체 포함 HTML 파일로 구현. 빌드 도구 없이 즉시 배포.</div>
+</div>
+<div style="background:var(--card);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid rgba(99,102,241,.1)">
+<div style="font-weight:700;margin-bottom:.3rem;font-size:.9rem">Multi-AI Pipeline</div>
+<div style="font-size:.8rem;color:var(--text2)">Claude + Gemini + Ollama를 용도별로 조합. 각 AI의 강점을 극대화.</div>
+</div>
+<div style="background:var(--card);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid rgba(99,102,241,.1)">
+<div style="font-weight:700;margin-bottom:.3rem;font-size:.9rem">Real-World Integration</div>
+<div style="font-size:.8rem;color:var(--text2)">COM 자동화, Telegram Bot, Voice API 등 실무 시스템과 직접 연동.</div>
+</div>
+<div style="background:var(--card);padding:1.2rem;border-radius:var(--radius-sm);border:1px solid rgba(99,102,241,.1)">
+<div style="font-weight:700;margin-bottom:.3rem;font-size:.9rem">Zero to APK</div>
+<div style="font-size:.8rem;color:var(--text2)">Java SDK + Gradle + Cordova 빌드 파이프라인을 처음부터 구축하여 APK 배포.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tech Stack -->
+<section class="section">
+<h2 class="section-title">Tech Stack</h2>
+<p class="section-sub">Technologies used across all 17 projects</p>
+<div class="tech-cloud">
+<div class="tech-cat">Languages</div>
+<span class="tech-item">Python</span><span class="tech-item">JavaScript</span><span class="tech-item">HTML5</span><span class="tech-item">CSS3</span><span class="tech-item">Node.js</span><span class="tech-item">SQL</span>
+<div class="tech-cat">Frameworks & Libraries</div>
+<span class="tech-item">Flask</span><span class="tech-item">React</span><span class="tech-item">Electron</span><span class="tech-item">PyQt6</span><span class="tech-item">Cordova</span><span class="tech-item">Leaflet.js</span><span class="tech-item">Tailwind CSS</span>
+<div class="tech-cat">AI & APIs</div>
+<span class="tech-item">Claude API</span><span class="tech-item">Gemini API</span><span class="tech-item">Ollama</span><span class="tech-item">Twilio</span><span class="tech-item">Vapi</span><span class="tech-item">OSRM</span><span class="tech-item">Nominatim</span>
+<div class="tech-cat">Data & Automation</div>
+<span class="tech-item">Playwright</span><span class="tech-item">Outlook COM</span><span class="tech-item">pdfplumber</span><span class="tech-item">python-docx</span><span class="tech-item">python-pptx</span><span class="tech-item">openpyxl</span><span class="tech-item">SHA-256</span>
+<div class="tech-cat">Platforms</div>
+<span class="tech-item">GitHub Pages</span><span class="tech-item">PWA</span><span class="tech-item">Telegram API</span><span class="tech-item">MCP Protocol</span><span class="tech-item">Android (Cordova)</span><span class="tech-item">Canvas API</span><span class="tech-item">Web Audio API</span>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<p>Built with Human Creativity + AI Collaboration</p>
+<p style="margin-top:.5rem;font-size:.7rem;color:var(--text3)">17 Projects | 2026</p>
+</footer>
+
+<!-- Game Modal -->
+<div class="modal-overlay" id="gameModal">
+<div class="modal">
+<button class="modal-close" onclick="closeGame()">&times;</button>
+<div class="modal-title" id="gameTitle"></div>
+<iframe id="gameFrame" allow="autoplay" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
+</div>
+
+<script>
+// Splash
+setTimeout(()=>{document.getElementById('splash').classList.add('hide')},1500);
+setTimeout(()=>{document.getElementById('splash').style.display='none'},2100);
+
+// Animated counters
+const counters=document.querySelectorAll('.stat-num');
+const observed=new Set();
+const counterObs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting&&!observed.has(e.target)){
+observed.add(e.target);
+const target=+e.target.dataset.count;
+const duration=1500;
+const start=performance.now();
+const fmt=n=>n>=1000?n.toLocaleString():n;
+(function tick(now){
+const p=Math.min((now-start)/duration,1);
+const eased=1-Math.pow(1-p,3);
+e.target.textContent=fmt(Math.round(target*eased));
+if(p<1)requestAnimationFrame(tick);
+})(start);
+}
+});
+},{threshold:.5});
+counters.forEach(c=>counterObs.observe(c));
+
+// Card reveal on scroll
+const cards=document.querySelectorAll('.card');
+const cardObs=new IntersectionObserver(entries=>{
+entries.forEach((e,i)=>{
+if(e.isIntersecting){
+setTimeout(()=>e.target.classList.add('visible'),i*80);
+cardObs.unobserve(e.target);
+}
+});
+},{threshold:.1});
+cards.forEach(c=>cardObs.observe(c));
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const f=btn.dataset.filter;
+cards.forEach(c=>{
+if(f==='all'||c.dataset.cat===f){
+c.classList.remove('hidden');
+c.classList.add('visible');
+}else{
+c.classList.add('hidden');
+}
+});
+});
+});
+
+// Game modal
+function openGame(url,title){
+document.getElementById('gameTitle').textContent=title;
+document.getElementById('gameFrame').src=url;
+document.getElementById('gameModal').classList.add('show');
+document.body.style.overflow='hidden';
+}
+function closeGame(){
+document.getElementById('gameModal').classList.remove('show');
+document.getElementById('gameFrame').src='';
+document.body.style.overflow='';
+}
+document.getElementById('gameModal').addEventListener('click',e=>{
+if(e.target===e.currentTarget)closeGame();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGame()});
+</script>
+</body>
+</html>
