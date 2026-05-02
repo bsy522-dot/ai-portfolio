@@ -16,8 +16,6 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bsy522-dot.github.io/ai-portfolio/">
 <link rel="manifest" href="manifest.json">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -37,7 +35,7 @@ html[data-theme="light"]{
 --nav-bg:rgba(248,250,252,.9);--shadow:0 4px 30px rgba(0,0,0,.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s}
 a{color:var(--cyan);text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -90,7 +88,7 @@ a:hover{text-decoration:underline}
 /* Stats */
 .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:2rem;max-width:1000px;margin:-3rem auto 0;position:relative;z-index:2}
 .stat{background:var(--card);border:1px solid rgba(99,102,241,.15);border-radius:var(--radius-sm);padding:1.2rem 1.5rem;text-align:center;flex:1;min-width:140px}
-.stat-num{font-size:1.8rem;font-weight:900;font-family:'JetBrains Mono',monospace;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num{font-size:1.8rem;font-weight:900;font-family:'Courier New',Consolas,monospace;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .stat-label{font-size:.75rem;color:var(--text3);margin-top:.2rem;text-transform:uppercase;letter-spacing:1px}
 
 /* Section */
@@ -154,7 +152,7 @@ a:hover{text-decoration:underline}
 .timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--cyan))}
 .tl-item{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}
 .tl-item::before{content:'';position:absolute;left:-2rem;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
-.tl-date{font-size:.75rem;color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace}
+.tl-date{font-size:.75rem;color:var(--accent);font-weight:700;font-family:'Courier New',Consolas,monospace}
 .tl-text{font-size:.9rem;color:var(--text2);margin-top:.2rem}
 
 /* Workflow */
@@ -204,7 +202,7 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 .detail-feature::before{content:'\2713';color:var(--green);font-weight:700}
 .detail-stats{display:flex;gap:1rem;flex-wrap:wrap}
 .detail-stat{background:rgba(99,102,241,.08);padding:.6rem 1rem;border-radius:8px;text-align:center}
-.detail-stat .num{font-size:1.2rem;font-weight:800;font-family:'JetBrains Mono',monospace;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.detail-stat .num{font-size:1.2rem;font-weight:800;font-family:'Courier New',Consolas,monospace;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .detail-stat .lbl{font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
 
 /* Responsive */
@@ -227,7 +225,82 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 .hero{min-height:85vh}
 .filters{gap:.3rem}
 .filter-btn{padding:.4rem .8rem;font-size:.75rem}
+.search-bar{flex-direction:column}
+.search-bar input{min-width:0}
 }
+
+/* Typing Animation */
+.typing-text{display:inline;border-right:3px solid var(--accent);animation:blink .7s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
+.typing-text.done{border-right:none}
+
+/* 3D Card Tilt */
+.card{transform-style:preserve-3d;perspective:800px}
+.card:hover{transform:translateY(-8px) scale(1.02)}
+.card .card-body{transition:transform .3s}
+
+/* Search Bar */
+.search-bar{display:flex;gap:.8rem;margin-bottom:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.search-bar input{padding:.6rem 1.2rem;border:1px solid rgba(99,102,241,.2);border-radius:99px;background:var(--card);color:var(--text);font-size:.9rem;font-family:inherit;width:300px;outline:none;transition:border-color .3s,box-shadow .3s}
+.search-bar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.search-bar input::placeholder{color:var(--text3)}
+.view-toggle{display:flex;gap:0;border:1px solid rgba(99,102,241,.2);border-radius:8px;overflow:hidden}
+.view-btn{padding:.5rem .8rem;background:transparent;border:none;color:var(--text3);cursor:pointer;font-size:.9rem;transition:all .2s}
+.view-btn.active{background:var(--accent);color:#fff}
+
+/* List View */
+.grid.list-view{grid-template-columns:1fr;gap:1rem}
+.grid.list-view .card{display:grid;grid-template-columns:200px 1fr;overflow:hidden}
+.grid.list-view .card-thumb{height:100%;min-height:120px}
+.grid.list-view .card-desc{-webkit-line-clamp:2}
+@media(max-width:768px){.grid.list-view .card{grid-template-columns:1fr}.grid.list-view .card-thumb{height:150px}}
+
+/* Section Reveal */
+.section-reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease-out,transform .7s ease-out}
+.section-reveal.revealed{opacity:1;transform:translateY(0)}
+
+/* Glassmorphism enhancements */
+.card{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(18,18,42,.85)}
+html[data-theme="light"] .card{background:rgba(255,255,255,.9)}
+
+/* Gradient border animation on hover */
+.card::before{content:'';position:absolute;inset:-1px;border-radius:var(--radius);background:linear-gradient(135deg,var(--accent),var(--cyan),var(--accent));opacity:0;transition:opacity .4s;z-index:-1}
+.card:hover::before{opacity:1}
+.card{position:relative;overflow:visible}
+
+/* PRISM Badge */
+.prism-badge{display:inline-flex;align-items:center;gap:.3rem;padding:3px 10px;border-radius:99px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(34,211,238,.25));color:#c4b5fd;border:1px solid rgba(139,92,246,.3);animation:prismGlow 3s ease-in-out infinite}
+@keyframes prismGlow{0%,100%{box-shadow:0 0 5px rgba(139,92,246,.2)}50%{box-shadow:0 0 15px rgba(139,92,246,.4)}}
+
+/* Skill Proficiency Bars */
+.skill-bars{max-width:600px;margin:2rem auto;display:flex;flex-direction:column;gap:.8rem}
+.skill-row{display:flex;align-items:center;gap:1rem}
+.skill-label{width:120px;font-size:.8rem;color:var(--text2);text-align:right;flex-shrink:0}
+.skill-track{flex:1;height:8px;background:rgba(99,102,241,.1);border-radius:4px;overflow:hidden}
+.skill-fill{height:100%;border-radius:4px;transition:width 1.5s ease-out;width:0}
+.skill-pct{width:40px;font-size:.75rem;color:var(--text3);font-family:'Courier New',Consolas,monospace}
+
+/* Improved Footer */
+footer .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1000px;margin:0 auto 2rem;text-align:left}
+footer .footer-col h4{font-size:.85rem;color:var(--accent);margin-bottom:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+footer .footer-col a{display:block;color:var(--text3);font-size:.8rem;margin-bottom:.4rem;transition:color .2s}
+footer .footer-col a:hover{color:var(--accent);text-decoration:none}
+footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5rem;margin-top:1rem}
+
+/* Cursor glow */
+.cursor-glow{position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.06),transparent 70%);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .3s;opacity:0}
+.cursor-glow.active{opacity:1}
+
+/* Hero parallax container */
+.hero-content{transition:transform .1s ease-out}
+
+/* Pulse animation for CTA */
+.btn-pulse{animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 4px 15px rgba(99,102,241,.4)}50%{box-shadow:0 4px 30px rgba(99,102,241,.7),0 0 60px rgba(99,102,241,.2)}}
+
+/* New projects count badge */
+.new-badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.65rem;font-weight:700;background:var(--rose);color:#fff;margin-left:.5rem;animation:newPulse 2s ease-in-out infinite}
+@keyframes newPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 </style>
 </head>
 <body>
@@ -248,6 +321,9 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 </div>
 </nav>
 
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- Particle Background -->
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
@@ -267,9 +343,9 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 <div class="hero-content">
 <div class="tagline">Human + AI = Exponential Output</div>
 <h1 style="margin-top:1.5rem"><span>AI-Augmented</span><br>Developer Portfolio</h1>
-<p class="subtitle">17 Projects Built Through Human-AI Collaboration<br>From Idea to Deployment in Under 2 Months</p>
+<p class="subtitle" style="min-height:2em"><span class="typing-text" id="heroTyping"></span></p>
 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
-<a href="#projects" class="btn btn-primary" style="padding:.7rem 2rem;font-size:.95rem">View Projects</a>
+<a href="#projects" class="btn btn-primary btn-pulse" style="padding:.7rem 2rem;font-size:.95rem">View 25 Projects</a>
 <a href="#story" class="btn btn-secondary" style="padding:.7rem 2rem;font-size:.95rem">The Story</a>
 </div>
 </div>
@@ -278,11 +354,11 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 
 <!-- Stats -->
 <div class="stats">
-<div class="stat"><div class="stat-num" data-count="17">0</div><div class="stat-label">Projects</div></div>
-<div class="stat"><div class="stat-num" data-count="4">0</div><div class="stat-label">Live Apps</div></div>
+<div class="stat"><div class="stat-num" data-count="25">0</div><div class="stat-label">Projects</div></div>
+<div class="stat"><div class="stat-num" data-count="13">0</div><div class="stat-label">Live Demos</div></div>
+<div class="stat"><div class="stat-num" data-count="9">0</div><div class="stat-label">PRISM Games</div></div>
 <div class="stat"><div class="stat-num" data-count="254752">0</div><div class="stat-label">Files Analyzed</div></div>
-<div class="stat"><div class="stat-num" data-count="4928">0</div><div class="stat-label">AI Conversations</div></div>
-<div class="stat"><div class="stat-num" data-count="2">0</div><div class="stat-label">Mobile Games</div></div>
+<div class="stat"><div class="stat-num" data-count="4928">0</div><div class="stat-label">AI Sessions</div></div>
 </div>
 
 <!-- Projects -->
@@ -290,13 +366,22 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 <h2 class="section-title">Projects</h2>
 <p class="section-sub">Each project represents a unique challenge solved through human-AI collaboration</p>
 
+<div class="search-bar">
+<input type="text" id="projectSearch" placeholder="Search projects..." aria-label="Search projects">
+<div class="view-toggle">
+<button class="view-btn active" data-view="grid" aria-label="Grid view">&#9638;</button>
+<button class="view-btn" data-view="list" aria-label="List view">&#9776;</button>
+</div>
+</div>
+
 <div class="filters">
-<button class="filter-btn active" data-filter="all">All (17)</button>
+<button class="filter-btn active" data-filter="all">All (25)</button>
 <button class="filter-btn" data-filter="live">Live Apps (4)</button>
+<button class="filter-btn" data-filter="prism">PRISM<span class="new-badge">+8</span></button>
 <button class="filter-btn" data-filter="game">Games (2)</button>
 <button class="filter-btn" data-filter="tool">Desktop Tools (4)</button>
-<button class="filter-btn" data-filter="data">Data & Analysis (3)</button>
-<button class="filter-btn" data-filter="rd">R&D (4)</button>
+<button class="filter-btn" data-filter="data">Data &amp; Analysis (3)</button>
+<button class="filter-btn" data-filter="rd">R&amp;D (4)</button>
 </div>
 
 <div class="grid" id="projectGrid">
@@ -501,7 +586,7 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 </div>
 </div>
 
-<!-- T5: R&D -->
+<!-- T5: R&amp;D -->
 <div class="card" data-cat="rd">
 <div class="card-thumb t5">
 <span class="card-tier tier-rd">R&D</span>
@@ -558,6 +643,127 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 </div>
 </div>
 
+<!-- PRISM Projects -->
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Korean History RPG - Three.js 3D</text><rect x="20" y="50" width="260" height="90" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><rect x="35" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.2)"/><text x="52" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Battle</text><rect x="80" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="97" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Village</text><rect x="125" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="142" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Quiz</text><rect x="170" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="187" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Story</text><rect x="215" y="65" width="45" height="25" rx="3" fill="rgba(34,211,238,.2)"/><text x="237" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Tactics</text><text x="150" y="125" text-anchor="middle" fill="#94a3b8" font-size="8">7 Modules | Canvas Sprites | BGM | Save System</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">History RPG</div>
+<div class="card-subtitle">Korean History Tactics Game (3D)</div>
+<div class="card-desc">한국사 영걸전 스타일 전략 RPG. 파랜드 택틱스 전투 시스템, 타일맵, AI 적군, Canvas 스프라이트, 퀴즈, BGM 9패턴, 세이브/로드.</div>
+<div class="card-tags"><span class="tag">Three.js</span><span class="tag">Canvas</span><span class="tag">Tactics RPG</span><span class="tag">Web Audio</span><span class="tag">History</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/history-rpg/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Piano Rhythm Game - Tone.js</text><rect x="30" y="45" width="240" height="95" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><rect x="45" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="60" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="50" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><rect x="75" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="90" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="105" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="82" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><rect x="97" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><circle cx="60" cy="65" r="5" fill="rgba(34,211,238,.4)"/><circle cx="90" cy="75" r="5" fill="rgba(34,211,238,.3)"/><circle cx="75" cy="55" r="5" fill="rgba(99,102,241,.4)"/><text x="200" y="75" text-anchor="middle" fill="#22d3ee" font-size="8">Falling Notes</text><text x="200" y="90" text-anchor="middle" fill="#94a3b8" font-size="7">Score + Streak</text><text x="150" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">61 Keys | 4 Modes | Wait/Practice/Test</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Piano</div>
+<div class="card-subtitle">Rhythm Game with 61-Key Piano</div>
+<div class="card-desc">Tone.js 피아노 리듬게임. 61건반, 떨어지는 노트, 4가지 학습 모드(데모/Wait/연습/테스트), 채점 시스템, 속도 조절, 다수 곡 내장.</div>
+<div class="card-tags"><span class="tag">Tone.js</span><span class="tag">Canvas</span><span class="tag">Rhythm Game</span><span class="tag">Web Audio</span><span class="tag">Music</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/piano/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Violin Simulator - 9 Harmonics</text><ellipse cx="150" cy="100" rx="35" ry="55" fill="none" stroke="#22d3ee" stroke-width="1" opacity=".4"/><ellipse cx="150" cy="100" rx="25" ry="40" fill="rgba(34,211,238,.08)"/><line x1="130" y1="55" x2="130" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><line x1="142" y1="50" x2="142" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="158" y1="50" x2="158" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="170" y1="55" x2="170" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><rect x="200" y="60" width="70" height="60" rx="4" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><text x="235" y="80" text-anchor="middle" fill="#22d3ee" font-size="7">Bow Drag</text><text x="235" y="95" text-anchor="middle" fill="#22d3ee" font-size="7">Vibrato</text><text x="235" y="110" text-anchor="middle" fill="#94a3b8" font-size="6">Body Resonance</text><text x="150" y="170" text-anchor="middle" fill="#94a3b8" font-size="8">FreePlay | Song | Tuner | 8 Built-in Songs</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Violin</div>
+<div class="card-subtitle">Realistic Violin Simulator</div>
+<div class="card-desc">9배음 하모닉 + 5포먼트 바디공명 + 로진 활 노이즈. 활 드래그 연주, 비브라토 LFO, 8곡 내장, 낙하노트 채점, 메트로놈/튜너.</div>
+<div class="card-tags"><span class="tag">Web Audio API</span><span class="tag">Harmonics</span><span class="tag">Canvas</span><span class="tag">Touch</span><span class="tag">Music</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/violin/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">StarVoice Karaoke v4</text><rect x="20" y="45" width="260" height="80" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><path d="M40 95 Q80 60 120 85 Q160 50 200 80 Q240 65 260 75" fill="none" stroke="#22d3ee" stroke-width="1.5"/><path d="M40 95 Q80 70 120 90 Q160 65 200 85 Q240 75 260 80" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4,3"/><text x="35" y="55" fill="#22d3ee" font-size="7">Pitch</text><text x="265" y="55" fill="#f43f5e" font-size="7">Voice</text><circle cx="150" cy="150" r="15" fill="none" stroke="#22d3ee" stroke-width="1"/><text x="150" y="154" text-anchor="middle" fill="#22d3ee" font-size="8">&#9834;</text><text x="150" y="140" text-anchor="middle" fill="#94a3b8" font-size="8">MPM Pitch | WebGL Fluid | Per-note Score</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Karaoke</div>
+<div class="card-subtitle">StarMaker-style Singing Game</div>
+<div class="card-desc">MPM(NSDF) 음정 검출 + WebGL2 fluid 셰이더 + 4단 시각효과. Per-note PERFECT/GREAT/GOOD/MISS 채점, 가사 싱크, 녹음, 공유카드.</div>
+<div class="card-tags"><span class="tag">Web Audio</span><span class="tag">WebGL2</span><span class="tag">Pitch Detection</span><span class="tag">Canvas</span><span class="tag">PWA</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/karaoke/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Golf Ball Tracker - CV</text><rect x="40" y="45" width="220" height="90" rx="8" fill="rgba(34,211,238,.04)" stroke="#22d3ee" stroke-width=".5"/><circle cx="100" cy="90" r="6" fill="#22d3ee"/><path d="M100 90 Q130 60 160 70 Q190 50 220 55" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,3"/><circle cx="220" cy="55" r="3" fill="#f43f5e"/><text x="220" y="48" text-anchor="middle" fill="#f43f5e" font-size="6">APEX</text><text x="100" y="115" text-anchor="middle" fill="#22d3ee" font-size="6">TEE</text><rect x="40" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="67" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">16 Clubs</text><rect x="105" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="132" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">History</text><rect x="170" y="140" width="75" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="207" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">Dashboard</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Golf Tracker</div>
+<div class="card-subtitle">Camera Ball Tracking with Frame Differencing</div>
+<div class="card-desc">Frame Differencing 하이브리드 공 감지. 16종 클럽별 트래킹, 궤적 분석(발사각/Apex/Draw-Fade), 샷 히스토리, 대시보드.</div>
+<div class="card-tags"><span class="tag">Canvas</span><span class="tag">Computer Vision</span><span class="tag">Camera API</span><span class="tag">Web Audio</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/golf-tracker/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">3D Boxing Trainer - Three.js</text><rect x="50" y="45" width="200" height="95" rx="8" fill="rgba(34,211,238,.04)" stroke="#22d3ee" stroke-width=".5"/><circle cx="110" cy="75" r="12" fill="none" stroke="#22d3ee" stroke-width="1.5"/><line x1="110" y1="87" x2="110" y2="115" stroke="#22d3ee" stroke-width="1.5"/><line x1="95" y1="100" x2="125" y2="100" stroke="#22d3ee" stroke-width="1.5"/><circle cx="190" cy="75" r="12" fill="none" stroke="#f43f5e" stroke-width="1.5"/><line x1="190" y1="87" x2="190" y2="115" stroke="#f43f5e" stroke-width="1.5"/><line x1="175" y1="100" x2="205" y2="100" stroke="#f43f5e" stroke-width="1.5"/><text x="110" y="130" text-anchor="middle" fill="#22d3ee" font-size="7">Player</text><text x="190" y="130" text-anchor="middle" fill="#f43f5e" font-size="7">Opponent</text><text x="150" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">8 Combos | RPM Avatar | Muscle Detail</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">Boxing Trainer</div>
+<div class="card-subtitle">3D Boxing Game with Combo System</div>
+<div class="card-desc">Three.js 3D 복싱. 잽/스트레이트/훅/어퍼컷, 8콤보 학습, 근육 디테일 캐릭터, 헤드기어, ReadyPlayerMe 아바타 통합.</div>
+<div class="card-tags"><span class="tag">Three.js</span><span class="tag">3D</span><span class="tag">Web Audio</span><span class="tag">Physics</span><span class="tag">RPM</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/boxing-trainer/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="25" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Isometric City Builder</text><polygon points="150,50 220,85 150,120 80,85" fill="rgba(34,211,238,.08)" stroke="#22d3ee" stroke-width=".5"/><polygon points="110,70 130,60 150,70 130,80" fill="rgba(74,222,128,.2)" stroke="#4ade80" stroke-width=".5"/><polygon points="150,60 170,50 190,60 170,70" fill="rgba(251,191,36,.2)" stroke="#fbbf24" stroke-width=".5"/><polygon points="130,80 150,70 170,80 150,90" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="30" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="55" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">60 Buildings</text><rect x="90" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="115" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">5 Eras</text><rect x="150" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="175" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">Disasters</text><rect x="210" y="130" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="237" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">Day/Night</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">City Builder</div>
+<div class="card-subtitle">Isometric City Management Game</div>
+<div class="card-desc">SimCity 스타일 아이소메트릭. 5시대 60종 건물, 재해/축복, 날씨, 낮/밤 사이클, 파티클, 미니맵, 14업적, 사운드, 저장.</div>
+<div class="card-tags"><span class="tag">Canvas</span><span class="tag">Isometric</span><span class="tag">Web Audio</span><span class="tag">Strategy</span><span class="tag">Simulation</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/city-builder/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
+<div class="card" data-cat="prism">
+<div class="card-thumb t2">
+<span class="card-tier tier-game">PRISM</span>
+<span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
+<svg viewBox="0 0 300 180"><text x="150" y="25" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">3D House Builder - Three.js</text><rect x="80" y="50" width="140" height="80" rx="4" fill="rgba(34,211,238,.06)" stroke="#22d3ee" stroke-width=".5"/><polygon points="150,35 230,65 150,55 70,65" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width=".5"/><rect x="100" y="75" width="25" height="30" rx="2" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="140" y="85" width="15" height="20" rx="1" fill="rgba(251,191,36,.2)" stroke="#fbbf24" stroke-width=".5"/><rect x="170" y="75" width="25" height="30" rx="2" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="30" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="57" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">3 Modes</text><rect x="95" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="122" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Hanok</text><rect x="160" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="187" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Modern</text><rect x="225" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="252" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Thatch</text></svg>
+</div>
+<div class="card-body">
+<div class="card-title">House Builder</div>
+<div class="card-subtitle">3D Architecture Simulator</div>
+<div class="card-desc">Three.js 3D 집짓기. 한옥/현대주택/초가집 3모드, 단계별 건축, 사운드 11종, 파티클, 낮밤 사이클, 퀴즈, 8업적, 워크스루.</div>
+<div class="card-tags"><span class="tag">Three.js</span><span class="tag">3D</span><span class="tag">Web Audio</span><span class="tag">Touch</span><span class="tag">Education</span></div>
+<div class="card-actions"><a href="https://bsy522-dot.github.io/house-builder/" target="_blank" class="btn btn-primary">Live Demo</a></div>
+</div>
+</div>
+
 </div><!-- /grid -->
 </section>
 
@@ -565,7 +771,7 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 <section class="story" id="story">
 <div class="story-inner">
 <h2 class="section-title">The AI Collaboration Story</h2>
-<p class="section-sub">How one developer built 17 production projects in under 2 months</p>
+<p class="section-sub">How one developer built 25 production projects through AI-augmented development</p>
 
 <div class="story-quote">
 "What happens when a developer collaborates deeply with AI on every stage of software development &mdash; from architecture to deployment?"
@@ -600,7 +806,9 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 <div class="tl-item"><div class="tl-date">Week 3-4</div><div class="tl-text">업무 자동화 도구 3종 개발: Mail Copilot, Supply Chain Tracker, Contact Organizer.</div></div>
 <div class="tl-item"><div class="tl-date">Week 5-6</div><div class="tl-text">소비자 웹앱 2종 출시: Culture Center Finder(4,862 강좌), SmartGolf(590 골프장).</div></div>
 <div class="tl-item"><div class="tl-date">Week 7</div><div class="tl-text">모바일 게임 2종 개발: Canvas 엔진 + Cordova APK 빌드 환경 구축.</div></div>
-<div class="tl-item"><div class="tl-date">Week 8</div><div class="tl-text">LevelPlay MVP 출시, 254,752 파일 해시 스캔 완료, R&D 프로토타입 3종.</div></div>
+<div class="tl-item"><div class="tl-date">Week 8</div><div class="tl-text">LevelPlay MVP 출시, 254,752 파일 해시 스캔 완료, R&amp;D 프로토타입 3종.</div></div>
+<div class="tl-item"><div class="tl-date">Week 9-12</div><div class="tl-text">PRISM 프로젝트 9종 론칭: Piano, Violin, Karaoke, Boxing, City Builder, House Builder, History RPG, Golf Tracker, Hatcuping v4.</div></div>
+<div class="tl-item"><div class="tl-date">Ongoing</div><div class="tl-text">NEXTERA+PRISM 자동 발전 에이전트: 6시간마다 13개 프로젝트를 로테이션 업그레이드. 벤치마킹 → 개발 → 품질검증 → 배포.</div></div>
 </div>
 
 <h3 style="font-size:1.1rem;margin:2rem 0 1rem;color:var(--cyan)">Key Insights</h3>
@@ -640,13 +848,57 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 <span class="tech-item">Playwright</span><span class="tech-item">Outlook COM</span><span class="tech-item">pdfplumber</span><span class="tech-item">python-docx</span><span class="tech-item">python-pptx</span><span class="tech-item">openpyxl</span><span class="tech-item">SHA-256</span>
 <div class="tech-cat">Platforms</div>
 <span class="tech-item">GitHub Pages</span><span class="tech-item">PWA</span><span class="tech-item">Telegram API</span><span class="tech-item">MCP Protocol</span><span class="tech-item">Android (Cordova)</span><span class="tech-item">Canvas API</span><span class="tech-item">Web Audio API</span>
+<div class="tech-cat">3D &amp; Game Engines</div>
+<span class="tech-item">Three.js</span><span class="tech-item">Tone.js</span><span class="tech-item">WebGL2</span><span class="tech-item">Isometric Engine</span><span class="tech-item">Sprite System</span><span class="tech-item">Tile Maps</span>
+</div>
+
+<h3 style="font-size:1.1rem;margin:2.5rem 0 1rem;text-align:center;color:var(--cyan)">Proficiency</h3>
+<div class="skill-bars section-reveal">
+<div class="skill-row"><span class="skill-label">JavaScript</span><div class="skill-track"><div class="skill-fill" data-pct="95" style="background:var(--grad1)"></div></div><span class="skill-pct">95%</span></div>
+<div class="skill-row"><span class="skill-label">Python</span><div class="skill-track"><div class="skill-fill" data-pct="90" style="background:var(--grad2)"></div></div><span class="skill-pct">90%</span></div>
+<div class="skill-row"><span class="skill-label">Three.js / 3D</span><div class="skill-track"><div class="skill-fill" data-pct="80" style="background:var(--grad3)"></div></div><span class="skill-pct">80%</span></div>
+<div class="skill-row"><span class="skill-label">Web Audio</span><div class="skill-track"><div class="skill-fill" data-pct="85" style="background:var(--grad4)"></div></div><span class="skill-pct">85%</span></div>
+<div class="skill-row"><span class="skill-label">Canvas / WebGL</span><div class="skill-track"><div class="skill-fill" data-pct="88" style="background:var(--grad1)"></div></div><span class="skill-pct">88%</span></div>
+<div class="skill-row"><span class="skill-label">AI Integration</span><div class="skill-track"><div class="skill-fill" data-pct="92" style="background:linear-gradient(135deg,#f43f5e,#fb7185)"></div></div><span class="skill-pct">92%</span></div>
 </div>
 </section>
 
 <!-- Footer -->
 <footer>
+<div class="footer-grid">
+<div class="footer-col">
+<h4>NEXTERA</h4>
+<a href="https://bsy522-dot.github.io/levelplay/" target="_blank">LevelPlay</a>
+<a href="https://bsy522-dot.github.io/smartgolf/" target="_blank">SmartGolf</a>
+<a href="https://bsy522-dot.github.io/culture-center-finder/" target="_blank">Culture Center Finder</a>
+<a href="https://bsy522-dot.github.io/ai-portfolio/" target="_blank">AI Portfolio</a>
+</div>
+<div class="footer-col">
+<h4>PRISM Games</h4>
+<a href="https://bsy522-dot.github.io/history-rpg/" target="_blank">History RPG</a>
+<a href="https://bsy522-dot.github.io/piano/" target="_blank">Piano</a>
+<a href="https://bsy522-dot.github.io/violin/" target="_blank">Violin</a>
+<a href="https://bsy522-dot.github.io/karaoke/" target="_blank">Karaoke</a>
+</div>
+<div class="footer-col">
+<h4>PRISM Apps</h4>
+<a href="https://bsy522-dot.github.io/golf-tracker/" target="_blank">Golf Tracker</a>
+<a href="https://bsy522-dot.github.io/boxing-trainer/" target="_blank">Boxing Trainer</a>
+<a href="https://bsy522-dot.github.io/city-builder/" target="_blank">City Builder</a>
+<a href="https://bsy522-dot.github.io/house-builder/" target="_blank">House Builder</a>
+</div>
+<div class="footer-col">
+<h4>Technologies</h4>
+<a>Three.js &amp; WebGL</a>
+<a>Tone.js &amp; Web Audio</a>
+<a>Canvas API &amp; CV</a>
+<a>PWA &amp; Offline</a>
+</div>
+</div>
+<div class="footer-bottom">
 <p>Built with Human Creativity + AI Collaboration</p>
-<p style="margin-top:.5rem;font-size:.7rem;color:var(--text3)">17 Projects | 2026</p>
+<p style="margin-top:.5rem;font-size:.7rem;color:var(--text3)">25 Projects | NEXTERA + PRISM | 2026</p>
+</div>
 </footer>
 
 <!-- Game Modal -->
@@ -670,6 +922,21 @@ footer{text-align:center;padding:3rem 1.5rem;color:var(--text3);font-size:.8rem;
 // ========== Splash ==========
 setTimeout(()=>{document.getElementById('splash').classList.add('hide')},1500);
 setTimeout(()=>{document.getElementById('splash').style.display='none'},2100);
+
+// ========== Typing Animation ==========
+(function(){
+const phrases=['25 Projects Built Through Human-AI Collaboration','From Idea to Deployment &mdash; NEXTERA + PRISM','Piano, Violin, Karaoke, Boxing, City Builder &amp; More','Three.js 3D, Tone.js Audio, WebGL2 Visuals'];
+const el=document.getElementById('heroTyping');
+let pi=0,ci=0,deleting=false;
+function tick(){
+const phrase=phrases[pi];
+if(!deleting){el.innerHTML=phrase.substring(0,ci+1);ci++;
+if(ci===phrase.length){deleting=true;setTimeout(tick,2000);return}}
+else{el.innerHTML=phrase.substring(0,ci-1);ci--;
+if(ci===0){deleting=false;pi=(pi+1)%phrases.length;setTimeout(tick,400);return}}
+setTimeout(tick,deleting?30:50);}
+setTimeout(tick,1800);
+})();
 
 // ========== Particle Background ==========
 (function(){
@@ -797,7 +1064,15 @@ const projectDetails={
 'AI Voice Caller':{icon:'&#x1F4DE;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'AI voice call automation prototype. Twilio voice routing + Vapi AI agent for natural language phone conversations. Research into automated business communication.',features:['Twilio Voice','Vapi AI Agent','Natural Language','Phone Calls','Auto Routing','R&amp;D Prototype','MCP Server','Voice AI'],stats:[{n:'Twilio',l:'Voice'},{n:'Vapi',l:'AI Agent'},{n:'R&D',l:'Stage'}]},
 'Messaging Platform MCP':{icon:'&#x1F4AC;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'MCP server bridging AI assistants with messaging platform APIs. OAuth 2.0 authentication, automated message delivery and conversation management.',features:['MCP Protocol','OAuth 2.0','REST API','Auto Messages','AI Bridge','Conversation Mgmt','Auth Flow','R&amp;D Prototype'],stats:[{n:'MCP',l:'Protocol'},{n:'OAuth',l:'Auth'},{n:'REST',l:'API'}]},
 'AI Music Video Generator':{icon:'&#x1F3B5;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'Automated music video production combining classical music with AI-generated visuals. MIDI analysis, SoundFont rendering, subtitle synchronization pipeline.',features:['MIDI Analysis','SoundFont Render','AI Visuals','Subtitle Sync','Video Pipeline','Classical Music','Auto Production','Creative AI'],stats:[{n:'MIDI',l:'Engine'},{n:'AI',l:'Visuals'},{n:'Auto',l:'Production'}]},
-'Business Plan Generator':{icon:'&#x1F4BC;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'AI-to-PPT automated pipeline. Input business idea, AI structures it into professional presentation with slides, charts, and financial projections.',features:['AI Planning','Auto PPT','Chart Generation','Financial Projections','Slide Layout','python-pptx','Multi-section','Professional Output'],stats:[{n:'AI',l:'Planning'},{n:'Auto',l:'PPT'},{n:'Charts',l:'Included'}]}
+'Business Plan Generator':{icon:'&#x1F4BC;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'AI-to-PPT automated pipeline. Input business idea, AI structures it into professional presentation with slides, charts, and financial projections.',features:['AI Planning','Auto PPT','Chart Generation','Financial Projections','Slide Layout','python-pptx','Multi-section','Professional Output'],stats:[{n:'AI',l:'Planning'},{n:'Auto',l:'PPT'},{n:'Charts',l:'Included'}]},
+'History RPG':{icon:'&#x2694;',bg:'var(--grad2)',desc:'Korean history tactics RPG inspired by Faland Tactics. Tile-based combat with AI enemies, canvas sprites, BGM patterns, quizzes, and save/load system.',features:['Tactics Combat','7 JS Modules','Canvas Sprites','BGM 9 Patterns','AI Enemies','Quiz System','Save/Load','Historical Battles'],stats:[{n:'7',l:'Modules'},{n:'12x10',l:'Battle Map'},{n:'10',l:'Quizzes'}]},
+'Piano':{icon:'&#x1F3B9;',bg:'var(--grad2)',desc:'Piano rhythm game with 61 keys, Tone.js synthesizer, falling notes visualization, 4 learning modes (Demo/Wait/Practice/Test), scoring, and speed control.',features:['61 Keys','Tone.js Synth','Falling Notes','4 Learning Modes','Score System','Speed Control','Wait Mode','Multiple Songs'],stats:[{n:'61',l:'Keys'},{n:'4',l:'Modes'},{n:'Tone.js',l:'Audio'}]},
+'Violin':{icon:'&#x1F3BB;',bg:'var(--grad2)',desc:'Realistic violin simulator with 9-partial harmonics, 5-formant body resonance, rosin bow noise, vibrato LFO, 8 built-in songs, falling note scoring, metronome and tuner.',features:['9 Harmonics','Body Resonance','Bow Drag Physics','Vibrato LFO','8 Songs','Note Scoring','Metronome','Tuner'],stats:[{n:'9',l:'Harmonics'},{n:'5',l:'Formants'},{n:'8',l:'Songs'}]},
+'Karaoke':{icon:'&#x1F3A4;',bg:'var(--grad2)',desc:'StarMaker-style karaoke with MPM pitch detection, WebGL2 fluid shader visuals, per-note PERFECT/GREAT/GOOD/MISS scoring, lyrics sync, recording, and share card.',features:['MPM Pitch Detection','WebGL2 Fluid Shader','Per-note Scoring','Lyrics Sync','Recording','Share Card','Key Shift','PWA'],stats:[{n:'MPM',l:'Algorithm'},{n:'WebGL2',l:'Visuals'},{n:'4',l:'Grades'}]},
+'Golf Tracker':{icon:'&#x26F3;',bg:'var(--grad2)',desc:'Camera-based golf ball tracking using Frame Differencing hybrid detection. 16 club types, trajectory analysis with launch angle/apex/draw-fade, shot history, dashboard.',features:['Frame Differencing','16 Club Types','Trajectory Analysis','Shot History','Dashboard','Camera API','Haptic Feedback','Watermark'],stats:[{n:'16',l:'Clubs'},{n:'50',l:'Max Shots'},{n:'CV',l:'Detection'}]},
+'Boxing Trainer':{icon:'&#x1F94A;',bg:'var(--grad2)',desc:'3D boxing game built with Three.js. Jab/straight/hook/uppercut mechanics, 8 combination drills, detailed muscle character models, headgear, RPM avatar integration.',features:['Three.js 3D','8 Combo Drills','Muscle Detail','Headgear','RPM Avatar','4 Punch Types','BPM Training','Star Rating'],stats:[{n:'8',l:'Combos'},{n:'4',l:'Punches'},{n:'3D',l:'Engine'}]},
+'City Builder':{icon:'&#x1F3D9;',bg:'var(--grad2)',desc:'SimCity-style isometric city management. 5 historical eras with 60 building types, disaster/blessing systems, weather, day/night cycle, particles, minimap, 14 achievements.',features:['60 Buildings','5 Eras','Disasters','Blessings','Day/Night Cycle','Weather System','Minimap','14 Achievements'],stats:[{n:'60',l:'Buildings'},{n:'5',l:'Eras'},{n:'14',l:'Achievements'}]},
+'House Builder':{icon:'&#x1F3E0;',bg:'var(--grad2)',desc:'Three.js 3D house building simulator. 3 modes (Hanok/Modern/Thatch), step-by-step construction, 11 sound effects, particles, day/night, quiz, 8 achievements, walkthrough.',features:['Three.js 3D','3 Building Modes','11 Sound Effects','Particle System','Day/Night','Quiz Mode','8 Achievements','Walkthrough'],stats:[{n:'3',l:'Modes'},{n:'11',l:'Sounds'},{n:'8',l:'Achievements'}]}
 };
 
 function openDetail(cardEl){
@@ -848,10 +1123,81 @@ document.addEventListener('keydown',e=>{
 if(e.key==='Escape'){closeGame();closeDetail()}
 });
 
+// ========== Project Search ==========
+const searchInput=document.getElementById('projectSearch');
+searchInput.addEventListener('input',()=>{
+const q=searchInput.value.toLowerCase().trim();
+document.querySelectorAll('.card').forEach(c=>{
+const text=(c.querySelector('.card-title')?.textContent+' '+c.querySelector('.card-desc')?.textContent+' '+(c.querySelector('.card-subtitle')?.textContent||'')).toLowerCase();
+if(!q||text.includes(q)){c.classList.remove('hidden');setTimeout(()=>c.classList.add('visible'),50)}
+else{c.classList.add('hidden');c.classList.remove('visible')}
+});
+document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+if(!q)document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+});
+
+// ========== View Toggle (Grid/List) ==========
+document.querySelectorAll('.view-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const grid=document.getElementById('projectGrid');
+if(btn.dataset.view==='list')grid.classList.add('list-view');
+else grid.classList.remove('list-view');
+});
+});
+
+// ========== Section Reveal on Scroll ==========
+document.querySelectorAll('.section,.story,.stats,.skill-bars').forEach(s=>s.classList.add('section-reveal'));
+const sectionObs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');sectionObs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.section-reveal').forEach(s=>sectionObs.observe(s));
+
+// ========== Skill Bar Animation ==========
+const skillObs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting){
+document.querySelectorAll('.skill-fill').forEach(bar=>{bar.style.width=bar.dataset.pct+'%'});
+skillObs.unobserve(e.target)}});
+},{threshold:.3});
+const skillSection=document.querySelector('.skill-bars');
+if(skillSection)skillObs.observe(skillSection);
+
+// ========== 3D Card Tilt ==========
+if(window.matchMedia('(hover:hover)').matches){
+document.querySelectorAll('.card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const r=card.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+card.style.transform='translateY(-8px) scale(1.02) rotateY('+x*8+'deg) rotateX('+(-y*8)+'deg)';
+});
+card.addEventListener('mouseleave',()=>{card.style.transform=''});
+});
+}
+
+// ========== Cursor Glow ==========
+const glow=document.getElementById('cursorGlow');
+if(window.matchMedia('(hover:hover)').matches){
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';glow.classList.add('active')});
+document.addEventListener('mouseleave',()=>glow.classList.remove('active'));
+}
+
+// ========== Hero Parallax ==========
+const heroContent=document.querySelector('.hero-content');
+if(window.matchMedia('(hover:hover)').matches){
+document.querySelector('.hero').addEventListener('mousemove',e=>{
+const r=e.currentTarget.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+heroContent.style.transform='translate('+x*15+'px,'+y*10+'px)';
+});
+}
+
 // ========== Structured Data for SEO ==========
 const ld=document.createElement('script');
 ld.type='application/ld+json';
-ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"WebSite","name":"AI-Augmented Developer Portfolio","description":"17 Projects Built Through Human-AI Collaboration","url":"https://bsy522-dot.github.io/ai-portfolio/"});
+ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"WebSite","name":"AI-Augmented Developer Portfolio","description":"25 Projects Built Through Human-AI Collaboration - NEXTERA + PRISM","url":"https://bsy522-dot.github.io/ai-portfolio/","potentialAction":{"@type":"SearchAction","target":"https://bsy522-dot.github.io/ai-portfolio/?q={search_term_string}","query-input":"required name=search_term_string"}});
 document.head.appendChild(ld);
 </script>
 </body>
