@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>AI-Augmented Developer Portfolio</title>
-<meta name="description" content="17 Projects Built Through Human-AI Collaboration in 2 Months">
+<meta name="description" content="25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM">
 <meta name="theme-color" content="#0a0a1a">
 <meta property="og:title" content="AI-Augmented Developer Portfolio">
-<meta property="og:description" content="17 production projects built through deep human-AI collaboration in under 2 months. Live apps, games, tools, and research prototypes.">
+<meta property="og:description" content="25+ production projects built through deep human-AI collaboration. Live apps, games, tools, and research prototypes - NEXTERA + PRISM.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://bsy522-dot.github.io/ai-portfolio/og-image.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI-Augmented Developer Portfolio">
-<meta name="twitter:description" content="17 production projects built through deep human-AI collaboration">
+<meta name="twitter:description" content="25+ production projects built through deep human-AI collaboration - NEXTERA + PRISM">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bsy522-dot.github.io/ai-portfolio/">
 <link rel="manifest" href="manifest.json">
@@ -301,9 +301,78 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 /* New projects count badge */
 .new-badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.65rem;font-weight:700;background:var(--rose);color:#fff;margin-left:.5rem;animation:newPulse 2s ease-in-out infinite}
 @keyframes newPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+/* Skip to content */
+.skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.8rem 1.5rem;border-radius:0 0 8px 8px;z-index:10002;font-weight:600;font-size:.9rem;transition:top .3s}
+.skip-link:focus{top:0}
+
+/* Mobile hamburger */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:10001}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);transition:all .3s;border-radius:1px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:768px){
+.hamburger{display:flex}
+.nav-links{position:fixed;top:56px;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;padding:1.5rem;gap:1rem;transform:translateY(-120%);transition:transform .3s;border-bottom:1px solid rgba(99,102,241,.1)}
+.nav-links.open{transform:translateY(0)}
+.nav-links a:not(#themeToggle){display:block!important;font-size:1rem;padding:.5rem 0}
+}
+
+/* Scroll spy active link */
+.nav-links a.active-section{color:var(--accent)}
+.nav-links a.active-section::after{width:100%}
+
+/* Version badge on cards */
+.version-badge{position:absolute;bottom:12px;right:12px;padding:2px 8px;border-radius:6px;font-size:.65rem;font-weight:700;background:rgba(99,102,241,.2);color:#a5b4fc;border:1px solid rgba(99,102,241,.2);backdrop-filter:blur(4px)}
+
+/* Animated gradient mesh */
+.hero-mesh{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-mesh .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;animation:blobMove 15s ease-in-out infinite alternate}
+.hero-mesh .blob:nth-child(1){width:400px;height:400px;background:#6366f1;top:-100px;left:10%;animation-delay:0s}
+.hero-mesh .blob:nth-child(2){width:350px;height:350px;background:#22d3ee;bottom:-80px;right:15%;animation-delay:-5s}
+.hero-mesh .blob:nth-child(3){width:300px;height:300px;background:#f43f5e;top:50%;left:50%;animation-delay:-10s}
+@keyframes blobMove{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-50px) scale(1.1)}66%{transform:translate(-20px,40px) scale(.9)}100%{transform:translate(40px,20px) scale(1.05)}}
+html[data-theme="light"] .hero-mesh .blob{opacity:.08}
+
+/* Latest Updates Section */
+.updates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1.5rem}
+.update-card{background:var(--card);border:1px solid rgba(99,102,241,.1);border-radius:var(--radius-sm);padding:1rem 1.2rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s}
+.update-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.update-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.update-card .update-title{font-size:.85rem;font-weight:700;margin-bottom:.2rem}
+.update-card .update-desc{font-size:.75rem;color:var(--text2);line-height:1.5}
+.update-card .update-date{font-size:.65rem;color:var(--text3);font-family:'Courier New',Consolas,monospace;margin-top:.3rem}
+
+/* Keyboard shortcut hint */
+.search-hint{font-size:.7rem;color:var(--text3);margin-left:.5rem;padding:2px 8px;border:1px solid rgba(99,102,241,.15);border-radius:4px;font-family:'Courier New',Consolas,monospace}
+
+/* Progress ring for stats */
+.stat-ring{display:inline-block;position:relative;width:60px;height:60px;margin-bottom:.3rem}
+.stat-ring svg{transform:rotate(-90deg)}
+.stat-ring circle{fill:none;stroke-width:4;stroke-linecap:round}
+.stat-ring .ring-bg{stroke:rgba(99,102,241,.1)}
+.stat-ring .ring-fill{stroke:url(#ringGrad);transition:stroke-dashoffset 1.5s ease-out}
+
+/* Ripple effect on buttons */
+.btn{position:relative;overflow:hidden}
+.btn .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripple .6s ease-out}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+/* Card shimmer loading */
+.card-shimmer{background:linear-gradient(90deg,transparent,rgba(99,102,241,.05),transparent);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* Footer improvements */
+footer .footer-social{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0}
+footer .footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:1.1rem;transition:all .3s}
+footer .footer-social a:hover{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.08);transform:translateY(-2px);text-decoration:none}
 </style>
 </head>
 <body>
+
+<!-- Skip to Content -->
+<a class="skip-link" href="#projects">Skip to Projects</a>
 
 <!-- Scroll Progress -->
 <div id="scrollProgress"></div>
@@ -312,10 +381,14 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
 <div class="nav-inner">
 <div class="nav-logo">AI Portfolio</div>
-<div class="nav-links">
-<a href="#projects">Projects</a>
-<a href="#story">Story</a>
-<a href="#tech">Tech Stack</a>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links" id="navLinks">
+<a href="#projects" data-section="projects">Projects</a>
+<a href="#updates" data-section="updates">Updates</a>
+<a href="#story" data-section="story">Story</a>
+<a href="#tech" data-section="tech">Tech</a>
 <button id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">&#9790;</button>
 </div>
 </div>
@@ -338,6 +411,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 
 <!-- Hero -->
 <section class="hero">
+<div class="hero-mesh"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
 <div class="hero-bg"></div>
 <div class="hero-grid"></div>
 <div class="hero-content">
@@ -367,7 +441,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <p class="section-sub">Each project represents a unique challenge solved through human-AI collaboration</p>
 
 <div class="search-bar">
-<input type="text" id="projectSearch" placeholder="Search projects..." aria-label="Search projects">
+<input type="text" id="projectSearch" placeholder="Search projects..." aria-label="Search projects"><span class="search-hint">/</span>
 <div class="view-toggle">
 <button class="view-btn active" data-view="grid" aria-label="Grid view">&#9638;</button>
 <button class="view-btn" data-view="list" aria-label="List view">&#9776;</button>
@@ -390,12 +464,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="card" data-cat="live">
 <div class="card-thumb t1">
 <span class="card-tier tier-live">LIVE</span>
-<svg viewBox="0 0 300 180"><rect x="10" y="20" width="280" height="140" rx="8" fill="none" stroke="#4ade80" stroke-width="1.5" opacity=".3"/><text x="150" y="55" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">4,862 Courses</text><rect x="30" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="55" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Crawler</text><rect x="95" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="120" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Parser</text><rect x="160" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="185" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Search</text><rect x="225" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="250" y="89" text-anchor="middle" fill="#4ade80" font-size="7">PWA</text><line x1="80" y1="85" x2="95" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="145" y1="85" x2="160" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="210" y1="85" x2="225" y2="85" stroke="#4ade80" stroke-width="1"/><text x="150" y="135" text-anchor="middle" fill="#94a3b8" font-size="9">38+ Centers | Real-time Data | Location-based</text></svg>
+<svg viewBox="0 0 300 180"><rect x="10" y="20" width="280" height="140" rx="8" fill="none" stroke="#4ade80" stroke-width="1.5" opacity=".3"/><text x="150" y="55" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">95,064 Courses</text><rect x="30" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="55" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Crawler</text><rect x="95" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="120" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Parser</text><rect x="160" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="185" y="89" text-anchor="middle" fill="#4ade80" font-size="7">Search</text><rect x="225" y="70" width="50" height="30" rx="4" fill="rgba(74,222,128,.15)" stroke="#4ade80" stroke-width="1"/><text x="250" y="89" text-anchor="middle" fill="#4ade80" font-size="7">PWA</text><line x1="80" y1="85" x2="95" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="145" y1="85" x2="160" y2="85" stroke="#4ade80" stroke-width="1"/><line x1="210" y1="85" x2="225" y2="85" stroke="#4ade80" stroke-width="1"/><text x="150" y="135" text-anchor="middle" fill="#94a3b8" font-size="9">8 Sources | 18 Regions | Location-based</text></svg>
 </div>
 <div class="card-body">
 <div class="card-title">Culture Center Finder</div>
 <div class="card-subtitle">Real-time Course Discovery Platform</div>
-<div class="card-desc">4,862개 문화센터 강좌를 실시간 크롤링으로 수집. 출발지 기반 이동시간 계산, 연령/종목/요일 필터, 오프라인 PWA 지원.</div>
+<div class="card-desc">95,064개 문화센터 강좌를 8개 소스에서 크롤링. 18개 지역 커버, 출발지 기반 이동시간 계산, 다크/라이트 모드, 비교 기능, 오프라인 PWA.</div>
 <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Playwright</span><span class="tag">PWA</span><span class="tag">Geolocation</span><span class="tag">Web Crawling</span></div>
 <div class="card-actions">
 <a href="https://bsy522-dot.github.io/culture-center-finder/" target="_blank" class="btn btn-primary">Live Demo</a>
@@ -411,7 +485,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="card-body">
 <div class="card-title">SmartGolf</div>
 <div class="card-subtitle">Golf Course Finder with Route Optimization</div>
-<div class="card-desc">전국 590개 골프장 데이터. OSRM 기반 실제 도로 이동시간 계산, 그린피 비교, GPS 현위치, Leaflet 지도 클러스터링.</div>
+<div class="card-desc">전국 590개 골프장 PWA. AI 추천 엔진, 통계 대시보드, 라운드 플래너, 메모 기능, 랭킹 시스템, OSRM 라우팅, 접근성 강화.</div>
 <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">OSRM</span><span class="tag">PWA</span><span class="tag">GeoJSON</span></div>
 <div class="card-actions">
 <a href="https://bsy522-dot.github.io/smartgolf/" target="_blank" class="btn btn-primary">Live Demo</a>
@@ -460,7 +534,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="card-body">
 <div class="card-title">Hatcuping Escape Adventure</div>
 <div class="card-subtitle">Canvas Platformer Game</div>
-<div class="card-desc">22개 커스텀 캐릭터 스프라이트(base64), 멀티 챕터 스토리, 보스 배틀, 터치 컨트롤, Web Audio 사운드. 단일 55KB HTML 파일.</div>
+<div class="card-desc">v5.0 통합 엔진. 보스 3페이즈(그라운드파운드+미니언), 무적스타, 체크포인트, 콤보 연출, 원형와이프 전환, BGM 5종 루프 시스템.</div>
 <div class="card-tags"><span class="tag">Canvas API</span><span class="tag">Web Audio</span><span class="tag">Sprites</span><span class="tag">Touch Controls</span><span class="tag">Game Dev</span></div>
 <div class="card-actions">
 <button class="btn btn-game" onclick="openGame('games/hatcuping-game.html','Hatcuping Platformer')">Play Now</button>
@@ -477,7 +551,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="card-body">
 <div class="card-title">Hatcuping RPG Adventure</div>
 <div class="card-subtitle">Story-Driven RPG with NPC System</div>
-<div class="card-desc">6챕터 스토리 RPG. 타일 기반 맵 탐험, NPC 대화 시스템, 캐릭터 초상화, 성/숲/축제/도서관 환경. 단일 54KB HTML.</div>
+<div class="card-desc">v5.0 통합 RPG. 신규 몬스터 3종, 데미지 숫자 팝업, 전투 플래시, 레벨업 스파클, BGM 5종 맵/전투 자동전환, 맵 페이드 전환.</div>
 <div class="card-tags"><span class="tag">Canvas API</span><span class="tag">Tile Maps</span><span class="tag">NPC System</span><span class="tag">RPG Engine</span><span class="tag">Web Audio</span></div>
 <div class="card-actions">
 <button class="btn btn-game" onclick="openGame('games/hatcuping-rpg.html','Hatcuping RPG')">Play Now</button>
@@ -649,11 +723,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Korean History RPG - Three.js 3D</text><rect x="20" y="50" width="260" height="90" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><rect x="35" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.2)"/><text x="52" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Battle</text><rect x="80" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="97" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Village</text><rect x="125" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="142" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Quiz</text><rect x="170" y="65" width="35" height="25" rx="3" fill="rgba(34,211,238,.15)"/><text x="187" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Story</text><rect x="215" y="65" width="45" height="25" rx="3" fill="rgba(34,211,238,.2)"/><text x="237" y="81" text-anchor="middle" fill="#22d3ee" font-size="6">Tactics</text><text x="150" y="125" text-anchor="middle" fill="#94a3b8" font-size="8">7 Modules | Canvas Sprites | BGM | Save System</text></svg>
+<span class="version-badge">v8.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">History RPG</div>
 <div class="card-subtitle">Korean History Tactics Game (3D)</div>
-<div class="card-desc">한국사 영걸전 스타일 전략 RPG. 파랜드 택틱스 전투 시스템, 타일맵, AI 적군, Canvas 스프라이트, 퀴즈, BGM 9패턴, 세이브/로드.</div>
+<div class="card-desc">한국사 영걸전 스타일 전략 RPG v8.0. 반격 시스템, 전투 예측, 자동저장, 역사 퀴즈 20문, 파랜드 택틱스 12x10 전장, 7모듈 분리 아키텍처.</div>
 <div class="card-tags"><span class="tag">Three.js</span><span class="tag">Canvas</span><span class="tag">Tactics RPG</span><span class="tag">Web Audio</span><span class="tag">History</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/history-rpg/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -664,11 +739,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Piano Rhythm Game - Tone.js</text><rect x="30" y="45" width="240" height="95" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><rect x="45" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="60" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="50" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><rect x="75" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="90" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="105" y="100" width="12" height="35" rx="1" fill="rgba(255,255,255,.8)"/><rect x="82" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><rect x="97" y="100" width="8" height="22" rx="1" fill="rgba(34,211,238,.6)"/><circle cx="60" cy="65" r="5" fill="rgba(34,211,238,.4)"/><circle cx="90" cy="75" r="5" fill="rgba(34,211,238,.3)"/><circle cx="75" cy="55" r="5" fill="rgba(99,102,241,.4)"/><text x="200" y="75" text-anchor="middle" fill="#22d3ee" font-size="8">Falling Notes</text><text x="200" y="90" text-anchor="middle" fill="#94a3b8" font-size="7">Score + Streak</text><text x="150" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">61 Keys | 4 Modes | Wait/Practice/Test</text></svg>
+<span class="version-badge">v5.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">Piano</div>
 <div class="card-subtitle">Rhythm Game with 61-Key Piano</div>
-<div class="card-desc">Tone.js 피아노 리듬게임. 61건반, 떨어지는 노트, 4가지 학습 모드(데모/Wait/연습/테스트), 채점 시스템, 속도 조절, 다수 곡 내장.</div>
+<div class="card-desc">Tone.js 피아노 리듬게임 v5.0. 27곡 내장, 다크/라이트 모드, 검색, 통계 대시보드, 업적 12개, 메트로놈, 컨페티 이펙트, 일일 스트릭.</div>
 <div class="card-tags"><span class="tag">Tone.js</span><span class="tag">Canvas</span><span class="tag">Rhythm Game</span><span class="tag">Web Audio</span><span class="tag">Music</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/piano/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -678,12 +754,13 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="card-thumb t2">
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
-<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Violin Simulator - 9 Harmonics</text><ellipse cx="150" cy="100" rx="35" ry="55" fill="none" stroke="#22d3ee" stroke-width="1" opacity=".4"/><ellipse cx="150" cy="100" rx="25" ry="40" fill="rgba(34,211,238,.08)"/><line x1="130" y1="55" x2="130" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><line x1="142" y1="50" x2="142" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="158" y1="50" x2="158" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="170" y1="55" x2="170" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><rect x="200" y="60" width="70" height="60" rx="4" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><text x="235" y="80" text-anchor="middle" fill="#22d3ee" font-size="7">Bow Drag</text><text x="235" y="95" text-anchor="middle" fill="#22d3ee" font-size="7">Vibrato</text><text x="235" y="110" text-anchor="middle" fill="#94a3b8" font-size="6">Body Resonance</text><text x="150" y="170" text-anchor="middle" fill="#94a3b8" font-size="8">FreePlay | Song | Tuner | 8 Built-in Songs</text></svg>
+<svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Violin Simulator - 9 Harmonics</text><ellipse cx="150" cy="100" rx="35" ry="55" fill="none" stroke="#22d3ee" stroke-width="1" opacity=".4"/><ellipse cx="150" cy="100" rx="25" ry="40" fill="rgba(34,211,238,.08)"/><line x1="130" y1="55" x2="130" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><line x1="142" y1="50" x2="142" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="158" y1="50" x2="158" y2="150" stroke="#22d3ee" stroke-width=".5" opacity=".5"/><line x1="170" y1="55" x2="170" y2="145" stroke="#22d3ee" stroke-width=".5" opacity=".4"/><rect x="200" y="60" width="70" height="60" rx="4" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><text x="235" y="80" text-anchor="middle" fill="#22d3ee" font-size="7">Bow Drag</text><text x="235" y="95" text-anchor="middle" fill="#22d3ee" font-size="7">Vibrato</text><text x="235" y="110" text-anchor="middle" fill="#94a3b8" font-size="6">Body Resonance</text><text x="150" y="170" text-anchor="middle" fill="#94a3b8" font-size="8">FreePlay | Song | Tuner | 14 Built-in Songs</text></svg>
+<span class="version-badge">v4.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">Violin</div>
 <div class="card-subtitle">Realistic Violin Simulator</div>
-<div class="card-desc">9배음 하모닉 + 5포먼트 바디공명 + 로진 활 노이즈. 활 드래그 연주, 비브라토 LFO, 8곡 내장, 낙하노트 채점, 메트로놈/튜너.</div>
+<div class="card-desc">바이올린 시뮬레이터 v4.0. 오디오엔진 재작성, 14곡+10레슨, 업적 10개, 통계 대시보드, 다크모드, 메트로놈, 비브라토, 튜너, 컨페티.</div>
 <div class="card-tags"><span class="tag">Web Audio API</span><span class="tag">Harmonics</span><span class="tag">Canvas</span><span class="tag">Touch</span><span class="tag">Music</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/violin/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -694,11 +771,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">StarVoice Karaoke v4</text><rect x="20" y="45" width="260" height="80" rx="6" fill="rgba(34,211,238,.05)" stroke="#22d3ee" stroke-width=".5"/><path d="M40 95 Q80 60 120 85 Q160 50 200 80 Q240 65 260 75" fill="none" stroke="#22d3ee" stroke-width="1.5"/><path d="M40 95 Q80 70 120 90 Q160 65 200 85 Q240 75 260 80" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4,3"/><text x="35" y="55" fill="#22d3ee" font-size="7">Pitch</text><text x="265" y="55" fill="#f43f5e" font-size="7">Voice</text><circle cx="150" cy="150" r="15" fill="none" stroke="#22d3ee" stroke-width="1"/><text x="150" y="154" text-anchor="middle" fill="#22d3ee" font-size="8">&#9834;</text><text x="150" y="140" text-anchor="middle" fill="#94a3b8" font-size="8">MPM Pitch | WebGL Fluid | Per-note Score</text></svg>
+<span class="version-badge">v5.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">Karaoke</div>
 <div class="card-subtitle">StarMaker-style Singing Game</div>
-<div class="card-desc">MPM(NSDF) 음정 검출 + WebGL2 fluid 셰이더 + 4단 시각효과. Per-note PERFECT/GREAT/GOOD/MISS 채점, 가사 싱크, 녹음, 공유카드.</div>
+<div class="card-desc">노래방 v5.0. 25곡 내장, BGM 반주 엔진, 리버브, 워밍업 5종, 검색, 즐겨찾기, 다크/라이트 모드, MPM 음정 검출, WebGL2 fluid 셰이더.</div>
 <div class="card-tags"><span class="tag">Web Audio</span><span class="tag">WebGL2</span><span class="tag">Pitch Detection</span><span class="tag">Canvas</span><span class="tag">PWA</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/karaoke/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -709,11 +787,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Golf Ball Tracker - CV</text><rect x="40" y="45" width="220" height="90" rx="8" fill="rgba(34,211,238,.04)" stroke="#22d3ee" stroke-width=".5"/><circle cx="100" cy="90" r="6" fill="#22d3ee"/><path d="M100 90 Q130 60 160 70 Q190 50 220 55" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,3"/><circle cx="220" cy="55" r="3" fill="#f43f5e"/><text x="220" y="48" text-anchor="middle" fill="#f43f5e" font-size="6">APEX</text><text x="100" y="115" text-anchor="middle" fill="#22d3ee" font-size="6">TEE</text><rect x="40" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="67" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">16 Clubs</text><rect x="105" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="132" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">History</text><rect x="170" y="140" width="75" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="207" y="154" text-anchor="middle" fill="#22d3ee" font-size="7">Dashboard</text></svg>
+<span class="version-badge">v3.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">Golf Tracker</div>
 <div class="card-subtitle">Camera Ball Tracking with Frame Differencing</div>
-<div class="card-desc">Frame Differencing 하이브리드 공 감지. 16종 클럽별 트래킹, 궤적 분석(발사각/Apex/Draw-Fade), 샷 히스토리, 대시보드.</div>
+<div class="card-desc">골프볼 트래커 Pro v3.0. 비디오 녹화+슬로모션 리플레이, 연습 드릴 5종, 라운드 모드, 업적 시스템, 히트맵, CSV 내보내기, 클럽 사운드.</div>
 <div class="card-tags"><span class="tag">Canvas</span><span class="tag">Computer Vision</span><span class="tag">Camera API</span><span class="tag">Web Audio</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/golf-tracker/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -724,11 +803,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="30" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">3D Boxing Trainer - Three.js</text><rect x="50" y="45" width="200" height="95" rx="8" fill="rgba(34,211,238,.04)" stroke="#22d3ee" stroke-width=".5"/><circle cx="110" cy="75" r="12" fill="none" stroke="#22d3ee" stroke-width="1.5"/><line x1="110" y1="87" x2="110" y2="115" stroke="#22d3ee" stroke-width="1.5"/><line x1="95" y1="100" x2="125" y2="100" stroke="#22d3ee" stroke-width="1.5"/><circle cx="190" cy="75" r="12" fill="none" stroke="#f43f5e" stroke-width="1.5"/><line x1="190" y1="87" x2="190" y2="115" stroke="#f43f5e" stroke-width="1.5"/><line x1="175" y1="100" x2="205" y2="100" stroke="#f43f5e" stroke-width="1.5"/><text x="110" y="130" text-anchor="middle" fill="#22d3ee" font-size="7">Player</text><text x="190" y="130" text-anchor="middle" fill="#f43f5e" font-size="7">Opponent</text><text x="150" y="155" text-anchor="middle" fill="#94a3b8" font-size="8">8 Combos | RPM Avatar | Muscle Detail</text></svg>
+<span class="version-badge">v6.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">Boxing Trainer</div>
 <div class="card-subtitle">3D Boxing Game with Combo System</div>
-<div class="card-desc">Three.js 3D 복싱. 잽/스트레이트/훅/어퍼컷, 8콤보 학습, 근육 디테일 캐릭터, 헤드기어, ReadyPlayerMe 아바타 통합.</div>
+<div class="card-desc">3D 복싱 트레이너 v6.0. Training Hub 대시보드, 일일 스트릭, 칼로리 추적, 업적 12개, BGM 시스템, 8콤보 학습, 근육 디테일, PWA.</div>
 <div class="card-tags"><span class="tag">Three.js</span><span class="tag">3D</span><span class="tag">Web Audio</span><span class="tag">Physics</span><span class="tag">RPM</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/boxing-trainer/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -739,11 +819,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="25" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">Isometric City Builder</text><polygon points="150,50 220,85 150,120 80,85" fill="rgba(34,211,238,.08)" stroke="#22d3ee" stroke-width=".5"/><polygon points="110,70 130,60 150,70 130,80" fill="rgba(74,222,128,.2)" stroke="#4ade80" stroke-width=".5"/><polygon points="150,60 170,50 190,60 170,70" fill="rgba(251,191,36,.2)" stroke="#fbbf24" stroke-width=".5"/><polygon points="130,80 150,70 170,80 150,90" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="30" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="55" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">60 Buildings</text><rect x="90" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="115" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">5 Eras</text><rect x="150" y="130" width="50" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="175" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">Disasters</text><rect x="210" y="130" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="237" y="144" text-anchor="middle" fill="#22d3ee" font-size="6">Day/Night</text></svg>
+<span class="version-badge">v3.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">City Builder</div>
 <div class="card-subtitle">Isometric City Management Game</div>
-<div class="card-desc">SimCity 스타일 아이소메트릭. 5시대 60종 건물, 재해/축복, 날씨, 낮/밤 사이클, 파티클, 미니맵, 14업적, 사운드, 저장.</div>
+<div class="card-desc">도시경영 v3.0. 18x18 그리드, BGM 펜타토닉, 통계 패널, 역사 크로니클, 조언자 팁 20종, 별하늘+달, 자동저장, 20업적, 승리 화면.</div>
 <div class="card-tags"><span class="tag">Canvas</span><span class="tag">Isometric</span><span class="tag">Web Audio</span><span class="tag">Strategy</span><span class="tag">Simulation</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/city-builder/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -754,11 +835,12 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <span class="card-tier tier-game">PRISM</span>
 <span class="prism-badge" style="position:absolute;top:12px;left:12px">NEW</span>
 <svg viewBox="0 0 300 180"><text x="150" y="25" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">3D House Builder - Three.js</text><rect x="80" y="50" width="140" height="80" rx="4" fill="rgba(34,211,238,.06)" stroke="#22d3ee" stroke-width=".5"/><polygon points="150,35 230,65 150,55 70,65" fill="rgba(251,191,36,.15)" stroke="#fbbf24" stroke-width=".5"/><rect x="100" y="75" width="25" height="30" rx="2" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="140" y="85" width="15" height="20" rx="1" fill="rgba(251,191,36,.2)" stroke="#fbbf24" stroke-width=".5"/><rect x="170" y="75" width="25" height="30" rx="2" fill="rgba(99,102,241,.2)" stroke="#6366f1" stroke-width=".5"/><rect x="30" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="57" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">3 Modes</text><rect x="95" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="122" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Hanok</text><rect x="160" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="187" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Modern</text><rect x="225" y="140" width="55" height="20" rx="3" fill="rgba(34,211,238,.1)"/><text x="252" y="154" text-anchor="middle" fill="#22d3ee" font-size="6">Thatch</text></svg>
+<span class="version-badge">v3.0</span>
 </div>
 <div class="card-body">
 <div class="card-title">House Builder</div>
 <div class="card-subtitle">3D Architecture Simulator</div>
-<div class="card-desc">Three.js 3D 집짓기. 한옥/현대주택/초가집 3모드, 단계별 건축, 사운드 11종, 파티클, 낮밤 사이클, 퀴즈, 8업적, 워크스루.</div>
+<div class="card-desc">3D 집짓기 v3.0 사계절 마스터. 기와집(양반가) 9단계 추가, BGM, 4계절, 사진모드, 워크스루, 통계, 업적 16개, 퀴즈 12개.</div>
 <div class="card-tags"><span class="tag">Three.js</span><span class="tag">3D</span><span class="tag">Web Audio</span><span class="tag">Touch</span><span class="tag">Education</span></div>
 <div class="card-actions"><a href="https://bsy522-dot.github.io/house-builder/" target="_blank" class="btn btn-primary">Live Demo</a></div>
 </div>
@@ -836,7 +918,7 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <!-- Tech Stack -->
 <section class="section" id="tech">
 <h2 class="section-title">Tech Stack</h2>
-<p class="section-sub">Technologies used across all 17 projects</p>
+<p class="section-sub">Technologies used across all 25+ projects</p>
 <div class="tech-cloud">
 <div class="tech-cat">Languages</div>
 <span class="tech-item">Python</span><span class="tech-item">JavaScript</span><span class="tech-item">HTML5</span><span class="tech-item">CSS3</span><span class="tech-item">Node.js</span><span class="tech-item">SQL</span>
@@ -860,6 +942,78 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <div class="skill-row"><span class="skill-label">Web Audio</span><div class="skill-track"><div class="skill-fill" data-pct="85" style="background:var(--grad4)"></div></div><span class="skill-pct">85%</span></div>
 <div class="skill-row"><span class="skill-label">Canvas / WebGL</span><div class="skill-track"><div class="skill-fill" data-pct="88" style="background:var(--grad1)"></div></div><span class="skill-pct">88%</span></div>
 <div class="skill-row"><span class="skill-label">AI Integration</span><div class="skill-track"><div class="skill-fill" data-pct="92" style="background:linear-gradient(135deg,#f43f5e,#fb7185)"></div></div><span class="skill-pct">92%</span></div>
+</div>
+</section>
+
+<!-- Latest Updates -->
+<section class="section section-reveal" id="updates">
+<h2 class="section-title">Latest Updates</h2>
+<p class="section-sub">Auto-evolving via NEXTERA+PRISM agent — 13 projects on 6-hour rotation</p>
+<div class="updates-grid">
+<div class="update-card">
+<div class="update-icon" style="background:rgba(99,102,241,.1)">&#x1F3AE;</div>
+<div>
+<div class="update-title">LevelPlay v1.0</div>
+<div class="update-desc">코딩+한글국어+미술 커리큘럼 추가, CDN 제거, 3D 우주탐험기 줌 시스템</div>
+<div class="update-date">2026-05-07</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(34,197,94,.1)">&#x26F3;</div>
+<div>
+<div class="update-title">SmartGolf v4.0</div>
+<div class="update-desc">AI 추천+통계+플래너+메모+랭킹+팁+접근성. 2455줄(+37%)</div>
+<div class="update-date">2026-05-07</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(139,92,246,.1)">&#x1F3DB;</div>
+<div>
+<div class="update-title">Culture Center v2.0</div>
+<div class="update-desc">다크/라이트 모드, 카드뷰, 모바일 네비, 센터 상세/비교, 95K+ 강좌</div>
+<div class="update-date">2026-05-07</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(34,211,238,.1)">&#x1F94A;</div>
+<div>
+<div class="update-title">Boxing Trainer v6.0</div>
+<div class="update-desc">Training Hub 대시보드, PWA, BGM, 스트릭, 업적, 칼로리 추적</div>
+<div class="update-date">2026-05-06</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(251,191,36,.1)">&#x1F3B9;</div>
+<div>
+<div class="update-title">Piano v5.0</div>
+<div class="update-desc">27곡(+5), 다크모드, 검색, 통계, 업적 12개, 메트로놈, 컨페티</div>
+<div class="update-date">2026-05-06</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(244,63,94,.1)">&#x1F3A4;</div>
+<div>
+<div class="update-title">Karaoke v5.0</div>
+<div class="update-desc">25곡(+10), BGM 반주 엔진, 리버브, 워밍업, 즐겨찾기, 다크모드</div>
+<div class="update-date">2026-05-05</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(34,211,238,.1)">&#x1F3AE;</div>
+<div>
+<div class="update-title">Hatcuping v5.0</div>
+<div class="update-desc">BGM 자동재생, 보스 3페이즈, 맵전환 페이드, 전투 이펙트 통합</div>
+<div class="update-date">2026-05-05</div>
+</div>
+</div>
+<div class="update-card">
+<div class="update-icon" style="background:rgba(74,222,128,.1)">&#x2694;</div>
+<div>
+<div class="update-title">History RPG v8.0</div>
+<div class="update-desc">반격 시스템, 전투 예측, 자동저장, BGM 강화, 퀴즈 20문</div>
+<div class="update-date">2026-05-04</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -894,6 +1048,11 @@ footer .footer-bottom{border-top:1px solid rgba(99,102,241,.08);padding-top:1.5r
 <a>Canvas API &amp; CV</a>
 <a>PWA &amp; Offline</a>
 </div>
+</div>
+<div class="footer-social">
+<a href="https://github.com/bsy522-dot" target="_blank" aria-label="GitHub" title="GitHub">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+</a>
 </div>
 <div class="footer-bottom">
 <p>Built with Human Creativity + AI Collaboration</p>
@@ -1048,8 +1207,8 @@ c.classList.remove('visible');
 
 // ========== Project Detail Modal ==========
 const projectDetails={
-'Culture Center Finder':{icon:'&#x1F3DB;',bg:'var(--grad4)',desc:'Real-time course discovery platform crawling 4,862+ courses from 38+ culture centers across Korea. Features departure-based travel time calculation, multi-dimensional filtering (age, category, day, time), and full offline PWA support.',features:['4,862+ Live Courses','38+ Culture Centers','Real-time Crawling','Travel Time Calc','Age/Category Filter','Offline PWA','Location-based','Mobile Optimized'],stats:[{n:'4,862',l:'Courses'},{n:'38+',l:'Centers'},{n:'6',l:'Crawlers'}]},
-'SmartGolf':{icon:'&#x26F3;',bg:'var(--grad4)',desc:'Comprehensive golf course finder with OSRM-based real driving route optimization. Covers 590 courses nationwide with green fee comparison, GPS positioning, and Leaflet map clustering.',features:['590 Golf Courses','OSRM Routing','Green Fee Compare','GPS Location','Map Clustering','Course Reviews','Distance Filter','Mobile PWA'],stats:[{n:'590',l:'Courses'},{n:'100%',l:'Coverage'},{n:'<2s',l:'Route Calc'}]},
+'Culture Center Finder':{icon:'&#x1F3DB;',bg:'var(--grad4)',desc:'95,064 courses crawled from 8 sources across 18 regions. Dark/light mode, card view, mobile navigation, center detail comparison, recent search, keyboard shortcuts, statistics dashboard.',features:['95,064 Live Courses','8 Data Sources','18 Regions','Dark/Light Mode','Card View','Center Compare','Recent Search','Offline PWA'],stats:[{n:'95K+',l:'Courses'},{n:'18',l:'Regions'},{n:'8',l:'Sources'}]},
+'SmartGolf':{icon:'&#x26F3;',bg:'var(--grad4)',desc:'590 golf courses with AI recommendation engine, statistics dashboard, round planner, memo, ranking system, OSRM routing, accessibility features. v4.0 with 2,455 lines.',features:['590 Golf Courses','AI Recommendation','Statistics Dashboard','Round Planner','Memo System','Ranking','OSRM Routing','Accessibility'],stats:[{n:'590',l:'Courses'},{n:'v4.0',l:'Version'},{n:'2,455',l:'Lines'}]},
 'AI Knowledge Explorer':{icon:'&#x1F9E0;',bg:'var(--grad1)',desc:'ETL pipeline analyzing 4,928 AI conversation sessions from ChatGPT and Gemini. Hierarchical categorization into 12 topics with full-text search and tree view navigation.',features:['4,928 Sessions','12 Categories','Full-text Search','Tree View','Topic Clustering','Export to Excel','ChatGPT Data','Gemini Data'],stats:[{n:'4,928',l:'Sessions'},{n:'12',l:'Categories'},{n:'2',l:'AI Sources'}]},
 'LevelPlay':{icon:'&#x1F3AE;',bg:'var(--grad3)',desc:'Gamified education platform with Lv.1-100 progression system, hexagonal stat radar charts, 16 achievement badges, and 5 education pillars. YouTube/PhET/Quiz/Game integrated learning.',features:['Lv.1-100 System','Radar Chart Stats','16 Badges','5 Education Pillars','YouTube Lessons','Interactive Quizzes','14 Mini Games','Progress Tracking'],stats:[{n:'140+',l:'Lessons'},{n:'11',l:'Subjects'},{n:'14',l:'Games'}]},
 'Hatcuping Escape Adventure':{icon:'&#x1F3AE;',bg:'var(--grad2)',desc:'Canvas platformer game featuring 22 custom character sprites (base64), multi-chapter story, boss battles, touch controls, and Web Audio sound effects. All in a single 55KB HTML file.',features:['22 Sprites','Multi-Chapter','Boss Battles','Touch Controls','Web Audio','DPI-aware','Canvas Engine','55KB Single File'],stats:[{n:'22',l:'Characters'},{n:'5',l:'Chapters'},{n:'55KB',l:'File Size'}]},
@@ -1065,14 +1224,14 @@ const projectDetails={
 'Messaging Platform MCP':{icon:'&#x1F4AC;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'MCP server bridging AI assistants with messaging platform APIs. OAuth 2.0 authentication, automated message delivery and conversation management.',features:['MCP Protocol','OAuth 2.0','REST API','Auto Messages','AI Bridge','Conversation Mgmt','Auth Flow','R&amp;D Prototype'],stats:[{n:'MCP',l:'Protocol'},{n:'OAuth',l:'Auth'},{n:'REST',l:'API'}]},
 'AI Music Video Generator':{icon:'&#x1F3B5;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'Automated music video production combining classical music with AI-generated visuals. MIDI analysis, SoundFont rendering, subtitle synchronization pipeline.',features:['MIDI Analysis','SoundFont Render','AI Visuals','Subtitle Sync','Video Pipeline','Classical Music','Auto Production','Creative AI'],stats:[{n:'MIDI',l:'Engine'},{n:'AI',l:'Visuals'},{n:'Auto',l:'Production'}]},
 'Business Plan Generator':{icon:'&#x1F4BC;',bg:'linear-gradient(135deg,#f43f5e,#fb7185)',desc:'AI-to-PPT automated pipeline. Input business idea, AI structures it into professional presentation with slides, charts, and financial projections.',features:['AI Planning','Auto PPT','Chart Generation','Financial Projections','Slide Layout','python-pptx','Multi-section','Professional Output'],stats:[{n:'AI',l:'Planning'},{n:'Auto',l:'PPT'},{n:'Charts',l:'Included'}]},
-'History RPG':{icon:'&#x2694;',bg:'var(--grad2)',desc:'Korean history tactics RPG inspired by Faland Tactics. Tile-based combat with AI enemies, canvas sprites, BGM patterns, quizzes, and save/load system.',features:['Tactics Combat','7 JS Modules','Canvas Sprites','BGM 9 Patterns','AI Enemies','Quiz System','Save/Load','Historical Battles'],stats:[{n:'7',l:'Modules'},{n:'12x10',l:'Battle Map'},{n:'10',l:'Quizzes'}]},
-'Piano':{icon:'&#x1F3B9;',bg:'var(--grad2)',desc:'Piano rhythm game with 61 keys, Tone.js synthesizer, falling notes visualization, 4 learning modes (Demo/Wait/Practice/Test), scoring, and speed control.',features:['61 Keys','Tone.js Synth','Falling Notes','4 Learning Modes','Score System','Speed Control','Wait Mode','Multiple Songs'],stats:[{n:'61',l:'Keys'},{n:'4',l:'Modes'},{n:'Tone.js',l:'Audio'}]},
-'Violin':{icon:'&#x1F3BB;',bg:'var(--grad2)',desc:'Realistic violin simulator with 9-partial harmonics, 5-formant body resonance, rosin bow noise, vibrato LFO, 8 built-in songs, falling note scoring, metronome and tuner.',features:['9 Harmonics','Body Resonance','Bow Drag Physics','Vibrato LFO','8 Songs','Note Scoring','Metronome','Tuner'],stats:[{n:'9',l:'Harmonics'},{n:'5',l:'Formants'},{n:'8',l:'Songs'}]},
-'Karaoke':{icon:'&#x1F3A4;',bg:'var(--grad2)',desc:'StarMaker-style karaoke with MPM pitch detection, WebGL2 fluid shader visuals, per-note PERFECT/GREAT/GOOD/MISS scoring, lyrics sync, recording, and share card.',features:['MPM Pitch Detection','WebGL2 Fluid Shader','Per-note Scoring','Lyrics Sync','Recording','Share Card','Key Shift','PWA'],stats:[{n:'MPM',l:'Algorithm'},{n:'WebGL2',l:'Visuals'},{n:'4',l:'Grades'}]},
-'Golf Tracker':{icon:'&#x26F3;',bg:'var(--grad2)',desc:'Camera-based golf ball tracking using Frame Differencing hybrid detection. 16 club types, trajectory analysis with launch angle/apex/draw-fade, shot history, dashboard.',features:['Frame Differencing','16 Club Types','Trajectory Analysis','Shot History','Dashboard','Camera API','Haptic Feedback','Watermark'],stats:[{n:'16',l:'Clubs'},{n:'50',l:'Max Shots'},{n:'CV',l:'Detection'}]},
-'Boxing Trainer':{icon:'&#x1F94A;',bg:'var(--grad2)',desc:'3D boxing game built with Three.js. Jab/straight/hook/uppercut mechanics, 8 combination drills, detailed muscle character models, headgear, RPM avatar integration.',features:['Three.js 3D','8 Combo Drills','Muscle Detail','Headgear','RPM Avatar','4 Punch Types','BPM Training','Star Rating'],stats:[{n:'8',l:'Combos'},{n:'4',l:'Punches'},{n:'3D',l:'Engine'}]},
-'City Builder':{icon:'&#x1F3D9;',bg:'var(--grad2)',desc:'SimCity-style isometric city management. 5 historical eras with 60 building types, disaster/blessing systems, weather, day/night cycle, particles, minimap, 14 achievements.',features:['60 Buildings','5 Eras','Disasters','Blessings','Day/Night Cycle','Weather System','Minimap','14 Achievements'],stats:[{n:'60',l:'Buildings'},{n:'5',l:'Eras'},{n:'14',l:'Achievements'}]},
-'House Builder':{icon:'&#x1F3E0;',bg:'var(--grad2)',desc:'Three.js 3D house building simulator. 3 modes (Hanok/Modern/Thatch), step-by-step construction, 11 sound effects, particles, day/night, quiz, 8 achievements, walkthrough.',features:['Three.js 3D','3 Building Modes','11 Sound Effects','Particle System','Day/Night','Quiz Mode','8 Achievements','Walkthrough'],stats:[{n:'3',l:'Modes'},{n:'11',l:'Sounds'},{n:'8',l:'Achievements'}]}
+'History RPG':{icon:'&#x2694;',bg:'var(--grad2)',desc:'v8.0 Korean history tactics RPG. Counter-attack system, battle prediction, auto-save, 20 history quizzes, 9 BGM patterns. Faland Tactics style 12x10 battlefield with 7 JS modules.',features:['Counter-Attack System','Battle Prediction','Auto Save','20 History Quizzes','9 BGM Patterns','7 JS Modules','12x10 Battlefield','AI Focus Fire'],stats:[{n:'v8.0',l:'Version'},{n:'20',l:'Quizzes'},{n:'9',l:'BGM Patterns'}]},
+'Piano':{icon:'&#x1F3B9;',bg:'var(--grad2)',desc:'v5.0 Piano rhythm game. 27 songs, dark/light mode, search, stats dashboard, 12 achievements, metronome, confetti effects, daily streak tracking, 37 lessons.',features:['27 Songs','12 Achievements','Dark/Light Mode','Song Search','Stats Dashboard','Metronome','Daily Streak','Confetti Effects'],stats:[{n:'27',l:'Songs'},{n:'12',l:'Achievements'},{n:'37',l:'Lessons'}]},
+'Violin':{icon:'&#x1F3BB;',bg:'var(--grad2)',desc:'v4.0 Realistic violin simulator. Audio engine rewritten, 14 songs + 10 lessons, 10 achievements, stats dashboard, dark mode, metronome, vibrato, tuner, confetti.',features:['Audio Engine v4','14 Songs','10 Lessons','10 Achievements','Stats Dashboard','Dark Mode','Vibrato LFO','Confetti Effects'],stats:[{n:'14',l:'Songs'},{n:'10',l:'Achievements'},{n:'v4.0',l:'Version'}]},
+'Karaoke':{icon:'&#x1F3A4;',bg:'var(--grad2)',desc:'v5.0 StarMaker-style karaoke. 25 songs with BGM accompaniment engine, reverb, 5 warmup exercises, search, favorites, dark/light mode, MPM pitch detection.',features:['25 Songs','BGM Accomp. Engine','Reverb Effect','5 Warmup Exercises','Song Search','Favorites','Dark/Light Mode','Per-note Scoring'],stats:[{n:'25',l:'Songs'},{n:'v5.0',l:'Version'},{n:'5',l:'Warmups'}]},
+'Golf Tracker':{icon:'&#x26F3;',bg:'var(--grad2)',desc:'v3.0 Pro Edition. Video recording + slow motion replay, 5 practice drills, round mode, achievement system, particle effects, ghost trail, heatmap, CSV export, club sounds.',features:['Video Recording','Slow Motion Replay','5 Practice Drills','Round Mode','Achievement System','Heatmap','CSV Export','Club Sounds'],stats:[{n:'v3.0',l:'Pro'},{n:'5',l:'Drills'},{n:'16',l:'Clubs'}]},
+'Boxing Trainer':{icon:'&#x1F94A;',bg:'var(--grad2)',desc:'v6.0 Training Hub. Dashboard with daily streak, calorie tracking, 12 achievements, session records, weekly chart, 3 training programs, BGM, PWA offline support.',features:['Training Hub Dashboard','Daily Streak','Calorie Tracking','12 Achievements','Weekly Chart','3 Training Programs','BGM System','PWA Offline'],stats:[{n:'v6.0',l:'Version'},{n:'12',l:'Achievements'},{n:'3',l:'Programs'}]},
+'City Builder':{icon:'&#x1F3D9;',bg:'var(--grad2)',desc:'v3.0 SimCity-style isometric. 18x18 grid, BGM pentatonic, stats panel, history chronicle, 20 advisor tips, starry sky + moon, auto-save, 20 achievements, victory screen.',features:['18x18 Grid','BGM Pentatonic','Stats Panel','History Chronicle','20 Advisor Tips','Auto Save','20 Achievements','Victory Screen'],stats:[{n:'v3.0',l:'Version'},{n:'18x18',l:'Grid'},{n:'20',l:'Achievements'}]},
+'House Builder':{icon:'&#x1F3E0;',bg:'var(--grad2)',desc:'v3.0 Four Seasons Master Edition. Added giwajip (yangban-ga) 9 stages, BGM, 4 seasons, photo mode, walkthrough, statistics, 16 achievements, 12 quizzes. 2,699 lines.',features:['4 Building Modes','BGM System','4 Seasons','Photo Mode','Walkthrough','Statistics','16 Achievements','12 Quizzes'],stats:[{n:'v3.0',l:'Version'},{n:'16',l:'Achievements'},{n:'12',l:'Quizzes'}]}
 };
 
 function openDetail(cardEl){
@@ -1194,10 +1353,64 @@ heroContent.style.transform='translate('+x*15+'px,'+y*10+'px)';
 });
 }
 
+// ========== Hamburger Menu ==========
+const hamburger=document.getElementById('hamburger');
+const navLinksEl=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{
+const open=navLinksEl.classList.toggle('open');
+hamburger.classList.toggle('active');
+hamburger.setAttribute('aria-expanded',open);
+});
+navLinksEl.querySelectorAll('a').forEach(a=>{
+a.addEventListener('click',()=>{
+navLinksEl.classList.remove('open');
+hamburger.classList.remove('active');
+hamburger.setAttribute('aria-expanded','false');
+});
+});
+
+// ========== Scroll Spy ==========
+const sections=['projects','updates','story','tech'];
+const navAs=document.querySelectorAll('.nav-links a[data-section]');
+function updateScrollSpy(){
+const y=window.scrollY+200;
+let active='';
+sections.forEach(id=>{
+const el=document.getElementById(id);
+if(el&&el.offsetTop<=y)active=id;
+});
+navAs.forEach(a=>{
+if(a.dataset.section===active)a.classList.add('active-section');
+else a.classList.remove('active-section');
+});
+}
+window.addEventListener('scroll',updateScrollSpy,{passive:true});
+
+// ========== Keyboard Shortcuts ==========
+document.addEventListener('keydown',e=>{
+if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT'){
+e.preventDefault();
+document.getElementById('projectSearch').focus();
+}
+});
+
+// ========== Button Ripple Effect ==========
+document.querySelectorAll('.btn').forEach(btn=>{
+btn.addEventListener('click',function(e){
+const r=document.createElement('span');
+r.className='ripple';
+const rect=this.getBoundingClientRect();
+r.style.left=(e.clientX-rect.left)+'px';
+r.style.top=(e.clientY-rect.top)+'px';
+this.appendChild(r);
+setTimeout(()=>r.remove(),600);
+});
+});
+
 // ========== Structured Data for SEO ==========
 const ld=document.createElement('script');
 ld.type='application/ld+json';
-ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"WebSite","name":"AI-Augmented Developer Portfolio","description":"25 Projects Built Through Human-AI Collaboration - NEXTERA + PRISM","url":"https://bsy522-dot.github.io/ai-portfolio/","potentialAction":{"@type":"SearchAction","target":"https://bsy522-dot.github.io/ai-portfolio/?q={search_term_string}","query-input":"required name=search_term_string"}});
+ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"WebSite","name":"AI-Augmented Developer Portfolio","description":"25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM","url":"https://bsy522-dot.github.io/ai-portfolio/","potentialAction":{"@type":"SearchAction","target":"https://bsy522-dot.github.io/ai-portfolio/?q={search_term_string}","query-input":"required name=search_term_string"}});
 document.head.appendChild(ld);
 </script>
 </body>
