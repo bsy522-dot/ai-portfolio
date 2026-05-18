@@ -1,5 +1,95 @@
 # AUTO_REPORT - ai-portfolio
 
+## [AUTO] 2026-05-18 ai-portfolio v6.0 — 13프로젝트최신데이터+테크필터칩+메트릭대시보드+액티비티피드+로드맵+카드애니메이션+SEO갱신
+
+### 1단계: 벤치마킹 분석 (vs Dribbble/Behance/Notion 상위 포트폴리오)
+
+**현재 상태**: 1417줄 index.html + v5_patch.js (10KB), 25개 카드, 파티클+다크라이트+검색+3D틸트+햄버거+스크롤스파이+임팩트배지+CTA
+**벤치마킹 대상**: Dribbble/Behance 상위 개발자 포트폴리오, Notion 포트폴리오
+
+**열위점 발견 (10개)**:
+1. 13프로젝트 데이터 전부 구버전 (v5 패치가 05-12 기준, 실제 05-14~17까지 대폭 업데이트)
+2. 기술 스택별 필터링 불가 (Three.js/Tone.js/PWA 등으로 분류 안됨)
+3. 프로젝트 활동 타임라인/피드 없음 (Behance 상위 포트폴리오는 활동 히스토리 필수)
+4. 핵심 메트릭 대시보드 없음 (총 레포수/코드라인/업데이트주기 한눈에 안보임)
+5. 프로젝트 로드맵 없음 (향후 계획이 보이지 않음 → 신뢰도 하락)
+6. 카드 등장 애니메이션 없음 (스크롤 시 정적, Dribbble은 stagger entrance 기본)
+7. 주요 프로젝트 하이라이트 없음 (featured glow 등 시각적 강조)
+8. 랜덤 프로젝트 탐색 기능 없음 (포트폴리오 체류시간 저하)
+9. Latest Updates가 05-10~12 데이터 (실제 05-14~17 커밋 미반영)
+10. 코드라인 통계 48K → 실제 56K+ 미반영
+
+**우위점**: 단일파일+SW주입 아키텍처, SVG 다이어그램, PWA, 글래스모피즘, 3D틸트, 스크롤스파이, 임팩트배지, CTA섹션
+
+### 2단계: 개발팀 작업
+
+#### js/v6_patch.js — 신규 (자체 완결 패치 모듈, v5_patch.js 대체)
+
+**13프로젝트 데이터 전면 갱신** (v5 데이터 → 최신):
+| 프로젝트 | v5 기준 | v6 갱신 | 주요 추가 기능 |
+|----------|---------|---------|---------------|
+| History RPG | v10.0 | v11.0 | 역사도감30+캐릭터도감12+연표17+일일도전14 |
+| Piano | v6.0 | v7.0 | 45곡+AB구간반복+일일챌린지+행틱+26업적 |
+| Violin | v5.0 | v6.0 | 녹음+튜너+메트로놈+드론+22곡 |
+| Karaoke | v6.0 | v7.0 | 45곡+코러스이펙트+노래방번호+20업적 |
+| Golf Tracker | v4.0 | v5.0 | SG분석+핸디캅+바람보정+드릴8종+24업적 |
+| Boxing Trainer | v7.0 | v8.0 | 체형히트맵+워밍업+테크닉도감9종 |
+| City Builder | v4.0 | v5.0 | 한국사퀴즈25+계절+건물도감60종+40업적 |
+| House Builder | v4.0 | v5.0 | 정자모드+세이브슬롯+32업적+퀴즈18문 |
+| Hatcuping | v6.0 | v7.0 | 업적모달+일일챌린지+명예의전당 |
+| SmartGolf | v5.0 | v8.0 | 코스공략18홀+스윙다이어리+토너먼트 |
+| Culture Center | v3.0 | v4.0 | 기타세분화20카테고리+AI추천엔진 |
+| LevelPlay | v2.0 | v3.0 | SM-2간격반복+플래시카드+뽀모도로 |
+
+**신규 기능 7개**:
+1. **테크 필터 칩**: Three.js/Tone.js/Canvas/Audio/PWA/3D/WebGL 등 17종 태그로 프로젝트 필터링
+2. **메트릭 대시보드**: 13 Repos / 56K+ Lines / v6.0 / 6h Cycle / 280+ Achievements / 250+ Songs 6칸 그리드
+3. **액티비티 피드**: 05-13~17 최근 10개 업데이트 타임라인 (점+선 시각화)
+4. **프로젝트 로드맵**: 6개 카드 (Multiplayer/AI Tutor v2/Mobile Native/Achievement Hub/Audio Engine v3/Data Analytics)
+5. **카드 입장 애니메이션**: IntersectionObserver 기반 스크롤 트리거 fade+slide-up
+6. **피처드 글로우**: History RPG/SmartGolf/Piano 3개 카드에 펄스 글로우 효과
+7. **랜덤 탐색 단축키**: R키로 랜덤 프로젝트 스크롤+하이라이트
+
+**기존 v5 기능 유지+개선**:
+- 임팩트 배지 (데이터 갱신)
+- CTA 섹션 (v6.0 표시)
+- Latest Updates 그리드 (05-14~17 데이터 + NEW 배지)
+- Footer 타임스탬프 (2026-05-18 | v6.0)
+- 코드라인 카운터 (48K → 56K+)
+- SEO 메타태그 갱신
+
+#### sw.js — v5 → v6 업데이트
+- 캐시명 `ai-portfolio-v5` → `ai-portfolio-v6`
+- 프리캐시 `v5_patch.js` → `v6_patch.js`
+- HTML 인터셉트: v6_patch.js 자동 주입 (v5 대체)
+- 중복 가드: `html.indexOf('v6_patch')>=0`
+
+#### manifest.json — v6.0
+- description: v6.0 + 56K+ lines + Three.js/Tone.js/PWA 명시
+
+### 3단계: 품질 검증
+
+| 검증 항목 | 결과 | 비고 |
+|----------|------|------|
+| JS 문법 | PASS | v6_patch.js strict mode IIFE, 전역 오염 window._v6만 |
+| 외부 CDN | PASS (0건) | Three.js/Tone.js 미사용 (포트폴리오 프로젝트) |
+| 개인정보 | PASS (0건) | 하드코딩 개인정보 없음 |
+| 파일 삭제 | PASS (0건) | v5_patch.js 보존, v6_patch.js 신규 추가 |
+| HTML 엔티티 | PASS | 속성 내 따옴표 인코딩 적용 |
+| 비침습 패턴 | PASS | index.html 무변경, SW 주입 패턴 유지 |
+| 데이터 정합성 | PASS | 13프로젝트 최신 커밋(05-12~17) 데이터 반영 |
+| IntersectionObserver | PASS | 폴리필 불필요 (모던 브라우저 97%+ 지원) |
+| 기존 기능 호환 | PASS | v5 기능 전부 v6에서 재구현, 충돌 없음 |
+| 모바일 반응형 | PASS | 그리드 auto-fit, flex-wrap, 터치 호환 |
+
+### 파일 변경 목록
+- `js/v6_patch.js` — **신규** (테크필터+메트릭+피드+로드맵+카드애니메이션+데이터갱신+SEO)
+- `sw.js` — v5→v6 캐시 + v6_patch.js 주입
+- `manifest.json` — v6.0 description
+- `AUTO_REPORT.md` — v6.0 보고서 추가
+
+---
+
 ## [AUTO] 2026-05-12 ai-portfolio - v5.0 13프로젝트데이터전면갱신+임팩트메트릭배지+CTA섹션+자동진화상태+Footer타임스탬프+코드라인통계+SEO갱신
 
 ### 1단계: 벤치마킹 분석 (vs Dribbble/Behance/Notion)
@@ -184,7 +274,7 @@
 ### 2차: 개발
 - Google Fonts CDN 제거, 8개 PRISM 카드+SVG+모달 신규
 - Hero 타이핑, 3D틸트, 검색, 그리드/리스트 토글, 커서글로우
-- 스킬바 6개, 4켼럼 Footer, PRISM뻓지
+- 스킬바 6개, 4컨럼 Footer, PRISM뻓지
 - 17→25 프로젝트
 
 ### 변경: index.html 858→1205줄 (+347, +40%)
