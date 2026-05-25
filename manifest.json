@@ -1,13 +1,25 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v6.0. 13 repos auto-evolving every 6 hours.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v7.0. 13 repos auto-evolving every 6 hours. 70K+ LOC.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
   "theme_color": "#0a0a1a",
   "lang": "ko",
   "categories": ["portfolio", "education", "games"],
+  "shortcuts": [
+    {
+      "name": "Featured Projects",
+      "url": "./index.html#v7-spotlight",
+      "description": "View featured project spotlight"
+    },
+    {
+      "name": "Growth Dashboard",
+      "url": "./index.html#v7-growth",
+      "description": "View project growth metrics"
+    }
+  ],
   "icons": [
     {"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a1a'/><text x='50' y='65' text-anchor='middle' font-size='50' fill='%236366f1'>AI</text></svg>", "sizes": "any", "type": "image/svg+xml"}
   ]
