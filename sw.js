@@ -1,5 +1,5 @@
-const CACHE='ai-portfolio-v7';
-const ASSETS=['./index.html','./manifest.json','./og-image.svg','./js/v7_patch.js','./games/hatcuping-game.html','./games/hatcuping-rpg.html'];
+const CACHE='ai-portfolio-v8';
+const ASSETS=['./index.html','./manifest.json','./og-image.svg','./js/v8_patch.js','./games/hatcuping-game.html','./games/hatcuping-rpg.html'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',e=>{
@@ -27,8 +27,8 @@ return cached?injectIntoResponse(cached):cached;
 async function injectIntoResponse(resp){
 if(!resp)return resp;
 const html=await resp.text();
-if(html.indexOf('v7_patch')>=0)return new Response(html,{headers:{'Content-Type':'text/html'}});
-const tag='<scr'+'ipt src="./js/v7_patch.js"></scr'+'ipt>';
+if(html.indexOf('v8_patch')>=0)return new Response(html,{headers:{'Content-Type':'text/html'}});
+const tag='<scr'+'ipt src="./js/v8_patch.js"></scr'+'ipt>';
 const injected=html.replace('</body>',tag+'</body>');
 return new Response(injected,{headers:{'Content-Type':'text/html'}});
 }
