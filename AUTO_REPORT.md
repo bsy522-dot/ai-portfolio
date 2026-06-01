@@ -1,5 +1,84 @@
 # AUTO_REPORT - ai-portfolio
 
+## [AUTO] 2026-06-01 ai-portfolio v8.0 - 12프로젝트전면갱신+히트맵+메트릭스대시보드+배너+SFX8종+키보드5종
+
+### 1단계: 벤치마킹 분석 (vs Dribbble/Behance)
+
+**현재 상태**: v7.0, 25개 카드, 1419줄 index.html + v7_patch.js(718줄 44KB)
+**벤치마킹 대상**: Dribbble/Behance 상위 개발자 포트폴리오
+
+**열위점 발견 (10개)**:
+1. 12프로젝트 데이터 전면 구식 (SmartGolf v9→v22, History RPG v12→v13 등 전면 갱신 필요)
+2. 개발 활동 히트맵 없음 (GitHub 프로필 필수 요소)
+3. 크로스프로젝트 집계 메트릭스 없음 (총 업적/퀴즈/곡 수 등)
+4. "What's New" 배너 없음 (최신 업데이트 하이라이트 부재)
+5. Updates 섹션 05-20~05-24 데이터 → 06-01까지 갱신 필요
+6. LOC 70K → 87K+ 증가 반영 필요
+7. SFX 6종 → 8종 확대 필요
+8. 키보드 단축키 3종 → 5종 확대
+9. 스포트라이트 데이터 구식 (v12/v9/v8 → v13/v22/v9)
+10. 건강 스코어 알고리즘 개선 필요
+
+**우위점**: Featured Spotlight, Growth Dashboard, Health Monitor, 비교모드, 파티클BG, 3D틸트
+
+### 2단계: 개발팀 작업
+
+#### js/v8_patch.js — 신규 (892줄, v7_patch.js 완전 대체, IIFE 자기완결형)
+
+**12프로젝트 데이터 전면 갱신**:
+- LevelPlay v4→v5 (672토픽, 33과목 Kids13+Adult20, 콘텐츠/퀴즈/영상 전면 채움)
+- SmartGolf v9→v22 (프리샷루틴12, 클럽거리관리14 Canvas, 연습일지5, 골프IQ v7, 104업적, 104SFX)
+- Culture Center v5→v6 (커리큘럼로드맵8, 센터비교, 시즌추천4, 월간캘린더, 종목백과12, 42업적)
+- Hatcuping v8→v9 (보스배틀, 스킬트리, 월드맵, 인벤토리, 퍼즐, 퀴즈, 일일보상)
+- History RPG v12→v13 (진형6, 영웅각성12, 유물도감15, 전쟁사8, 유닛도감8, 캠페인8, 90퀴즈, 48업적)
+- Piano v8→v9 (메트로놈, 음악이론15, 연주분석, 조옮김, 듀엣, AI추천, 음정트레이닝12, 62곡, 48업적)
+- Violin v7→v8 (음정트레이닝12, 앙상블5, 핑거링4포지션, 시보드리딩, 54곡, 80레슨, 46업적)
+- Karaoke v8→v9 (듀엣, 보이스EQ8, 음정트레이닝, 보컬다이어리, 워밍업8, 65곡, 42업적)
+- Golf Tracker v6→v7 (SG분석, 날씨, 거리계산, 클럽갭핑, 워밍업, 트렌드차트, 목표설정)
+- Boxing v9→v10 (스파링시뮬레이션, 콤보백과20, 라운드타이머, 테크닉12, 퀴즈30, 46업적)
+- City Builder v6→v7 (외교5국, 정책12, 불가사의8, 무역로6, 퀴즈55, 62업적)
+- House Builder v6→v7 (가구20, 날씨4, 예산, 평면도, 미션8, 갤러리, 재료사전15, 퀴즈45, 62업적)
+
+**신규 기능**:
+1. What's New 배너: 최신 업데이트 하이라이트 (SmartGolf v22/History RPG v13/Boxing v10 등)
+2. Aggregate Metrics 대시보드: 12 Live Projects / 87K+ LOC / 530+ Achievements / 320+ Quizzes / 181+ Songs / 134 Combined Versions
+3. Contribution Heatmap: 13주 개발활동 캘린더 (GitHub 스타일, 프로젝트별 업데이트 이력)
+4. Web Audio SFX +2종 (heatmap/metric, 총 8종)
+5. 키보드 단축키 +2종 (Shift+M=Metrics, Shift+A=Activity, 총 5종)
+6. Featured Spotlight 데이터 갱신 (v13/v22/v9)
+7. Growth Dashboard LOC 87K+ 반영
+8. Health Monitor 스코어 알고리즘 개선
+9. Toast 알림 3종 갱신 (SmartGolf v22/History RPG v13/Portfolio v8)
+10. v7 아티팩트 자동 정리
+
+#### index.html 변경:
+- SEO: title v8.0, description 87K+ LOC, OG/Twitter 전면 갱신
+- Stats: 70,000 → 87,000 LOC
+- PRISM 8카드 버전배지 갱신 (v13/v9/v8/v9/v7/v10/v7/v7)
+- PRISM 8카드 설명문 + NEXTERA 카드 최신화
+- Updates 섹션 8항목 전면 교체 (06-01~05-26)
+- Footer 87K+ LOC, v8.0
+- v8_patch.js 스크립트 태그 추가
+
+#### sw.js: v7→v8 (ai-portfolio-v8, v8_patch.js PRECACHE+자동주입)
+#### manifest.json: v8.0 설명 + shortcuts 3종 (Featured/Growth/Heatmap)
+
+### 3단계: 품질검증
+
+| 검증 항목 | 결과 | 비고 |
+|----------|------|------|
+| JS 문법 | PASS | node --check v8_patch.js |
+| 괄호 밸런스 | PASS | () 750/750, {} 376/376, [] 98/98 |
+| HTML div | PASS | 394/394 BALANCED |
+| 외부 CDN | PASS | 0건 |
+| 개인정보 | PASS | 0건 |
+| 파일 삭제 | PASS | 0건 (v7 보존) |
+| IIFE 격리 | PASS | window._v8만 |
+| 모바일 반응형 | PASS | 768px/480px 브레이크포인트 |
+| v7 호환 | PASS | 자동 정리 |
+
+---
+
 ## [AUTO] 2026-05-25 ai-portfolio v7.0 - Featured Spotlight+Growth Dashboard+Health Monitor+13프로젝트전면갱신+SFX6종+비교모드강화+도넛차트+바차트+키보드단축키
 
 ### 1단계: 벤치마킹 분석 (vs Dribbble/Behance)
