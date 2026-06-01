@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v7.0. 13 repos auto-evolving every 6 hours. 70K+ LOC.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v8.0. 13 repos auto-evolving every 6 hours. 90K+ LOC.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -11,12 +11,12 @@
   "shortcuts": [
     {
       "name": "Featured Projects",
-      "url": "./index.html#v7-spotlight",
+      "url": "./index.html#v8-spotlight",
       "description": "View featured project spotlight"
     },
     {
       "name": "Growth Dashboard",
-      "url": "./index.html#v7-growth",
+      "url": "./index.html#v8-growth",
       "description": "View project growth metrics"
     }
   ],
