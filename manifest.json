@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v8.0. 12 repos auto-evolving. 87K+ LOC. SmartGolf v22, History RPG v13, Piano v9, Boxing v10.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v9.0. 12 repos auto-evolving. 95K+ LOC. SmartGolf v23, History RPG v14, Piano v10, Boxing v11.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -11,18 +11,28 @@
   "shortcuts": [
     {
       "name": "Featured Projects",
-      "url": "./index.html#v8-spotlight",
+      "url": "./index.html#v9-spotlight",
       "description": "View featured project spotlight"
     },
     {
       "name": "Growth Dashboard",
-      "url": "./index.html#v8-growth",
+      "url": "./index.html#v9-growth",
       "description": "View project growth metrics"
     },
     {
       "name": "Activity Heatmap",
-      "url": "./index.html#v8-heatmap",
+      "url": "./index.html#v9-heatmap",
       "description": "View development activity heatmap"
+    },
+    {
+      "name": "Version Evolution",
+      "url": "./index.html#v9-evolution",
+      "description": "View version evolution timeline"
+    },
+    {
+      "name": "Tech Radar",
+      "url": "./index.html#v9-radar",
+      "description": "View technology radar chart"
     }
   ],
   "icons": [
