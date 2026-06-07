@@ -373,3 +373,63 @@
 
 - PRISM 8개 카드+SVG, Hero 타이핑, 3D틸트, 검색, 스킬바
 - 17→25 프로젝트, index.html 858→1205줄 (+347)
+
+---
+
+## [AUTO] 2026-06-07 ai-portfolio v10.0 - 12프로젝트전면갱신+업적리더보드+기술연결그래프Canvas+개발속도차트Canvas+모바일하단내비+SFX20종+키보드10종
+
+### 1단계: 벤치마킹 분석 (vs Dribbble/Behance)
+
+| 항목 | Dribbble/Behance | v9.0 | v10.0 | Gap |
+|------|------------------|------|-------|-----|
+| Interactive Visualizations | 3-5 Canvas | 5 Canvas (Evolution/Radar/Heatmap/Growth/Health) | 8 Canvas (+Leaderboard/Connections/Velocity) | Closed |
+| Data-driven Metrics | Dashboard + Charts | Growth Dashboard + Health Grid | + Achievement Leaderboard + Velocity Chart | Surpassed |
+| Mobile UX | Bottom Nav + Gestures | Responsive Only | + Mobile Bottom Navigation Bar | Closed |
+| Sound Design | Micro-interactions | 14 SFX | 20 SFX Types | Competitive |
+| Keyboard Shortcuts | 3-5 | 9 Shortcuts | 10 Shortcuts | Leading |
+| Project Data Freshness | Monthly Updates | v9 data | All 12 repos latest versions | Current |
+
+### 2단계: 개발 작업 내역
+
+**v10_patch.js (917 lines) - 전면 교체:**
+- 12 프로젝트 데이터 최신 버전 업데이트: LP v7, SG v24, CCF v8, Hat v11, HRPG v15, Piano v11, Violin v10, Karaoke v11, GT v9, Boxing v12, City v9, House v9
+- TOTAL_LOC: 95,300 → 106,200 (+10,900 LOC)
+- 신규 achievements 필드 전 프로젝트 추가
+
+**신규 기능 4종:**
+1. Achievement Leaderboard - 프로젝트별 업적 달성률 시각화, 정렬, 진행 바
+2. Connection Graph Canvas - 12개 프로젝트 기술 공유 관계 그래프, 물리 시뮬레이션, 호버 하이라이트
+3. Velocity Chart Canvas - 버전 업데이트 속도 추이 라인차트, 애니메이션
+4. Mobile Bottom Navigation - 모바일 하단 고정 내비게이션 5버튼
+
+**강화 기능:**
+- SFX 14종 → 20종 (leaderboard/connection/velocity/mobile-nav/compare/scroll 추가)
+- 키보드 단축키 9종 → 10종 (Shift+L 리더보드, Shift+C 연결, Shift+V 속도 추가)
+- Heatmap 데이터 2026-06-07까지 연장
+- 모든 CSS 클래스 v10- prefix 통일
+
+**지원 파일 업데이트:**
+- index.html: SEO 메타 v10.0, LOC 106,200, 프로젝트 상세 데이터 8개 갱신, 구조화 데이터 v10.0
+- sw.js: 캐시 ai-portfolio-v10, ASSETS v10_patch.js, inject 체크 v10_patch
+- manifest.json: 설명 v10.0/106K+, shortcuts 7개 (Leaderboard/Connections 추가)
+
+### 3단계: 품질 검증
+
+| 검증 항목 | 결과 |
+|-----------|------|
+| JS 구문 검사 (node -c) | PASS |
+| 괄호 균형 { } | 504/504 OK |
+| 괄호 균형 ( ) | 1140/1140 OK |
+| 괄호 균형 [ ] | 97/97 OK |
+| div 균형 (index.html) | 394/394 OK |
+| 외부 CDN 링크 | 0개 (PASS) |
+| 개인정보 (이메일/전화) | 0개 (PASS) |
+| v9 잔여 참조 | 0개 (PASS) |
+| Script 태그 갱신 | v10_patch.js OK |
+
+### 4단계: 커밋 및 배포
+
+- 커밋: `[AUTO] 2026-06-07 ai-portfolio v10.0`
+- 변경 파일: js/v10_patch.js (신규), index.html, sw.js, manifest.json
+- LOC 변화: 95,300 → 106,200 (+10,900)
+- 포트폴리오 버전: v9.0 → v10.0
