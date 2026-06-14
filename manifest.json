@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v10.0. 12 repos auto-evolving. 104K+ LOC. SmartGolf v24, History RPG v15, Piano v11, Boxing v12.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v11.0. 12 repos auto-evolving. 113K+ LOC. SmartGolf v25, History RPG v16, Piano v12, Boxing v13, Karaoke v12, Violin v11.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -11,42 +11,52 @@
   "shortcuts": [
     {
       "name": "Featured Projects",
-      "url": "./index.html#v9-spotlight",
+      "url": "./index.html#v11-spotlight",
       "description": "View featured project spotlight"
     },
     {
       "name": "Growth Dashboard",
-      "url": "./index.html#v9-growth",
+      "url": "./index.html#v11-growth",
       "description": "View project growth metrics"
     },
     {
       "name": "Activity Heatmap",
-      "url": "./index.html#v9-heatmap",
+      "url": "./index.html#v11-heatmap",
       "description": "View development activity heatmap"
     },
     {
-      "name": "Version Evolution",
-      "url": "./index.html#v9-evolution",
-      "description": "View version evolution timeline"
+      "name": "Impact Matrix",
+      "url": "./index.html#v11-impact",
+      "description": "View feature impact matrix"
     },
     {
-      "name": "Tech Radar",
-      "url": "./index.html#v9-radar",
-      "description": "View technology radar chart"
+      "name": "Skill Certifications",
+      "url": "./index.html#v11-certs",
+      "description": "View skill certification board"
+    },
+    {
+      "name": "Code Flow",
+      "url": "./index.html#v11-flow",
+      "description": "View code contribution flow"
+    },
+    {
+      "name": "Dev Timeline",
+      "url": "./index.html#v11-timeline",
+      "description": "View development timeline"
+    },
+    {
+      "name": "Dev Streak",
+      "url": "./index.html#v11-streak",
+      "description": "View development streak tracker"
     },
     {
       "name": "Achievement Leaderboard",
-      "url": "./index.html#v10-leaderboard",
+      "url": "./index.html#v11-leaderboard",
       "description": "View achievement density leaderboard"
     },
     {
-      "name": "Dev Velocity",
-      "url": "./index.html#v10-velocity",
-      "description": "View development velocity chart"
-    },
-    {
       "name": "Synergy Map",
-      "url": "./index.html#v10-synergy",
+      "url": "./index.html#v11-synergy",
       "description": "View technology synergy map"
     }
   ],
