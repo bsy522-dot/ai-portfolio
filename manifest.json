@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v12.0. 12 repos auto-evolving. 122K+ LOC. SmartGolf v26, History RPG v17, Piano v13, Boxing v14, Karaoke v13, Violin v12.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v13.0. 12 repos auto-evolving. 131K+ LOC. SmartGolf v26, History RPG v18, Piano v14, Boxing v15, Karaoke v14, Violin v13.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -11,83 +11,118 @@
   "shortcuts": [
     {
       "name": "Featured Projects",
-      "url": "./index.html#v12-spotlight",
+      "url": "./index.html#v13-spotlight",
       "description": "View featured project spotlight"
     },
     {
       "name": "Growth Dashboard",
-      "url": "./index.html#v12-growth",
+      "url": "./index.html#v13-growth",
       "description": "View project growth metrics"
     },
     {
       "name": "Activity Heatmap",
-      "url": "./index.html#v12-heatmap",
+      "url": "./index.html#v13-heatmap",
       "description": "View development activity heatmap"
     },
     {
       "name": "Impact Matrix",
-      "url": "./index.html#v12-impact",
+      "url": "./index.html#v13-impact",
       "description": "View feature impact matrix"
     },
     {
       "name": "Skill Certifications",
-      "url": "./index.html#v12-certs",
+      "url": "./index.html#v13-certs",
       "description": "View skill certification board"
     },
     {
       "name": "Code Flow",
-      "url": "./index.html#v12-flow",
+      "url": "./index.html#v13-flow",
       "description": "View code contribution flow"
     },
     {
       "name": "Dev Timeline",
-      "url": "./index.html#v12-timeline",
+      "url": "./index.html#v13-timeline",
       "description": "View development timeline"
     },
     {
       "name": "Dev Streak",
-      "url": "./index.html#v12-streak",
+      "url": "./index.html#v13-streak",
       "description": "View development streak tracker"
     },
     {
       "name": "Achievement Leaderboard",
-      "url": "./index.html#v12-leaderboard",
+      "url": "./index.html#v13-leaderboard",
       "description": "View achievement density leaderboard"
     },
     {
       "name": "Architecture Blueprint",
-      "url": "./index.html#v12-blueprint",
+      "url": "./index.html#v13-blueprint",
       "description": "View architecture blueprint canvas"
     },
     {
       "name": "Contribution Calendar",
-      "url": "./index.html#v12-contrib",
+      "url": "./index.html#v13-contrib",
       "description": "View contribution calendar"
     },
     {
       "name": "Cross-Project Analytics",
-      "url": "./index.html#v12-analytics",
+      "url": "./index.html#v13-analytics",
       "description": "View cross-project analytics"
     },
     {
       "name": "Code Quality Report",
-      "url": "./index.html#v12-quality",
+      "url": "./index.html#v13-quality",
       "description": "View code quality report"
     },
     {
       "name": "AI Collaboration",
-      "url": "./index.html#v12-collab",
+      "url": "./index.html#v13-collab",
       "description": "View AI collaboration canvas"
     },
     {
       "name": "Version Milestone Map",
-      "url": "./index.html#v12-vmap",
+      "url": "./index.html#v13-vmap",
       "description": "View version milestone map"
     },
     {
       "name": "Synergy Map",
-      "url": "./index.html#v12-synergy",
+      "url": "./index.html#v13-synergy",
       "description": "View technology synergy map"
+    },
+    {
+      "name": "Ecosystem Map",
+      "url": "./index.html#v13-ecosystem",
+      "description": "View project ecosystem map"
+    },
+    {
+      "name": "Intensity Heatmap",
+      "url": "./index.html#v13-intensity",
+      "description": "View development intensity heatmap"
+    },
+    {
+      "name": "Feature Complexity Radar",
+      "url": "./index.html#v13-complexity",
+      "description": "View feature complexity radar"
+    },
+    {
+      "name": "Auto-Evolution Timeline",
+      "url": "./index.html#v13-autoevo",
+      "description": "View auto-evolution timeline"
+    },
+    {
+      "name": "Portfolio Impact Score",
+      "url": "./index.html#v13-piscore",
+      "description": "View portfolio impact score"
+    },
+    {
+      "name": "Technology Adoption Wave",
+      "url": "./index.html#v13-adoption",
+      "description": "View technology adoption wave"
+    },
+    {
+      "name": "Achievement Density Scatter",
+      "url": "./index.html#v13-achscatter",
+      "description": "View achievement density scatter"
     }
   ],
   "icons": [
