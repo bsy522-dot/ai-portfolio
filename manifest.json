@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v14.0. 12 repos auto-evolving. 155K+ LOC. SmartGolf v27, History RPG v19, Piano v15, Boxing v16, Karaoke v15, Violin v14.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v15.0. 12 repos auto-evolving. 164K+ LOC. SmartGolf v28, History RPG v20, Piano v16, Boxing v17, Karaoke v16, Violin v15.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -11,83 +11,103 @@
   "shortcuts": [
     {
       "name": "Featured Projects",
-      "url": "./index.html#v14-spotlight",
+      "url": "./index.html#v15-spotlight",
       "description": "View featured project spotlight"
     },
     {
       "name": "Growth Dashboard",
-      "url": "./index.html#v14-growth",
+      "url": "./index.html#v15-growth",
       "description": "View project growth metrics"
     },
     {
       "name": "Activity Heatmap",
-      "url": "./index.html#v14-heatmap",
+      "url": "./index.html#v15-heatmap",
       "description": "View development activity heatmap"
     },
     {
-      "name": "Impact Matrix",
-      "url": "./index.html#v14-impact",
-      "description": "View feature impact matrix"
+      "name": "Project Health",
+      "url": "./index.html#v15-health",
+      "description": "View project health dashboard"
     },
     {
-      "name": "Skill Certifications",
-      "url": "./index.html#v14-certs",
-      "description": "View skill certification board"
+      "name": "Project DNA",
+      "url": "./index.html#v15-dna",
+      "description": "View project DNA fingerprint canvas"
     },
     {
-      "name": "Code Flow",
-      "url": "./index.html#v14-flow",
-      "description": "View code contribution flow"
+      "name": "Tech Radar",
+      "url": "./index.html#v15-techradar",
+      "description": "View technology radar canvas"
     },
     {
-      "name": "Dev Timeline",
-      "url": "./index.html#v14-timeline",
-      "description": "View development timeline"
+      "name": "LOC Evolution",
+      "url": "./index.html#v15-evolution",
+      "description": "View lines of code evolution chart"
+    },
+    {
+      "name": "Complexity Radar",
+      "url": "./index.html#v15-radar",
+      "description": "View complexity radar canvas"
+    },
+    {
+      "name": "Sprint Board",
+      "url": "./index.html#v15-sprint",
+      "description": "View sprint planning board"
+    },
+    {
+      "name": "Achievement Wall",
+      "url": "./index.html#v15-achieve",
+      "description": "View achievement trophy wall"
     },
     {
       "name": "Dev Streak",
-      "url": "./index.html#v14-streak",
+      "url": "./index.html#v15-streak",
       "description": "View development streak tracker"
     },
     {
-      "name": "Achievement Leaderboard",
-      "url": "./index.html#v14-leaderboard",
-      "description": "View achievement density leaderboard"
+      "name": "Changelog",
+      "url": "./index.html#v15-changelog",
+      "description": "View version changelog"
     },
     {
-      "name": "Architecture Blueprint",
-      "url": "./index.html#v14-blueprint",
-      "description": "View architecture blueprint canvas"
+      "name": "Version Velocity",
+      "url": "./index.html#v15-velocity",
+      "description": "View version velocity chart"
     },
     {
-      "name": "Contribution Calendar",
-      "url": "./index.html#v14-contrib",
-      "description": "View contribution calendar"
+      "name": "Dependency Galaxy",
+      "url": "./index.html#v15-galaxy",
+      "description": "View dependency galaxy visualization"
     },
     {
-      "name": "Cross-Project Analytics",
-      "url": "./index.html#v14-analytics",
-      "description": "View cross-project analytics"
+      "name": "Feature Density Treemap",
+      "url": "./index.html#v15-treemap",
+      "description": "View feature density treemap"
     },
     {
-      "name": "Code Quality Report",
-      "url": "./index.html#v14-quality",
-      "description": "View code quality report"
+      "name": "Quiz Leaderboard",
+      "url": "./index.html#v15-quizboard",
+      "description": "View quiz mastery leaderboard"
     },
     {
-      "name": "AI Collaboration",
-      "url": "./index.html#v14-collab",
-      "description": "View AI collaboration canvas"
+      "name": "Version Timeline",
+      "url": "./index.html#v15-vtimeline",
+      "description": "View version timeline"
     },
     {
-      "name": "Version Milestone Map",
-      "url": "./index.html#v14-vmap",
-      "description": "View version milestone map"
+      "name": "Performance Scorecard",
+      "url": "./index.html#v15-perfcard",
+      "description": "View performance scorecard"
     },
     {
-      "name": "Synergy Map",
-      "url": "./index.html#v14-synergy",
-      "description": "View technology synergy map"
+      "name": "Code Quality Gauge",
+      "url": "./index.html#v15-gauge",
+      "description": "View code quality gauge"
+    },
+    {
+      "name": "Tech Synergy Network",
+      "url": "./index.html#v15-synergy",
+      "description": "View technology synergy network"
     }
   ],
   "icons": [
