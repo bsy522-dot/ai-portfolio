@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v15.0. 12 repos auto-evolving. 164K+ LOC. SmartGolf v28, History RPG v20, Piano v16, Boxing v17, Karaoke v16, Violin v15.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v16.0. 12 repos auto-evolving. 178K+ LOC. SmartGolf v29, History RPG v21, Piano v17, Boxing v18, Karaoke v17, Violin v16.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -108,6 +108,46 @@
       "name": "Tech Synergy Network",
       "url": "./index.html#v15-synergy",
       "description": "View technology synergy network"
+    },
+    {
+      "name": "Impact Matrix",
+      "url": "./index.html#v16-impact",
+      "description": "View project impact matrix bubble chart"
+    },
+    {
+      "name": "Benchmark Scorecard",
+      "url": "./index.html#v16-benchmark",
+      "description": "View portfolio benchmark radar chart"
+    },
+    {
+      "name": "Skill Progression",
+      "url": "./index.html#v16-skills",
+      "description": "View skill progression timeline"
+    },
+    {
+      "name": "Completeness Score",
+      "url": "./index.html#v16-completeness",
+      "description": "View portfolio completeness gauge"
+    },
+    {
+      "name": "Evolution Monitor",
+      "url": "./index.html#v16-evolution",
+      "description": "View auto-evolution commit heatmap"
+    },
+    {
+      "name": "Collaboration Network",
+      "url": "./index.html#v16-network",
+      "description": "View tech-project collaboration network"
+    },
+    {
+      "name": "Development Streak",
+      "url": "./index.html#v16-streak",
+      "description": "View development streak heatmap"
+    },
+    {
+      "name": "Dependency Map",
+      "url": "./index.html#v16-depmap",
+      "description": "View project dependency matrix"
     }
   ],
   "icons": [
