@@ -985,3 +985,71 @@
 5. `AUTO_REPORT.md` — v16.0 보고서 추가
 
 **커밋**: `[AUTO] 2026-07-06 ai-portfolio v16.0 - 8신규Canvas(Impact/Benchmark/Skills/Completeness/Evolution/Network/Streak/DepMap) + SFX엔진 + 키보드단축키 + 12프로젝트전면갱신`
+
+---
+
+## [AUTO] 2026-07-09 ai-portfolio v17.0 - 8신규Canvas(Cadence/Sunburst/Maturity/Velocity/CrossTech/Waterfall/QuizCov/Constellation) + SFX12종 + 키보드8종 + 12프로젝트전면갱신
+
+### 1단계: 벤치마킹 분석 (vs Dribbble/Behance)
+
+**현재 상태**: v16.0, 25개 카드, 1420줄 index.html + v16_patch.js(1018줄) + 8 Canvas 섹션
+**벤치마킹 대상**: Dribbble/Behance 상위 개발자 포트폴리오
+
+**열위점 발견 (8개)**:
+1. 릴리스 케이던스 시각화 없음 (프로젝트별 릴리스 빈도 히트맵 부재)
+2. 기술 선버스트 차트 없음 (기술 스택 계층 구조 시각화 부재)
+3. 프로젝트 성숙도 레이더 없음 (성숙도 지표 레이더 차트 부재)
+4. 피처 벨로시티 게이지 없음 (피처 추가 속도 대시보드 부재)
+5. 크로스테크 매트릭스 없음 (기술간 교차 활용 매트릭스 부재)
+6. LOC 워터폴 차트 없음 (코드량 변화 워터폴 시각화 부재)
+7. 퀴즈 커버리지 맵 없음 (프로젝트별 퀴즈 커버리지 시각화 부재)
+8. 업적 별자리 없음 (업적 달성 별자리 시각화 부재)
+
+### 2단계: 개발 (50%)
+
+**v17_patch.js 신규 생성 (~870줄)**:
+- IIFE 패턴, `window._v17` 가드
+- PROJECTS 배열 12개 프로젝트 전면 갱신:
+  - History RPG v21→v22 (23800 LOC), SmartGolf v29→v30 (22200 LOC)
+  - Piano v17→v18 (19500 LOC), Boxing v18→v19 (18200 LOC)
+  - Karaoke v17→v18 (17800 LOC), Violin v16→v17 (17400 LOC)
+  - City Builder v15→v16 (16800 LOC), House Builder v15→v16 (16200 LOC)
+  - Golf Tracker v15→v16 (14400 LOC), Hatcuping v17→v18 (12200 LOC)
+  - CCF v13→v14 (10600 LOC), LevelPlay v13 (19800 LOC, 제외 대상이나 데이터만 유지)
+- TOTAL_LOC: 178000 → 192000
+- TOTAL_SESSIONS: 6500 → 7200
+
+**8개 신규 Canvas 섹션**:
+1. Release Cadence Heatmap (#v17-cadence) — 12프로젝트 x 12개월 릴리스 빈도 히트맵
+2. Tech Sunburst (#v17-sunburst) — 3계층 기술 선버스트 (Category → Tech → Project)
+3. Maturity Radar (#v17-maturity) — 6축 성숙도 레이더 차트 (docs/test/perf/UX/features/maintenance)
+4. Feature Velocity Gauge (#v17-velocity) — 아날로그 게이지 스타일 피처 추가 속도
+5. Cross-Tech Matrix (#v17-crosstech) — 기술간 교차 활용 히트맵 매트릭스
+6. LOC Waterfall (#v17-waterfall) — 프로젝트별 LOC 증감 워터폴 차트
+7. Quiz Coverage Map (#v17-quizcov) — 12프로젝트 퀴즈 커버리지 버블맵
+8. Achievement Constellation (#v17-constellation) — 업적 달성 별자리 시각화
+
+**SFX 엔진**: 12종 (navigate, open, close, complete, error, hover, deploy, build, test, analyze, celebrate, discover)
+**키보드 단축키**: 8종 (Shift+C/U/M/V/T/W/Q/A)
+**기타**: Spotlight 캐러셀 갱신, Health 대시보드 갱신, Streak 히트맵 갱신, Compare 오버레이 갱신
+
+### 3단계: 품질 검증 (30%)
+
+- `node -c js/v17_patch.js` — 문법 오류 없음 (PASS)
+- `node -c sw.js` — 문법 오류 없음 (PASS)
+- `manifest.json` — JSON 파싱 성공 (PASS)
+- 괄호 밸런스: open=1441 close=1441 (PASS)
+- 외부 CDN 참조: 0건 (PASS)
+- 개인정보 노출: 0건 (PASS)
+- 하단 고정 네비바: 0건 (PASS)
+
+### 4단계: 배포
+
+**변경 파일 5개**:
+1. `js/v17_patch.js` — 신규 (~870줄, 8신규 Canvas섹션 + SFX + 키보드단축키)
+2. `index.html` — 메타태그, 8 PRISM카드 버전업, 통계(192K/7200), JSON-LD, script tag 갱신
+3. `sw.js` — 캐시명/에셋/주입체크 v16→v17
+4. `manifest.json` — 설명 v17.0 192K+ LOC, shortcuts 36개 (기존28 + v17 8신규)
+5. `AUTO_REPORT.md` — v17.0 보고서 추가
+
+**커밋**: `[AUTO] 2026-07-09 ai-portfolio v17.0 - 8신규Canvas(Cadence/Sunburst/Maturity/Velocity/CrossTech/Waterfall/QuizCov/Constellation) + SFX12종 + 키보드8종 + 12프로젝트전면갱신`

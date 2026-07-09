@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v16.0. 12 repos auto-evolving. 178K+ LOC. SmartGolf v29, History RPG v21, Piano v17, Boxing v18, Karaoke v17, Violin v16.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v17.0. 12 repos auto-evolving. 192K+ LOC. SmartGolf v30, History RPG v22, Piano v18, Boxing v19, Karaoke v18, Violin v17.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -148,6 +148,46 @@
       "name": "Dependency Map",
       "url": "./index.html#v16-depmap",
       "description": "View project dependency matrix"
+    },
+    {
+      "name": "Release Cadence",
+      "url": "./index.html#v17-cadence",
+      "description": "View release cadence heatmap"
+    },
+    {
+      "name": "Tech Sunburst",
+      "url": "./index.html#v17-sunburst",
+      "description": "View technology sunburst chart"
+    },
+    {
+      "name": "Maturity Radar",
+      "url": "./index.html#v17-maturity",
+      "description": "View project maturity radar"
+    },
+    {
+      "name": "Feature Velocity",
+      "url": "./index.html#v17-velocity",
+      "description": "View feature velocity gauge"
+    },
+    {
+      "name": "Cross-Tech Matrix",
+      "url": "./index.html#v17-crosstech",
+      "description": "View cross-technology adoption matrix"
+    },
+    {
+      "name": "LOC Waterfall",
+      "url": "./index.html#v17-waterfall",
+      "description": "View LOC waterfall chart"
+    },
+    {
+      "name": "Quiz Coverage",
+      "url": "./index.html#v17-quizcov",
+      "description": "View quiz coverage map"
+    },
+    {
+      "name": "Achievement Constellation",
+      "url": "./index.html#v17-constellation",
+      "description": "View achievement constellation"
     }
   ],
   "icons": [
