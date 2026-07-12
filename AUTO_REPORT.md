@@ -1053,3 +1053,80 @@
 5. `AUTO_REPORT.md` — v17.0 보고서 추가
 
 **커밋**: `[AUTO] 2026-07-09 ai-portfolio v17.0 - 8신규Canvas(Cadence/Sunburst/Maturity/Velocity/CrossTech/Waterfall/QuizCov/Constellation) + SFX12종 + 키보드8종 + 12프로젝트전면갱신`
+
+---
+
+## [AUTO] 2026-07-12 ai-portfolio v18.0 - ProjectGrowthTrajectory+TechStackDepthAnalyzer+CodeComplexityHeatmap+EcosystemFlow+UpdateRhythmAnalyzer+MasteryDashboard+TechROI+PortfolioScorecard 8신규Canvas + 12프로젝트전면갱신 + SFX12종 + 키보드8종
+
+### 1단계: 벤치마킹 분석 (vs Dribbble/Behance)
+
+**현재 상태**: v17.0, 1420줄 index.html + v17_patch.js(1228줄), 12 PRISM 프로젝트
+**벤치마킹 대상**: Dribbble/Behance 상위 개발자 포트폴리오
+
+**열위점 발견 (8개)**:
+1. 프로젝트 성장률 트렌드 시각화 부재 → Growth Trajectory 추가
+2. 기술 스택 깊이 분석 부재 → Tech Stack Depth Analyzer 추가
+3. 코드 복잡도 히트맵 부재 → Code Complexity Heatmap 추가
+4. 프로젝트 간 기술 공유 흐름 부재 → Ecosystem Flow 추가
+5. 업데이트 빈도 리듬 분석 부재 → Update Rhythm Analyzer 추가
+6. 업적/퀴즈 종합 달성률 대시보드 부재 → Mastery Dashboard 추가
+7. 기술 투자 대비 성과 분석 부재 → Tech ROI Calculator 추가
+8. 종합 스코어카드 PNG 다운로드 부재 → Portfolio Scorecard 추가
+
+### 2단계: 개발 (전체 팀 투입)
+
+**v18_patch.js 신규 생성** (~560줄, IIFE 자기완결형 패치 모듈)
+
+**8 Canvas 시각화**:
+1. Project Growth Trajectory: 12프로젝트 LOC 성장 곡선 라인차트 Canvas 620x380
+2. Tech Stack Depth Analyzer: 10핵심기술 사용 깊이 + 프로젝트 개수 수평바 Canvas 600x360
+3. Code Complexity Heatmap: 12프로젝트 x 6복잡도지표 히트맵 Canvas 620x400
+4. Project Ecosystem Flow: 6기술 → 8프로젝트 Sankey-style 베지어 플로우 Canvas 600x380
+5. Update Rhythm Analyzer: 30일 원형 업데이트 빈도 패턴 Canvas 580x380
+6. Achievement Mastery Dashboard: 4분야 아크게이지 + 8프로젝트 마스터리바 Canvas 600x440
+7. Tech ROI Calculator: 세션투자 vs 기능산출 버블차트 Canvas 600x380
+8. Portfolio Scorecard: 6메트릭 스코어카드 + PNG 다운로드 Canvas 600x420
+
+**프로젝트 데이터 전면 갱신** (12프로젝트 최신 버전 반영):
+- History RPG: v22→v23 (25,400 LOC, 240 quiz, 168 achievements)
+- SmartGolf: v30→v31 (23,800 LOC, 212 quiz, 214 achievements)
+- Piano: v18→v19 (21,000 LOC, 150 quiz, 168 achievements)
+- Boxing: v19→v20 (19,800 LOC, 180 quiz, 166 achievements)
+- Karaoke: v18→v19 (19,200 LOC, 192 quiz, 162 achievements)
+- Violin: v17→v18 (18,800 LOC, 135 quiz, 166 achievements)
+- City Builder: v16→v17 (18,200 LOC, 205 quiz, 182 achievements)
+- House Builder: v16→v17 (17,600 LOC, 195 quiz, 182 achievements)
+- Golf Tracker: v16→v17 (15,800 LOC, 150 quiz, 120 achievements)
+- Hatcuping: v18→v19 (13,600 LOC, 165 quiz, 166 achievements)
+- CCF: v14→v15 (11,800 LOC, 160 quiz, 148 achievements)
+- TOTAL_LOC: 192K→210K, TOTAL_SESSIONS: 7200→7800
+
+**부가기능**:
+- SFX 12종 Web Audio API (nav/section/tab/compare/toast/growth/depth/heatmap/ecosystem/rhythm/mastery/roi/scorecard)
+- 키보드 Shift+G/T/H/E/R/M/I/S (8개 섹션 바로가기)
+- KPI 행 (6지표 실시간 오버뷰)
+- 스크롤 프로그레스 링
+- 프로젝트 비교 오버레이
+- 방문 카운터
+- Featured Updates 스포트라이트 캐러셀
+- 토스트 알림 시스템
+
+**지원파일 갱신**:
+- index.html: SEO 메타태그 v18.0 전면 갱신 (title/desc/keywords/OG/Twitter/JSON-LD), 9개 PRISM카드 버전+설명 갱신, v18스크립트태그
+- sw.js: 캐시 v17→v18 (ai-portfolio-v18), v18_patch.js ASSETS, v18 주입체크
+- manifest.json: v18.0 설명, shortcuts 8종 추가 (총44종)
+
+### 3단계: 품질 검증
+
+- **JS 구문**: node -c PASS (v18_patch.js, sw.js 모두 통과)
+- **JSON 유효성**: manifest.json VALID
+- **괄호 균형**: v18_patch.js (654/654)/(72/72)/(236/236) ALL BALANCED
+- **괄호 균형**: index.html (802/802)/(71/71)/(458/458) ALL BALANCED
+- **CDN 참조**: 0건 (Three.js/Tone.js/Leaflet 허용 외 없음)
+- **개인정보**: 0건 (Phone 키워드는 프로젝트 설명 텍스트, 실제 개인정보 아님)
+- **하단 고정 네비바**: 미생성 (UI 불가침 규칙 준수)
+
+### 4단계: 커밋 요약
+
+v18.0: 8신규 Canvas 시각화 + 12프로젝트 최신 데이터 갱신 + SFX 12종 + 키보드 8종 + KPI 대시보드 + 비교 오버레이 + 스코어카드 PNG + 스포트라이트
+

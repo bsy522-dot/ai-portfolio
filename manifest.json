@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v17.0. 12 repos auto-evolving. 192K+ LOC. SmartGolf v30, History RPG v22, Piano v18, Boxing v19, Karaoke v18, Violin v17.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v18.0. 12 repos auto-evolving. 210K+ LOC. SmartGolf v31, History RPG v23, Piano v19, Boxing v20, Karaoke v19, Violin v18.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -188,6 +188,46 @@
       "name": "Achievement Constellation",
       "url": "./index.html#v17-constellation",
       "description": "View achievement constellation"
+    },
+    {
+      "name": "Growth Trajectory",
+      "url": "./index.html#v18-growth",
+      "description": "View project growth trajectory chart"
+    },
+    {
+      "name": "Tech Depth",
+      "url": "./index.html#v18-depth",
+      "description": "View tech stack depth analyzer"
+    },
+    {
+      "name": "Complexity Heatmap",
+      "url": "./index.html#v18-heatmap",
+      "description": "View code complexity heatmap"
+    },
+    {
+      "name": "Ecosystem Flow",
+      "url": "./index.html#v18-ecosystem",
+      "description": "View project ecosystem flow"
+    },
+    {
+      "name": "Update Rhythm",
+      "url": "./index.html#v18-rhythm",
+      "description": "View update rhythm analyzer"
+    },
+    {
+      "name": "Mastery Dashboard",
+      "url": "./index.html#v18-mastery",
+      "description": "View achievement mastery dashboard"
+    },
+    {
+      "name": "Tech ROI",
+      "url": "./index.html#v18-roi",
+      "description": "View tech ROI calculator"
+    },
+    {
+      "name": "Portfolio Scorecard",
+      "url": "./index.html#v18-scorecard",
+      "description": "View and download portfolio scorecard"
     }
   ],
   "icons": [
