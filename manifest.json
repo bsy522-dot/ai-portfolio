@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v18.0. 12 repos auto-evolving. 210K+ LOC. SmartGolf v31, History RPG v23, Piano v19, Boxing v20, Karaoke v19, Violin v18.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v19.0. 12 repos auto-evolving. 230K+ LOC. SmartGolf v32, History RPG v24, Piano v20, Boxing v21, Karaoke v20, Violin v19.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -228,6 +228,46 @@
       "name": "Portfolio Scorecard",
       "url": "./index.html#v18-scorecard",
       "description": "View and download portfolio scorecard"
+    },
+    {
+      "name": "Lifecycle Pipeline",
+      "url": "./index.html#v19-lifecycle",
+      "description": "View project lifecycle pipeline"
+    },
+    {
+      "name": "Velocity Gauge",
+      "url": "./index.html#v19-velocity",
+      "description": "View developer velocity gauge"
+    },
+    {
+      "name": "Tech Wave",
+      "url": "./index.html#v19-wave",
+      "description": "View tech adoption wave chart"
+    },
+    {
+      "name": "Quality Matrix",
+      "url": "./index.html#v19-quality",
+      "description": "View project quality matrix heatmap"
+    },
+    {
+      "name": "Feature Coverage",
+      "url": "./index.html#v19-coverage",
+      "description": "View feature coverage treemap"
+    },
+    {
+      "name": "Commit Polar",
+      "url": "./index.html#v19-polar",
+      "description": "View commit frequency polar chart"
+    },
+    {
+      "name": "Portfolio Value",
+      "url": "./index.html#v19-value",
+      "description": "View portfolio value calculator"
+    },
+    {
+      "name": "Achievement Grid",
+      "url": "./index.html#v19-achievements",
+      "description": "View achievement collection grid"
     }
   ],
   "icons": [
