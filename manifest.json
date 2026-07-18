@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v19.0. 12 repos auto-evolving. 230K+ LOC. SmartGolf v32, History RPG v24, Piano v20, Boxing v21, Karaoke v20, Violin v19.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v20.0. 12 repos auto-evolving. 250K+ LOC. SmartGolf v33, History RPG v25, Piano v21, Boxing v22, Karaoke v21, Violin v20.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -268,6 +268,46 @@
       "name": "Achievement Grid",
       "url": "./index.html#v19-achievements",
       "description": "View achievement collection grid"
+    },
+    {
+      "name": "Tech Dependency Graph",
+      "url": "./index.html#v20-dependency",
+      "description": "View tech dependency network graph"
+    },
+    {
+      "name": "Code Health",
+      "url": "./index.html#v20-health",
+      "description": "View 6-axis code health dashboard"
+    },
+    {
+      "name": "Innovation Bubble",
+      "url": "./index.html#v20-innovation",
+      "description": "View innovation index bubble chart"
+    },
+    {
+      "name": "Contribution Heatmap",
+      "url": "./index.html#v20-heatmap",
+      "description": "View 30-day contribution heatmap"
+    },
+    {
+      "name": "Benchmark Gauge",
+      "url": "./index.html#v20-benchmark",
+      "description": "View performance benchmark gauge"
+    },
+    {
+      "name": "Tech Diversity",
+      "url": "./index.html#v20-diversity",
+      "description": "View tech diversity sunburst"
+    },
+    {
+      "name": "Impact Matrix",
+      "url": "./index.html#v20-impact",
+      "description": "View project impact matrix"
+    },
+    {
+      "name": "Evolution Timeline",
+      "url": "./index.html#v20-evolution",
+      "description": "View version evolution timeline"
     }
   ],
   "icons": [

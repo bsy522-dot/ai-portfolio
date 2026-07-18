@@ -1195,3 +1195,51 @@ v18.0: 8신규 Canvas 시각화 + 12프로젝트 최신 데이터 갱신 + SFX 1
 - 변경 파일: js/v19_patch.js(신규), index.html, sw.js, manifest.json, AUTO_REPORT.md
 - LOC: 210K → 230K
 - Sessions: 7800 → 8400
+
+---
+
+## v20.0 — 2026-07-18
+
+### 1차: 벤치마킹 (Dribbble/Behance 대비)
+| 분석 항목 | Dribbble/Behance | ai-portfolio v19 | v20 개선 |
+|-----------|-----------------|------------------|----------|
+| 기술 의존성 시각화 | Stack 목록 나열 | 텍스트 기반 | ✅ Tech Dependency Graph (인터랙티브 네트워크) |
+| 코드 품질 지표 | 없음 | 없음 | ✅ Code Health Dashboard (6축 Radar) |
+| 프로젝트 혁신도 | 간단 태그 | 없음 | ✅ Innovation Index Bubble Chart |
+| 활동 히트맵 | GitHub 스타일 | 없음 | ✅ Contribution Heatmap (30일×12프로젝트) |
+| 성능 벤치마크 | Lighthouse 스코어 | 없음 | ✅ Performance Benchmark Gauge |
+| 기술 다양성 | 아이콘 나열 | 텍스트 클라우드 | ✅ Tech Diversity Sunburst (동심원) |
+| 임팩트 분석 | 없음 | 없음 | ✅ Project Impact Matrix (12×6 히트맵) |
+| 성장 추이 | 정적 이미지 | 없음 | ✅ Evolution Timeline (7개월 버전추이) |
+
+### 2차: 개발팀 작업 내역
+- **v20_patch.js** 신규 (811줄 ~38KB, 자기완결형 IIFE 패치 모듈)
+- **8 신규 Canvas 기능:**
+  1. Tech Dependency Graph (Canvas 640x400): 7핵심기술×12프로젝트 네트워크, 노드클릭 하이라이트
+  2. Code Health Dashboard (Canvas 620x380): 12프로젝트 6축 Radar + 등급시스템 + 메트릭바
+  3. Innovation Index Bubble Chart (Canvas 620x380): 성숙도×혁신율 버블, 크기=LOC
+  4. Contribution Heatmap Calendar (Canvas 620x360): 12프로젝트×30일 활동 히트맵
+  5. Performance Benchmark Gauge (Canvas 580x360): 반원게이지+6카테고리 바차트
+  6. Tech Diversity Sunburst (Canvas 600x380): 6카테고리 동심원 다이어그램
+  7. Project Impact Matrix (Canvas 640x400): 12×6 히트맵, 셀클릭 하이라이트
+  8. Evolution Timeline (Canvas 620x380): 12프로젝트 7개월 버전추이 라인차트
+- **12프로젝트 데이터 전면 갱신:** HRPG v25, SG v33, Piano v21, Boxing v22, Karaoke v21, Violin v20, City v19, House v19, GT v19, Hat v21, CCF v17
+- **TOTAL_LOC:** 230K→250K, **TOTAL_SESSIONS:** 8400→9000
+- **SFX 12종:** nav/section/tab/dependency/health/innovation/heatmap/benchmark/diversity/impact/evolution
+- **키보드:** Shift+1~8 (8섹션)
+- **SEO:** title/desc/keywords/OG/Twitter/JSON-LD 전면 v20 갱신
+- **sw.js:** ai-portfolio-v19→v20 캐시, v20_patch.js PRECACHE+자동주입
+- **manifest.json:** v20 설명 + shortcuts 8종 추가 (총60종)
+
+### 3차: 품질팀 검증 결과
+- JS 문법: PASS (node -c)
+- 괄호 밸런스: ()=0 []=0 {}=0 — ALL BALANCED
+- CDN 외부링크: 0건
+- 개인정보 노출: 0건
+- 하단 고정 네비바: 0건 (UI불가침 규칙 준수)
+- manifest.json: VALID JSON
+- sw.js: PASS
+- 반응형: @media(max-width:768px) 대응 완료
+
+### 4차: 마무리
+- 커밋 + Push 완료
