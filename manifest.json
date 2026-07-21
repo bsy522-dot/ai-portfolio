@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v20.0. 12 repos auto-evolving. 250K+ LOC. SmartGolf v33, History RPG v25, Piano v21, Boxing v22, Karaoke v21, Violin v20.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v21.0. 12 repos auto-evolving. 270K+ LOC. SmartGolf v34, History RPG v26, Piano v22, Boxing v23, Karaoke v22, Violin v21.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -308,6 +308,46 @@
       "name": "Evolution Timeline",
       "url": "./index.html#v20-evolution",
       "description": "View version evolution timeline"
+    },
+    {
+      "name": "Correlation Matrix",
+      "url": "./index.html#v21-correlation",
+      "description": "View cross-project metric correlation matrix"
+    },
+    {
+      "name": "Skill Radar",
+      "url": "./index.html#v21-skillradar",
+      "description": "View skill radar evolution over 7 months"
+    },
+    {
+      "name": "Health Monitor",
+      "url": "./index.html#v21-health",
+      "description": "View portfolio health monitor dashboard"
+    },
+    {
+      "name": "Synergy Network",
+      "url": "./index.html#v21-synergy",
+      "description": "View tech synergy network graph"
+    },
+    {
+      "name": "Momentum Gauge",
+      "url": "./index.html#v21-momentum",
+      "description": "View version momentum speedometer"
+    },
+    {
+      "name": "Feature Density",
+      "url": "./index.html#v21-density",
+      "description": "View feature density heatmap"
+    },
+    {
+      "name": "Achievement Timeline",
+      "url": "./index.html#v21-timeline",
+      "description": "View achievement unlock timeline"
+    },
+    {
+      "name": "Completeness Wheel",
+      "url": "./index.html#v21-wheel",
+      "description": "View portfolio completeness wheel"
     }
   ],
   "icons": [
