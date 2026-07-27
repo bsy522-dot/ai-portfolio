@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v22.0. 12 repos auto-evolving. 290K+ LOC. SmartGolf v35, History RPG v27, Piano v23, Boxing v24, Karaoke v23, Violin v22.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v23.0. 12 repos auto-evolving. 310K+ LOC. SmartGolf v36, History RPG v28, Piano v24, Boxing v25, Karaoke v24, Violin v23.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -388,6 +388,46 @@
       "name": "Effort Distribution",
       "url": "./index.html#v22-effort",
       "description": "View developer effort distribution"
+    },
+    {
+      "name": "Maintainability Spectrum",
+      "url": "./index.html#v23-maintain",
+      "description": "View code maintainability spectrum"
+    },
+    {
+      "name": "Tech Debt Radar",
+      "url": "./index.html#v23-techdebt",
+      "description": "View tech debt radar chart"
+    },
+    {
+      "name": "Release Impact Heatmap",
+      "url": "./index.html#v23-impact",
+      "description": "View release impact heatmap"
+    },
+    {
+      "name": "Productivity Dashboard",
+      "url": "./index.html#v23-productivity",
+      "description": "View productivity dashboard"
+    },
+    {
+      "name": "Interconnection Web",
+      "url": "./index.html#v23-interconnect",
+      "description": "View project interconnection web"
+    },
+    {
+      "name": "Performance Budget Tracker",
+      "url": "./index.html#v23-perfbudget",
+      "description": "View performance budget tracker"
+    },
+    {
+      "name": "Maturity Assessment",
+      "url": "./index.html#v23-maturity",
+      "description": "View project maturity assessment"
+    },
+    {
+      "name": "Engagement Funnel",
+      "url": "./index.html#v23-engagement",
+      "description": "View engagement funnel chart"
     }
   ],
   "icons": [
