@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v23.0. 12 repos auto-evolving. 310K+ LOC. SmartGolf v36, History RPG v28, Piano v24, Boxing v25, Karaoke v24, Violin v23.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v24.0. 12 repos auto-evolving. 330K+ LOC. SmartGolf v37, History RPG v29, Piano v25, Boxing v26, Karaoke v25, Violin v24.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -428,6 +428,46 @@
       "name": "Engagement Funnel",
       "url": "./index.html#v23-engagement",
       "description": "View engagement funnel chart"
+    },
+    {
+      "name": "Feature Velocity",
+      "url": "./index.html#v24-velocity",
+      "description": "View feature velocity timeline"
+    },
+    {
+      "name": "Code Quality Radar",
+      "url": "./index.html#v24-quality",
+      "description": "View code quality radar chart"
+    },
+    {
+      "name": "Progress Tracker",
+      "url": "./index.html#v24-burndown",
+      "description": "View development progress tracker"
+    },
+    {
+      "name": "Innovation Index",
+      "url": "./index.html#v24-innovation",
+      "description": "View innovation index bubble chart"
+    },
+    {
+      "name": "Tech Ecosystem",
+      "url": "./index.html#v24-ecosystem",
+      "description": "View tech ecosystem sunburst"
+    },
+    {
+      "name": "Benchmark Matrix",
+      "url": "./index.html#v24-benchmark",
+      "description": "View competitive benchmark matrix"
+    },
+    {
+      "name": "Version Roadmap",
+      "url": "./index.html#v24-roadmap",
+      "description": "View version roadmap timeline"
+    },
+    {
+      "name": "Contribution Heatmap",
+      "url": "./index.html#v24-contrib",
+      "description": "View contribution heatmap"
     }
   ],
   "icons": [
