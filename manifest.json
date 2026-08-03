@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v24.0. 12 repos auto-evolving. 330K+ LOC. SmartGolf v37, History RPG v29, Piano v25, Boxing v26, Karaoke v25, Violin v24.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v25.0. 12 repos auto-evolving. 350K+ LOC. SmartGolf v38, History RPG v30, Piano v26, Boxing v27, Karaoke v26, Violin v25.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -468,6 +468,46 @@
       "name": "Contribution Heatmap",
       "url": "./index.html#v24-contrib",
       "description": "View contribution heatmap"
+    },
+    {
+      "name": "Impact Scorecard",
+      "url": "./index.html#v25-impact",
+      "description": "View project impact scorecard"
+    },
+    {
+      "name": "Dev Velocity Heatmap",
+      "url": "./index.html#v25-devheat",
+      "description": "View development velocity heatmap"
+    },
+    {
+      "name": "Skill Mastery Sunburst",
+      "url": "./index.html#v25-skillsun",
+      "description": "View skill mastery sunburst chart"
+    },
+    {
+      "name": "Interconnection Chord",
+      "url": "./index.html#v25-chord",
+      "description": "View project interconnection chord diagram"
+    },
+    {
+      "name": "UX Journey Funnel",
+      "url": "./index.html#v25-journey",
+      "description": "View user experience journey funnel"
+    },
+    {
+      "name": "Performance Lighthouse",
+      "url": "./index.html#v25-lighthouse",
+      "description": "View performance lighthouse audit"
+    },
+    {
+      "name": "Complexity Treemap",
+      "url": "./index.html#v25-treemap",
+      "description": "View code complexity treemap"
+    },
+    {
+      "name": "Portfolio Dashboard",
+      "url": "./index.html#v25-summary",
+      "description": "View portfolio summary dashboard"
     }
   ],
   "icons": [
