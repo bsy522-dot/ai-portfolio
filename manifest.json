@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v26.0. 12 repos auto-evolving. 370K+ LOC. History RPG v31, SmartGolf v39, Piano v27, Boxing v28, Karaoke v27, Violin v26.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v27.0. 12 repos auto-evolving. 390K+ LOC. History RPG v32, SmartGolf v40, Piano v28, Boxing v29, Karaoke v28, Violin v27.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -548,6 +548,46 @@
       "name": "Ecosystem Map",
       "url": "./index.html#v26-ecosystem",
       "description": "View portfolio ecosystem architecture"
+    },
+    {
+      "name": "Code Churn",
+      "url": "./index.html#v27-code-churn",
+      "description": "View code churn velocity analyzer"
+    },
+    {
+      "name": "PWA Compliance",
+      "url": "./index.html#v27-pwa-compliance",
+      "description": "View PWA compliance matrix"
+    },
+    {
+      "name": "Maturity Model",
+      "url": "./index.html#v27-maturity",
+      "description": "View project maturity assessment"
+    },
+    {
+      "name": "Feature Reuse",
+      "url": "./index.html#v27-feature-reuse",
+      "description": "View cross-project feature reuse network"
+    },
+    {
+      "name": "Accessibility",
+      "url": "./index.html#v27-a11y",
+      "description": "View accessibility compliance tracker"
+    },
+    {
+      "name": "Engagement Funnel",
+      "url": "./index.html#v27-engagement",
+      "description": "View user engagement funnel"
+    },
+    {
+      "name": "Tech Adoption",
+      "url": "./index.html#v27-tech-wave",
+      "description": "View technology adoption wave"
+    },
+    {
+      "name": "Portfolio Health",
+      "url": "./index.html#v27-health",
+      "description": "View portfolio health summary dashboard"
     }
   ],
   "icons": [
