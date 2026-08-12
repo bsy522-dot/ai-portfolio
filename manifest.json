@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v27.0. 12 repos auto-evolving. 390K+ LOC. History RPG v32, SmartGolf v40, Piano v28, Boxing v29, Karaoke v28, Violin v27.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v28.0. 12 repos auto-evolving. 410K+ LOC. History RPG v33, SmartGolf v41, Boxing v30, Piano v29, Karaoke v29, Hatcuping v29, Violin v28.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -588,6 +588,46 @@
       "name": "Portfolio Health",
       "url": "./index.html#v27-health",
       "description": "View portfolio health summary dashboard"
+    },
+    {
+      "name": "Release Cadence",
+      "url": "./index.html#v28-cadence",
+      "description": "View release cadence rhythm analyzer"
+    },
+    {
+      "name": "API Patterns",
+      "url": "./index.html#v28-apipattern",
+      "description": "View cross-project API pattern detector"
+    },
+    {
+      "name": "Growth Trajectory",
+      "url": "./index.html#v28-trajectory",
+      "description": "View codebase growth trajectory predictor"
+    },
+    {
+      "name": "DX Scorecard",
+      "url": "./index.html#v28-dxscore",
+      "description": "View developer experience scorecard"
+    },
+    {
+      "name": "Innovation Index",
+      "url": "./index.html#v28-innovation",
+      "description": "View innovation index bubble chart"
+    },
+    {
+      "name": "Tech Risk Map",
+      "url": "./index.html#v28-techrisk",
+      "description": "View technical risk heatmap"
+    },
+    {
+      "name": "Synergy Network",
+      "url": "./index.html#v28-synergy",
+      "description": "View project synergy network graph"
+    },
+    {
+      "name": "ROI Dashboard",
+      "url": "./index.html#v28-roidash",
+      "description": "View portfolio ROI dashboard"
     }
   ],
   "icons": [
