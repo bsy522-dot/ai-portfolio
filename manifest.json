@@ -1,7 +1,7 @@
 {
   "name": "AI-Augmented Developer Portfolio",
   "short_name": "AI Portfolio",
-  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v28.0. 12 repos auto-evolving. 410K+ LOC. History RPG v33, SmartGolf v41, Boxing v30, Piano v29, Karaoke v29, Hatcuping v29, Violin v28.",
+  "description": "25+ Projects Built Through Human-AI Collaboration - NEXTERA + PRISM v29.0. 12 repos auto-evolving. 430K+ LOC. History RPG v34, SmartGolf v42, Boxing v31, Piano v30, Karaoke v30, Hatcuping v30, Violin v29, City v28, House v28, Golf Tracker v28, CCF v26.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a1a",
@@ -628,6 +628,46 @@
       "name": "ROI Dashboard",
       "url": "./index.html#v28-roidash",
       "description": "View portfolio ROI dashboard"
+    },
+    {
+      "name": "Build Pipeline",
+      "url": "./index.html#v29-pipeline",
+      "description": "View build pipeline efficiency analyzer"
+    },
+    {
+      "name": "Code Reuse",
+      "url": "./index.html#v29-reuse",
+      "description": "View cross-project code reuse tracker"
+    },
+    {
+      "name": "Feature Velocity",
+      "url": "./index.html#v29-velocity",
+      "description": "View feature velocity burndown chart"
+    },
+    {
+      "name": "Architecture Treemap",
+      "url": "./index.html#v29-treemap",
+      "description": "View architecture complexity treemap"
+    },
+    {
+      "name": "Retention Curves",
+      "url": "./index.html#v29-retention",
+      "description": "View user engagement retention curves"
+    },
+    {
+      "name": "A11y Matrix",
+      "url": "./index.html#v29-a11y",
+      "description": "View accessibility maturity matrix"
+    },
+    {
+      "name": "Perf Budget",
+      "url": "./index.html#v29-perfbudget",
+      "description": "View performance budget tracker"
+    },
+    {
+      "name": "Evolution Dashboard",
+      "url": "./index.html#v29-evolution",
+      "description": "View portfolio evolution dashboard"
     }
   ],
   "icons": [
