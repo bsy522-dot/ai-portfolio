@@ -369,6 +369,7 @@ footer .footer-social{display:flex;gap:1rem;justify-content:center;margin:1.5rem
 footer .footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:1.1rem;transition:all .3s}
 footer .footer-social a:hover{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.08);transform:translateY(-2px);text-decoration:none}
 </style>
+<script src="hub-back.js"></script>
 </head>
 <body>
 
@@ -1390,5 +1391,31 @@ document.head.appendChild(ld);
 <script src="js/v27_patch.js"></script>
 <script src="js/v28_patch.js"></script>
 <script src="js/v29_patch.js"></script>
+<script>
+/* 폰 뒤로가기(◁) 한 단계 되돌리기 — hub-back 배선 (2026-09-14)
+   전체화면 모달 2개(상세·게임)를 배선한다. 열림 판정은 show 클래스. */
+(function(){
+  if(!window.HubBack || !window.MutationObserver) return;
+  var W = [["detailModal", "closeDetail"], ["gameModal", "closeGame"]];
+  for(var k = 0; k < W.length; k++) wire(W[k][0], W[k][1]);
+  function wire(id, fn){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var tok = null;
+    function close(){
+      tok = null;
+      if(typeof window[fn] === "function") window[fn]();
+      else { el.classList.remove("show"); document.body.style.overflow = ""; }
+    }
+    function sync(){
+      var open = el.classList.contains("show");
+      if(open && !tok){ tok = HubBack.push(id, close); }
+      else if(!open && tok){ var t = tok; tok = null; HubBack.pop(t); }
+    }
+    new MutationObserver(sync).observe(el, {attributes: true, attributeFilter: ["class"]});
+    sync();
+  }
+})();
+</script>
 </body>
 </html>

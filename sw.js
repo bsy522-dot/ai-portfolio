@@ -1,5 +1,5 @@
-const CACHE='ai-portfolio-v29';
-const ASSETS=['./index.html','./manifest.json','./og-image.svg','./js/v27_patch.js','./js/v28_patch.js','./js/v29_patch.js'];
+const CACHE='ai-portfolio-v29b';
+const ASSETS=['./index.html','./hub-back.js','./manifest.json','./og-image.svg','./js/v27_patch.js','./js/v28_patch.js','./js/v29_patch.js'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',e=>{
