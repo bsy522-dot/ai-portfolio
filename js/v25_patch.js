@@ -883,7 +883,8 @@
           acc += list[i].loc;
           if (acc >= half) { splitIdx = i; break; }
         }
-        if (splitIdx === 0) splitIdx = 1;
+        // Keep both partitions non-empty so every recursive call shrinks.
+        splitIdx = Math.min(splitIdx, list.length - 2);
         var left = list.slice(0, splitIdx + 1);
         var right = list.slice(splitIdx + 1);
         var leftVal = 0;
