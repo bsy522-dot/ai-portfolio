@@ -370,6 +370,42 @@ footer .footer-social a{width:40px;height:40px;border-radius:50%;border:1px soli
 footer .footer-social a:hover{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.08);transform:translateY(-2px);text-decoration:none}
 </style>
 <script src="hub-back.js"></script>
+<style id="apm-mobile-20260924">
+/* 폰 화면 수선 (2026-09-24, 412px·글자 1.7배) — 760px 이하에서만, PC 무변경 */
+@media (max-width:760px){
+body{word-break:keep-all;overflow-wrap:anywhere}
+/* 버전 알림(토스트) 13개가 첫 화면·핵심 버튼을 가림 → 폰에서는 띄우지 않음 */
+.v17-toast-wrap,.v18-toast-wrap,body>div[style*="z-index: 9990"],body>div[style*="z-index: 10002"]{display:none!important}
+/* 같은 자리에 겹친 스크롤 고리 2개·아래 화살표가 글자를 덮음 → 숨기고 '맨 위로'만 가장자리에 */
+.v17-scroll-ring,.v18-scroll-ring,.scroll-hint{display:none!important}
+#backToTop{bottom:12px;right:10px;width:44px;height:44px}
+/* 제목: 'AI-' 가 혼자 떨어지지 않게 한 덩어리 */
+.hero h1{font-size:1.6rem;line-height:1.2}
+.hero h1 span{white-space:nowrap}
+/* 숫자 칸: 3열에서 잘림 → 2열 */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;padding:1.5rem 1rem}
+.stat{min-width:0;padding:.9rem .5rem}
+.stat-num{font-size:1.3rem;white-space:nowrap}
+.stat-label{letter-spacing:.5px}
+/* 나타나기 효과가 전체 캡처·빠른 스크롤에서 빈 화면을 만듦 → 폰에서는 바로 보이게 */
+.section-reveal,.grid .card{opacity:1!important;transform:none!important;transition:none!important}
+/* 화면 밖으로 삐져나가는 장식(흐린 빛) 줄이기 */
+.hero-mesh .blob{max-width:70vw;max-height:70vw}
+.v18-spotlight-glow{display:none!important}
+/* ☰ 메뉴: 뒤 글자가 비쳐 겹쳐 보임 → 불투명 바탕, 누름 영역 44px */
+.nav-links{background:var(--bg)}
+.hamburger{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.v17-compare-close{min-width:44px;min-height:44px}
+/* 분석 그림 90여 개 구역을 하나로 접기(아래 스크립트가 옮겨 담음) */
+.apm-fold{position:relative;z-index:2;margin:0 1rem 2.5rem;border:1px solid rgba(99,102,241,.25);border-radius:var(--radius-sm);background:var(--card)}
+.apm-fold-btn{display:flex;align-items:center;justify-content:space-between;gap:.75rem;width:100%;min-height:52px;padding:.9rem 1rem;background:none;border:0;color:var(--text);font:inherit;font-weight:700;text-align:left;cursor:pointer}
+.apm-fold-btn small{display:block;margin-top:.15rem;font-weight:400;font-size:.8rem;color:var(--text3)}
+.apm-fold-chev{flex:0 0 auto;color:var(--accent);transition:transform .2s}
+.apm-fold.open .apm-fold-chev{transform:rotate(180deg)}
+.apm-fold-body{height:0;overflow:hidden}
+.apm-fold.open .apm-fold-body{height:auto;overflow:visible}
+}
+</style>
 </head>
 <body>
 
@@ -1415,6 +1451,50 @@ document.head.appendChild(ld);
     new MutationObserver(sync).observe(el, {attributes: true, attributeFilter: ["class"]});
     sync();
   }
+})();
+</script>
+<script id="apm-mobile-20260924-js">
+/* 폰 화면 수선 (2026-09-24) — 760px 이하에서만. 자동 생성기가 붙인 v17~v29 분석 구역을
+   프로젝트 목록 바로 뒤 '접기 상자' 하나로 모은다(내용·기능은 그대로, 누르면 펼침). */
+(function(){
+if(!window.matchMedia||!window.matchMedia('(max-width: 760px)').matches)return;
+var RX_ID=/^v\d+-/,RX_CLS=/(^|\s)v\d+-sections?(\s|$)/,SKIP=/overlay|toast|ring|modal|banner|compare|tooltip|popup/i;
+function pick(){
+return Array.prototype.filter.call(document.body.children,function(e){
+if(e.id==='apm-fold'||!/^(SECTION|DIV)$/.test(e.tagName))return false;
+var id=e.id||'',cls=typeof e.className==='string'?e.className:'';
+if(!(RX_ID.test(id)||RX_CLS.test(cls))||SKIP.test(id+' '+cls))return false;
+var p=getComputedStyle(e).position;return p!=='fixed'&&p!=='absolute';
+});
+}
+function toggle(open){
+var f=document.getElementById('apm-fold');if(!f)return;
+if(open===undefined)open=!f.classList.contains('open');
+f.classList.toggle('open',open);
+var b=f.querySelector('.apm-fold-btn');b.setAttribute('aria-expanded',open?'true':'false');
+b.querySelector('.apm-fold-act').textContent=open?'Tap to hide':'Tap to show';
+}
+function build(){
+var list=pick();if(!list.length)return;
+var f=document.getElementById('apm-fold');
+if(!f){
+var anchor=document.getElementById('projects');if(!anchor)return;
+f=document.createElement('section');f.id='apm-fold';f.className='apm-fold';
+f.innerHTML='<button type="button" class="apm-fold-btn" aria-expanded="false" aria-controls="apm-fold-body"><span>&#128202; Analytics &amp; version reports<small><span class="apm-fold-n"></span> · <span class="apm-fold-act">Tap to show</span></small></span><span class="apm-fold-chev" aria-hidden="true">&#9662;</span></button><div class="apm-fold-body" id="apm-fold-body"></div>';
+anchor.parentNode.insertBefore(f,anchor.nextSibling);
+f.querySelector('.apm-fold-btn').addEventListener('click',function(){toggle();});
+}
+var body=f.querySelector('.apm-fold-body');
+list.forEach(function(e){body.appendChild(e);});
+f.querySelector('.apm-fold-n').textContent=body.querySelectorAll('h2').length+' dashboards';
+}
+document.addEventListener('click',function(ev){
+var a=ev.target&&ev.target.closest&&ev.target.closest('a[href^="#"]');if(!a)return;
+var id=a.getAttribute('href').slice(1),t=id&&document.getElementById(id),f=document.getElementById('apm-fold');
+if(t&&f&&f.contains(t)&&!f.classList.contains('open'))toggle(true);
+},true);
+function go(){build();setTimeout(build,1500);setTimeout(build,4000);}
+if(document.readyState==='complete')setTimeout(go,600);else window.addEventListener('load',function(){setTimeout(go,600);});
 })();
 </script>
 </body>
